@@ -12,9 +12,11 @@ Contact on group for editing access
 ---
 
 ### StockMarket App
-- [ ] Company Portfolio
+- [x] Company Portfolio
 - [ ] Stock Update Algo - No APIs but automatic scheduled run (CRON job or something else)
-- [ ] Current Stock
+- [x] Current Stocks
+
+### Customer App
 - [ ] Customer Portal - APIs for Buy/Sell and User logs
 
 ---
