@@ -3,7 +3,7 @@
 
 ### Login App
 - [x] Facebook Login API
-- [ ] Test Authentication for views
+- [x] Test Authentication for views	
 
 ---
 
