@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'fblogin',
     'customer',
+    'stockmarket',
     #added these from DOC
 
     'rest_framework',
