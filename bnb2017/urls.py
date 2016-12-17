@@ -16,6 +16,9 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+from fblogin.views import FacebookLogin 
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^rest-auth/facebook/$', FacebookLogin.as_view(), name='fb_login')
 ]
