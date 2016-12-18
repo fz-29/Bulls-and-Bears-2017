@@ -1,6 +1,6 @@
 # Bulls n Bears 2017 - Django Backend Tasklist
 
-Note 1 : Check [installation procedure](#Running-the-project)
+Note 1 : Check [installation procedure](#running-the-project)
 
 Note 2 : Add All APIs to the [DOC](https://docs.google.com/spreadsheets/d/13Xr8QN_T2aFtqJ494EZ3Ri-JoE16ndxA-wBZCw4OrrY/edit?usp=sharing) <br>
 Request on WhatsApp group for editing access
