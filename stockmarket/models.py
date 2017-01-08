@@ -3,79 +3,68 @@ from django.db import models
 
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.template.defaultfilters import truncatechars
-
-#store company info, stock_price 
+# store company info, stock_price
 class Company(models.Model):
-	name = models.CharField(max_length=35)
-	symbol = models.CharField(max_length=4)
-	buy = models.PositiveIntegerField(default=1000000)
-	sell = models.PositiveIntegerField(default=1000000)
-	stock_price = models.FloatField(default=1000.0)
+    name = models.CharField(max_length=35)
+    symbol = models.CharField(max_length=40)
+    description = models.TextField()
+    stock_price = models.FloatField(default=1000.0, validators=[MinValueValidator(0.0)])
+    availquantity = models.PositiveIntegerField(default=10000)
+    totlaquantity = models.PositiveIntegerField(default=10000)
 
-	def __unicode__(self):
-		return self.name
+    def __unicode__(self):
+        return self.name
 
-#to store price history for graphs
-class Price(models.Model):
-	company = models.ForeignKey('Company', on_delete=models.CASCADE)
-	timestamp = models.DateTimeField(auto_now_add=True)
-	stock_price = models.FloatField()
-	
-	def __unicode__(self):
-		return self.company.name
 
-#news yet to be issued
+# to store price history for graphs
+class CompanyHistory(models.Model):
+    company = models.ForeignKey('Company', on_delete=models.CASCADE)
+    timestamp = models.DateTimeField(auto_now_add=True)
+    price = models.FloatField(validators=[MinValueValidator(0.0)])
+
+    def __unicode__(self):
+        return self.company.name
+
+
+# to store newsimpact
+class NewsImpact(models.Model):
+    company = models.ForeignKey('Company', on_delete=models.CASCADE)
+    Impact = models.FloatField()
+
+    def __unicode__(self):
+        return self.company.name
+
+
+# news yet to be issued
 class News(models.Model):
-	news_text = models.CharField(max_length=500)
-	impact1 = models.IntegerField(default=0, validators=[MaxValueValidator(5), MinValueValidator(-5)])
-	impact2 = models.IntegerField(default=0, validators=[MaxValueValidator(5), MinValueValidator(-5)])
-	impact3 = models.IntegerField(default=0, validators=[MaxValueValidator(5), MinValueValidator(-5)])
-	impact4 = models.IntegerField(default=0, validators=[MaxValueValidator(5), MinValueValidator(-5)])
-	impact5 = models.IntegerField(default=0, validators=[MaxValueValidator(5), MinValueValidator(-5)])
-	impact6 = models.IntegerField(default=0, validators=[MaxValueValidator(5), MinValueValidator(-5)])
-	impact7 = models.IntegerField(default=0, validators=[MaxValueValidator(5), MinValueValidator(-5)])
-	impact8 = models.IntegerField(default=0, validators=[MaxValueValidator(5), MinValueValidator(-5)])
-	impact9 = models.IntegerField(default=0, validators=[MaxValueValidator(5), MinValueValidator(-5)])
-	impact10 = models.IntegerField(default=0, validators=[MaxValueValidator(5), MinValueValidator(-5)])
-	#number of iterations for which factor grows exponentially, after those no. of iterations it decays exponentially
-	quick_iter = models.PositiveIntegerField(default=5, validators=[
-            MaxValueValidator(5),
-            MinValueValidator(0)
-        ])
-	def __unicode__(self):
-		return self.news_text[:35]
+    news_text = models.CharField(max_length=500)
+    media = FileField(upload_to=None, max_length=200)
+    Newsimpact = ForeignKey('NewsImpact', on_delete=models.CASCADE)
 
-	@property
-	def short_news(self):
-		return truncatechars(self.news_text, 30)
+    def __unicode__(self):
+        return self.news_text[:35]
 
-	class Meta:
-         verbose_name = "News"
-         verbose_name_plural = "News"
+    class Meta:
+        verbose_name = "News"
+        verbose_name_plural = "News"
 
-#news issued so far
-class NewsPublished(models.Model):
-	news_text = models.CharField(max_length=500)
-	impact1 = models.IntegerField(default=0)
-	impact2 = models.IntegerField(default=0)
-	impact3 = models.IntegerField(default=0)
-	impact4 = models.IntegerField(default=0)
-	impact5 = models.IntegerField(default=0)
-	impact6 = models.IntegerField(default=0)
-	impact7 = models.IntegerField(default=0)
-	impact8 = models.IntegerField(default=0)
-	impact9 = models.IntegerField(default=0)
-	impact10 = models.IntegerField(default=0)
-	#number of iterations for which factor grows exponentially
-	quick_iter = models.PositiveIntegerField(default=5, validators=[MaxValueValidator(5),MinValueValidator(0)])
-	iteration_counter = models.PositiveIntegerField(default=0)
-	def __unicode__(self):
-		return self.news_text[:35]
 
-	@property
-	def short_news(self):
-		return truncatechars(self.news_text, 30)
+class Loan(models.Model):
+    customer = models.ForeignKey('customer.Customer', on_delete=models.CASCADE)
+    Amount = models.FloatField(default=0.0)
+    TakeOutTime = models.DateTimeField(auto_now_add=False)
+    RepayTime = models.DateTimeField(auto_now_add=False)
 
-	class Meta:
-         verbose_name = "News Published"
-         verbose_name_plural = "News Published"
+
+# have to write a unicode function after getting info about customer model
+
+class ComplimentaryCompanies(models.Model):
+    company1 = models.ForeignKey('Company', on_delete=models.CASCADE, related_name='complimentary_company_1')
+    company2 = models.ForeignKey('Company', on_delete=models.CASCADE, related_name='complimentary_company_2')
+    factor = models.FloatField(validators=[MinValueValidator(0.0)])
+
+
+class SupplementaryCompanies(models.Model):
+    company1 = models.ForeignKey('Company', on_delete=models.CASCADE, related_name='supplementary_company_1')
+    company2 = models.ForeignKey('Company', on_delete=models.CASCADE, related_name='supplementary_company_2')
+    factor = models.FloatField(validators=[MinValueValidator(0.0)])
