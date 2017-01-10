@@ -20,3 +20,11 @@ class CustomerActivity(models.Model):
 	timestamp = models.DateTimeField(auto_now=True)
     quantity = models.PositiveIntegerField(default=0)
     price = models.FloatField(validators = [MinValueValidator(0.0)],decimal_places=2, required=True)
+
+class Customer(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    accont_balance = models.DecimalField(default=0,max_digits=5, decimal_places=2)
+    loan_balance = models.DecimalField(default=0,max_digits=5, decimal_places=2)
+    stock_holdings= models.ForeignKey(StockHolding , on_delete=models.CASCADE)
+    stock_shorted= models.ForeignKey(StockShorted, on_delete=models.CASCADE)
+
