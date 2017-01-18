@@ -13,7 +13,7 @@ class PriceAdmin(admin.ModelAdmin):
 	list_display = ('company','timestamp','stock_price')
 	fields = ('company','stock_price')
 
-admin.site.register(Price, PriceAdmin)
+#admin.site.register(Price, PriceAdmin)
 
 class NewsAdmin(admin.ModelAdmin):
 	list_display = ('id','short_news',
@@ -41,4 +41,4 @@ class NewsPublishedAdmin(admin.ModelAdmin):
 		'impact7','impact8','impact9',
 		'impact10','quick_iter','iteration_counter')
 
-admin.site.register(NewsPublished, NewsPublishedAdmin)
+#admin.site.register(NewsPublished, NewsPublishedAdmin)

@@ -31,7 +31,7 @@ class CustomerActivity(models.Model):
         return self.customer
 
 class Customer(models.Model):
-    #user = models.ForeignKey(settings.AUTH_USER_MODEL, default=1, on_delete=models.CASCADE)
+    #user = models.ForeignKey(settings.AUTH_USER_MODEL, default=1, on_delete=models.CASCADE) #suggest changes
     accont_balance = models.DecimalField(default=0,max_digits=15, decimal_places=2)
     loan_balance = models.DecimalField(default=0,max_digits=15, decimal_places=2)
     stock_holdings= models.ForeignKey(StockHolding , on_delete=models.CASCADE)

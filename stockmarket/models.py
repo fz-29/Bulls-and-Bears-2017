@@ -9,7 +9,7 @@ class Company(models.Model):
     symbol = models.CharField(max_length=40)
     description = models.TextField()
     stock_price = models.DecimalField(max_digits=9, decimal_places=2, default=1000.0, validators=[MinValueValidator(0.0)])
-    avail_quantity = models.PositiveIntegerField(default=10000)
+    available_quantity = models.PositiveIntegerField(default=10000)
     total_quantity = models.PositiveIntegerField(default=10000)
 
     def __str__(self):
@@ -29,7 +29,7 @@ class CompanyHistory(models.Model):
 # to store newsimpact
 class NewsImpact(models.Model):
     company = models.ForeignKey('Company', on_delete=models.CASCADE)
-    Impact = models.DecimalField(default=0,decimal_places=2)
+    impact = models.DecimalField(default=0,decimal_places=2)
 
     def __str__(self):
         return self.company.name
@@ -51,9 +51,9 @@ class News(models.Model):
 
 class Loan(models.Model):
     customer = models.ForeignKey('customer.Customer', on_delete=models.CASCADE)
-    Amount = models.DecimalField(default=0,max_digits=15, decimal_places=2,validators=[MinValueValidator(0.0)])
-    TakeOutTime = models.DateTimeField(auto_now_add=True)
-    RepayTime = models.DateTimeField(auto_now_add=False,blank=True)
+    amount = models.DecimalField(default=0,max_digits=15, decimal_places=2,validators=[MinValueValidator(0.0)])
+    take_out_time = models.DateTimeField(auto_now_add=True)
+    repay_time = models.DateTimeField(auto_now_add=False,blank=True)
 
 
 # have to write a unicode function after getting info about customer model
