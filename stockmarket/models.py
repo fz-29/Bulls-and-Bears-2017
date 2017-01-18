@@ -1,12 +1,10 @@
-from __future__ import unicode_literals
 from django.db import models
+from django.core.validators import MinValueValidator
 
-from django.core.validators import MaxValueValidator, MinValueValidator
-from django.template.defaultfilters import truncatechars
 # store company info, stock_price
 class Company(models.Model):
     name = models.CharField(max_length=35)
-    symbol = models.CharField(max_length=40)
+    symbol = models.CharField(max_length=5)
     description = models.TextField()
     stock_price = models.DecimalField(max_digits=9, decimal_places=2, default=1000.0, validators=[MinValueValidator(0.0)])
     available_quantity = models.PositiveIntegerField(default=10000)
@@ -19,8 +17,8 @@ class Company(models.Model):
 # to store price history for graphs
 class CompanyHistory(models.Model):
     company = models.ForeignKey('Company', on_delete=models.CASCADE)
-    time_stamp = models.DateTimeField(auto_now_add=True)
-    price = models.DecimalField(default=0,max_digits=9, decimal_places=2,validators=[MinValueValidator(0.0)])
+    timestamp = models.DateTimeField(auto_now_add=True)
+    price = models.DecimalField(default=0, max_digits=9, decimal_places=2,validators=[MinValueValidator(0.0)])
 
     def __str__(self):
         return self.company.name
@@ -28,8 +26,9 @@ class CompanyHistory(models.Model):
 
 # to store newsimpact
 class NewsImpact(models.Model):
+    news = models.ForeignKey('News', on_delete=models.CASCADE)
     company = models.ForeignKey('Company', on_delete=models.CASCADE)
-    impact = models.DecimalField(default=0,decimal_places=2)
+    impact = models.FloatField(default=0.0)
 
     def __str__(self):
         return self.company.name
@@ -38,11 +37,10 @@ class NewsImpact(models.Model):
 # news yet to be issued
 class News(models.Model):
     news_text = models.TextField()
-    media = models.FileField(upload_to=None, max_length=200)
-    news_impact = models.ForeignKey('NewsImpact', on_delete=models.CASCADE)
+    media = models.FileField(upload_to=None, max_length=200, null=True, blank=True)
 
     def __str__(self):
-        return self.news_text[:35]
+        return self.news_text[:15]
 
     class Meta:
         verbose_name = "News"
@@ -51,20 +49,20 @@ class News(models.Model):
 
 class Loan(models.Model):
     customer = models.ForeignKey('customer.Customer', on_delete=models.CASCADE)
-    amount = models.DecimalField(default=0,max_digits=15, decimal_places=2,validators=[MinValueValidator(0.0)])
+    amount = models.DecimalField(default=0, max_digits=15, decimal_places=2, validators=[MinValueValidator(0.0)])
     take_out_time = models.DateTimeField(auto_now_add=True)
-    repay_time = models.DateTimeField(auto_now_add=False,blank=True)
+    repay_time = models.DateTimeField(blank=True)
 
+    def __str__(self):
+        return self.customer.user.first_name
 
-# have to write a unicode function after getting info about customer model
-
-class ComplimentaryCompanies(models.Model):
+class ComplimentaryCompany(models.Model):
     company1 = models.ForeignKey('Company', on_delete=models.CASCADE, related_name='complimentary_company_1')
     company2 = models.ForeignKey('Company', on_delete=models.CASCADE, related_name='complimentary_company_2')
-    factor = models.DecimalField(validators=[MinValueValidator(0.0)])
+    factor = models.FloatField()
 
 
-class SupplementaryCompanies(models.Model):
+class SupplementaryCompany(models.Model):
     company1 = models.ForeignKey('Company', on_delete=models.CASCADE, related_name='supplementary_company_1')
     company2 = models.ForeignKey('Company', on_delete=models.CASCADE, related_name='supplementary_company_2')
-    factor = models.DecimalField(validators=[MinValueValidator(0.0)])
+    factor = models.FloatField()
