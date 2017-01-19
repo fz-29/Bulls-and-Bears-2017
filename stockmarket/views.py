@@ -40,7 +40,6 @@ def company_stock_prices(request, format = None):
 			company_name = request.POST["name"]
 			company_id = Company.objects.get(name=company_name).id;
 		except Exception as e:
-			print e
 			response_data["success"]="0"
 			return JsonResponse(response_data)
 	try:
