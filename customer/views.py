@@ -19,12 +19,11 @@ from stockmarket.models import *
 @api_view(["POST"])
 # @authentication_classes([TokenAuthentication])
 # @permission_classes((IsAuthenticated,))
-def buy(request, format = None):
+def buyStocks(request, format = None):
 	customer = get_object_or_404(Customer, user=request.user)
 	company = get_object_or_404(Company, pk=request.POST.get('company_id'))
 	quantity = int(request.POST.get('quantity'))
-	if customer.account_balance <= (company.stock_price * quantity) 
-			and 0 < quantity <= company.available_quantity:
+	if customer.account_balance <= (company.stock_price * quantity) and 0 < quantity <= company.available_quantity:
 		stockHolding = StockHolding.objects.get(customer=customer, company=company)
 		stockHolding.quantity += quantity
 		customer.account_balance -= company.stock_price * quantity
