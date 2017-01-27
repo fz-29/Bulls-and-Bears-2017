@@ -10,6 +10,10 @@ Request on WhatsApp group for editing access
 - [x] Test Authentication for views	
 
 ---
+### Integrating Celary
+- [ ] Celary Integration
+- [ ] Adding All Tasks
+- [ ] Testing
 
 ### StockMarket App
 - [x] Company Portfolio
@@ -31,8 +35,13 @@ Request on WhatsApp group for editing access
 1. Preferrably clone this project in a virual environment.
 2. Activate the virual environment.
 3. Install all required modules from requirements.txt
-	```shell
+	
+	```
 	cd bnb2017
 	pip install -r requirements.txt   
 	```
+
 for more checkout installation guide [Django-rest-auth: Social Install](https://django-rest-auth.readthedocs.io/en/latest/installation.html)
+4. Django Admin Credentials : 
+	- Username : admin
+	- Password : wmgStranger505++
