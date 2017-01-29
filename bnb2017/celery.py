@@ -21,9 +21,10 @@ app = Celery('bnb2017')
 app.config_from_object('django.conf:settings')
 app.autodiscover_tasks()
 
+# This works
 # app.conf.beat_schedule = {
 #     'add-every-30-seconds': {
-#         'task': 'revise',
+#         'task': 'tasks.revise_stock_price_by_news',
 #         'schedule': 5.0,
 #         #'args': (16, 16)
 #     },
