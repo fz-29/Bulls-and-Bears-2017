@@ -42,6 +42,7 @@ Request on WhatsApp group for editing access
 	```
 
 for more checkout installation guide [Django-rest-auth: Social Install](https://django-rest-auth.readthedocs.io/en/latest/installation.html)
-4. Django Admin Credentials : 
+
+4. Django Admin Credentials
 	- Username : admin
 	- Password : wmgStranger505++

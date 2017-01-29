@@ -31,7 +31,7 @@ class CustomerActivity(models.Model):
 
 class Customer(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, default=1, on_delete=models.CASCADE)
-    accont_balance = models.DecimalField(default=0, max_digits=15, decimal_places=2, validators=[MinValueValidator(0.0)])
+    account_balance = models.DecimalField(default=0, max_digits=15, decimal_places=2, validators=[MinValueValidator(0.0)])
     loan_balance = models.DecimalField(default=0, max_digits=15, decimal_places=2, validators=[MinValueValidator(0.0)])
 
     def __str__(self):
