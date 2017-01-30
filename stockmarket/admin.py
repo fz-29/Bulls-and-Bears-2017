@@ -3,6 +3,7 @@ from django.contrib import admin
 # Register your models here.
 from .models import *
 
+# Company Related
 class CompanyHistoryInline(admin.TabularInline):
     model = CompanyHistory
 
@@ -17,14 +18,21 @@ class SupplementaryCompanyInline(admin.TabularInline):
 class CompanyAdmin(admin.ModelAdmin):
     inlines = [CompanyHistoryInline, ComplimentaryCompanyInline, SupplementaryCompanyInline]
 
-admin.site.register(Company, CompanyAdmin)
-
+#News
 class NewsImpactInline(admin.TabularInline):
     model = NewsImpact
 
 class NewsAdmin(admin.ModelAdmin):
     inlines = [NewsImpactInline]
 
+#Parameters
+class ParameterAdmin(admin.ModelAdmin):
+	model = Parameter
+
+admin.site.register(Company, CompanyAdmin)
+
 admin.site.register(News, NewsAdmin)
 
 admin.site.register(Loan)
+
+admin.site.register(Parameter, ParameterAdmin)

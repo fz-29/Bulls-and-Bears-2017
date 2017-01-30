@@ -29,17 +29,22 @@ class NewsImpact(models.Model):
     news = models.ForeignKey('News', on_delete=models.CASCADE)
     company = models.ForeignKey('Company', on_delete=models.CASCADE)
     impact = models.FloatField(default=0.0)
+    iterations_run = models.PositiveIntegerField(default=0)
 
     def __str__(self):
         return self.company.name
 
 
-# news yet to be issued
+# All news
 class News(models.Model):
     news_text = models.TextField()
     media = models.FileField(upload_to=None, max_length=200, null=True, blank=True)
     is_published = models.BooleanField(default = False )
+<<<<<<< HEAD
     published_on = models.DateTimeField(blank=True , null=True)
+=======
+    published_on = models.DateTimeField(blank=True , null=True)    
+>>>>>>> ae3190108d6ca634ae2c46938013d0a26a6a4b01
 
     def __str__(self):
         return self.news_text[:15]
@@ -68,3 +73,10 @@ class SupplementaryCompany(models.Model):
     company1 = models.ForeignKey('Company', on_delete=models.CASCADE, related_name='supplementary_company_1')
     company2 = models.ForeignKey('Company', on_delete=models.CASCADE, related_name='supplementary_company_2')
     factor = models.FloatField()
+
+class Parameter(models.Model):
+    key = models.CharField(max_length=20, null=False, blank=False, default = 'DeleteME')
+    value = models.FloatField(blank=False, default = 0)
+
+    def __str__(self):
+        return self.key
