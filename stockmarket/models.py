@@ -40,11 +40,7 @@ class News(models.Model):
     news_text = models.TextField()
     media = models.FileField(upload_to=None, max_length=200, null=True, blank=True)
     is_published = models.BooleanField(default = False )
-<<<<<<< HEAD
     published_on = models.DateTimeField(blank=True , null=True)
-=======
-    published_on = models.DateTimeField(blank=True , null=True)    
->>>>>>> ae3190108d6ca634ae2c46938013d0a26a6a4b01
 
     def __str__(self):
         return self.news_text[:15]
@@ -75,8 +71,13 @@ class SupplementaryCompany(models.Model):
     factor = models.FloatField()
 
 class Parameter(models.Model):
+<<<<<<< HEAD
     key = models.CharField(max_length=20, null=False, blank=False, default = 'DeleteME')
     value = models.FloatField(blank=False, default = 0)
 
     def __str__(self):
         return self.key
+=======
+    key = models.CharField(max_length=20)
+    value = models.FloatField()
+>>>>>>> fz-29-master

@@ -17,8 +17,6 @@ from customer.models import *
 from stockmarket.models import *
 
 @api_view(["POST"])
-# @authentication_classes([TokenAuthentication])
-# @permission_classes((IsAuthenticated,))
 def buyStocks(request, format = None):
 	customer = get_object_or_404(Customer, user=request.user)
 	company = get_object_or_404(Company, pk=request.POST.get('company_id'))
