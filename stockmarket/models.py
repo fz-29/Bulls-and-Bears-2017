@@ -68,3 +68,7 @@ class SupplementaryCompany(models.Model):
     company1 = models.ForeignKey('Company', on_delete=models.CASCADE, related_name='supplementary_company_1')
     company2 = models.ForeignKey('Company', on_delete=models.CASCADE, related_name='supplementary_company_2')
     factor = models.FloatField()
+
+class Parameter(models.Model):
+    key = models.CharField(max_length=20)
+    value = models.FloatField()
