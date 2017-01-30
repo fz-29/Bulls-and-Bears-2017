@@ -1,5 +1,5 @@
 from django.http import HttpResponse, JsonResponse
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views.decorators.http import require_POST
 
 from rest_framework.decorators import api_view, permission_classes, authentication_classes
@@ -13,10 +13,22 @@ from rest_framework.views import APIView
 
 import json
 
+from customer.models import *
+from stockmarket.models import *
+
 @api_view(["POST"])
-@authentication_classes([TokenAuthentication])
-@permission_classes((IsAuthenticated,))
 def buyStocks(request, format = None):
-	response_data={}
-	response_data["message"]="You are logged in."
-	return JsonResponse(response_data)
+	customer = get_object_or_404(Customer, user=request.user)
+	company = get_object_or_404(Company, pk=request.POST.get('company_id'))
+	quantity = int(request.POST.get('quantity'))
+	if customer.account_balance <= (company.stock_price * quantity) and 0 < quantity <= company.available_quantity:
+		stockHolding = StockHolding.objects.get(customer=customer, company=company)
+		stockHolding.quantity += quantity
+		customer.account_balance -= company.stock_price * quantity
+		company.available_quantity -= quantity
+		return JsonResponse({'success':True})
+	else:
+		return JsonResponse({'success':False})
+
+
+	
