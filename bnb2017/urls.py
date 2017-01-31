@@ -23,4 +23,5 @@ urlpatterns = [
     url(r'^rest-auth/facebook/$', FacebookLogin.as_view(), name='fb_login'),
     url(r'^customer/',include('customer.urls')),
     url(r'^stockmarket/',include('stockmarket.urls')),
+    url(r'^login/',include('fblogin.urls')),
 ]
