@@ -153,4 +153,11 @@ def update_loan_interest():
 		This function will recalculate the interest on the amount left for repayment.
 		Use interest rate from Parameter model
 	'''
-	pass
+	#load interest rate
+	interest_rate = Parameter.objects.get(key = 'interest_rate').value#per iteration of 15min
+
+	#get all loan entries
+	loan_entries = Loan.objects.all()
+
+	for entry in loan_entries:
+		entry.amount = entry.amount(1.0 + interest_rate)
