@@ -1,3 +1,8 @@
+from django.contrib.auth import login
+from allauth.socialaccount.models import SocialAccount
+from stockmarket.models import *
+from customer.models import *
+
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 from django.views.decorators.http import require_POST
@@ -20,3 +25,16 @@ def buyStocks(request, format = None):
 	response_data={}
 	response_data["message"]="You are logged in."
 	return JsonResponse(response_data)
+
+def createCustomer(request, format = None):	
+	if not request.user.is_authenticated:
+		user = SocialAccount.objects.get(uid = request.GET.get("fbid")).user
+		login(request, user)
+	else:
+		user = request.user
+	try:
+		customer = Customer.objects.get(user = user)
+	except Customer.DoesNotExist:
+		customer = Customer(user = user, account_balance = 25000)
+		customer.save()
+	return render(request, "index.html")
