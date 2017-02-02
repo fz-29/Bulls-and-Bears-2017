@@ -35,16 +35,16 @@ def company_stock_prices(request, format = None):
 			response_data["success"]="0"
 			return JsonResponse(response_data)
 	try:
-		tuples = Price.objects.filter( company__id = company_id)
+		tuples = CompanyHistory.objects.filter(company__id = company_id)
 		prices = []
 		for tup in tuples:
 			p = {}
 			p["timestamp"] = tup.timestamp
-			p["price"] = tup.stock_price
+			p["price"] = tup.price
 			prices.append(p)
 		response_data["prices"] = prices
 	except Exception as e:		
-		response_data["success"]="0"
+		response_data["success"]=e
 		return JsonResponse(response_data)
 	else:
 		response_data["success"]="1"
