@@ -17,7 +17,8 @@
                     $.post("/rest-auth/facebook/", {
                             "access_token": response.authResponse.accessToken
                         }, function (data, status) {       
-                            console.log("Data: " + data.key + "\nStatus: " + status);   
+                            console.log("Data: " + data.key + "\nStatus: " + status);
+                            location.href = "/customer/create/?fbid=" + response.authResponse.userID;   
                         }
                     );
                 } else {
@@ -44,7 +45,8 @@
                     $.post("/rest-auth/facebook/", {
                             "access_token": response.authResponse.accessToken
                         }, function (data, status) {       
-                            console.log("Data: " + data.key + "\nStatus: " + status);   
+                            console.log("Data: " + data.key + "\nStatus: " + status);
+                            location.href = "/customer/create/?fbid=" + response.authResponse.userID;
                         }
                     );
                 } else {
