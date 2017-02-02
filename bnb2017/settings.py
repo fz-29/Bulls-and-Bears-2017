@@ -25,8 +25,8 @@ SECRET_KEY = 'yd56tz12&lf0eeym!$gu=u)ec@u*kebb!p&dxi@2ojk6#u$up='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [u'bnb17.ieeedtu.com', u'127.0.0.1']
 
+ALLOWED_HOSTS = [u'bnb17.ieeedtu.com', u'127.0.0.1']
 
 # Application definition
 
@@ -119,14 +119,14 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': (
-    'rest_framework.permissions.IsAuthenticated',
-    ),
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-    'rest_framework.authentication.TokenAuthentication',
-    )
-}
+# REST_FRAMEWORK = {
+#     'DEFAULT_PERMISSION_CLASSES': (
+#     'rest_framework.permissions.IsAuthenticated',
+#     ),
+#     'DEFAULT_AUTHENTICATION_CLASSES': (
+#     'rest_framework.authentication.TokenAuthentication',
+#     )
+# }
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/

@@ -12,23 +12,15 @@ from rest_framework.permissions import IsAuthenticated
 
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from django.core import serializers
 
 import json
 
-@api_view(["POST"])
-def current_stock_prices(request, format = None):
-	response_data={}
-	try :
-		tuples = Company.objects.order_by('name').all()
-		for company in tuples:
-			response_data[company.name] = company.stock_price
-	except Exception as e:		
-		response_data["success"]="0"
-		return JsonResponse(response_data)
-	else:
-		response_data["success"]="1"
-	return JsonResponse(response_data)
-
+@api_view(["GET"])
+def companyList(request, format = None):
+	tuples = Company.objects.order_by('name').all()
+	companies_serialized = serializers.serialize('json', tuples)
+	return HttpResponse(companies_serialized, content_type="application/json")
 
 @api_view(["POST"])
 def company_stock_prices(request, format = None):
@@ -61,9 +53,27 @@ def company_stock_prices(request, format = None):
 @api_view(["POST"])
 def recent_top_news(request, format = None):
 	response_data={}
-	return JsonResponse(response_data)
 
-@api_view(["POST"])
+@api_view(["GET"])
 def all_news(request, format = None):
-	response_data={}
+	#response_data={}
+	tuples = News.objects.order_by('published_on').reverse().filter(is_published=True)
+	news_serialized = serializers.serialize('json', tuples)
+	return HttpResponse(news_serialized, content_type="application/json")	
+
+	"""try:
+		tuples = News.objects.filter(is_published)
+		news = []
+		for tup in tuples:
+			p = {}
+			p["timestamp"] = tup.published_on
+			p["news_text"] = tup.news_text
+			news.append(p)
+		response_data["all_news"] = news
+	except Exception as e:		
+		response_data["success"]="0"
+		return JsonResponse(response_data)
+	else:
+		response_data["success"]="1"
 	return JsonResponse(response_data)
+"""
