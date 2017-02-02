@@ -26,7 +26,7 @@ SECRET_KEY = 'yd56tz12&lf0eeym!$gu=u)ec@u*kebb!p&dxi@2ojk6#u$up='
 DEBUG = True
 
 
-ALLOWED_HOSTS = [u'bnb17.ieeedtu.com', u'127.0.0.1']
+ALLOWED_HOSTS = [u'bnb17.ieeedtu.com', u'127.0.0.1', u'139.59.35.248']
 
 # Application definition
 
