@@ -37,4 +37,4 @@ def createCustomer(request, format = None):
 	except Customer.DoesNotExist:
 		customer = Customer(user = user, account_balance = 25000)
 		customer.save()
-	return JsonResponse({"status" : True})
+	return render(request, "index.html")

@@ -12,23 +12,15 @@ from rest_framework.permissions import IsAuthenticated
 
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from django.core import serializers
 
 import json
 
-@api_view(["POST"])
-def current_stock_prices(request, format = None):
-	response_data={}
-	try :
-		tuples = Company.objects.order_by('name').all()
-		for company in tuples:
-			response_data[company.name] = company.stock_price
-	except Exception as e:		
-		response_data["success"]="0"
-		return JsonResponse(response_data)
-	else:
-		response_data["success"]="1"
-	return JsonResponse(response_data)
-
+@api_view(["GET"])
+def companyList(request, format = None):
+	tuples = Company.objects.order_by('name').all()
+	companies_serialized = serializers.serialize('json', tuples)
+	return HttpResponse(companies_serialized, content_type="application/json")
 
 @api_view(["POST"])
 def company_stock_prices(request, format = None):
