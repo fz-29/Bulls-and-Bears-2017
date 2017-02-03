@@ -22,8 +22,8 @@ import json
 @api_view(["GET"])
 def customerList(request, format = None):
 	tuples = Customer.objects.all()
-	companies_serialized = serializers.serialize('json', tuples)
-	return HttpResponse(companies_serialized, content_type="application/json")
+	customer_serialized = serializers.serialize('json', tuples)
+	return HttpResponse(customer_serialized, content_type="application/json")
 
 @api_view(["GET"])
 def customerDetail(request, format = None):
@@ -34,14 +34,20 @@ def customerDetail(request, format = None):
 @api_view(["GET"])
 def stockHolding(request, format = None):
 	tuples = StockHolding.objects.filter(customer__pk = request.GET.get('id')).all()
-	companies_serialized = serializers.serialize('json', tuples)
-	return HttpResponse(companies_serialized, content_type="application/json")
+	serialized = serializers.serialize('json', tuples)
+	return HttpResponse(serialized, content_type="application/json")
 
 @api_view(["GET"])
 def stockShorted(request, format = None):
 	tuples = StockHolding.objects.filter(customer__pk = request.GET.get('id')).all()
-	companies_serialized = serializers.serialize('json', tuples)
-	return HttpResponse(companies_serialized, content_type="application/json")
+	serialized = serializers.serialize('json', tuples)
+	return HttpResponse(serialized, content_type="application/json")
+
+@api_view(["GET"])
+def customerActivity(request, format=None):
+	tuples = StockHolding.objects.filter(customer__pk = request.GET.get('id')).all()
+	serialized = serializers.serialize('json', tuples)
+	return HttpResponse(serialized, content_type="application/json")
 
 def createCustomer(request, format = None):	
 	if not request.user.is_authenticated:	
