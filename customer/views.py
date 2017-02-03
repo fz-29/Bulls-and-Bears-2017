@@ -15,17 +15,18 @@ from rest_framework.permissions import IsAuthenticated
 
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from django.core import serializers
 
 import json
 
 @api_view(["GET"])
-def companyList(request, format = None):
-	tuples = Company.objects.order_by('name').all()
+def customerList(request, format = None):
+	tuples = Customer.objects.all()
 	companies_serialized = serializers.serialize('json', tuples)
 	return HttpResponse(companies_serialized, content_type="application/json")
 
 @api_view(["GET"])
 def customerDetail(request, format = None):
-	obj = get_object_or_404(Company, pk=request.GET.get('id'))
+	obj = get_object_or_404(Customer, pk=request.GET.get('id'))
 	customer_serialized = serializers.serialize('json', [obj])
 	return HttpResponse(customer_serialized[1:-1], content_type="application/json")
