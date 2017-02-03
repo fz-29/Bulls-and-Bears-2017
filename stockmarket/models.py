@@ -19,6 +19,7 @@ class CompanyHistory(models.Model):
     company = models.ForeignKey('Company', on_delete=models.CASCADE)
     timestamp = models.DateTimeField(auto_now_add=True)
     price = models.DecimalField(default=0, max_digits=9, decimal_places=2,validators=[MinValueValidator(0.0)])
+    stocks_available = models.PositiveIntegerField(blank=False, default = 10000)
 
     def __str__(self):
         return self.company.name

@@ -35,16 +35,16 @@ def company_stock_prices(request, format = None):
 			response_data["success"]="0"
 			return JsonResponse(response_data)
 	try:
-		tuples = Price.objects.filter( company__id = company_id)
+		tuples = CompanyHistory.objects.filter(company__id = company_id)
 		prices = []
 		for tup in tuples:
 			p = {}
 			p["timestamp"] = tup.timestamp
-			p["price"] = tup.stock_price
+			p["price"] = tup.price
 			prices.append(p)
 		response_data["prices"] = prices
 	except Exception as e:		
-		response_data["success"]="0"
+		response_data["success"]=e
 		return JsonResponse(response_data)
 	else:
 		response_data["success"]="1"
@@ -53,9 +53,27 @@ def company_stock_prices(request, format = None):
 @api_view(["POST"])
 def recent_top_news(request, format = None):
 	response_data={}
-	return JsonResponse(response_data)
 
-@api_view(["POST"])
+@api_view(["GET"])
 def all_news(request, format = None):
-	response_data={}
+	#response_data={}
+	tuples = News.objects.order_by('published_on').reverse().filter(is_published=True)
+	news_serialized = serializers.serialize('json', tuples)
+	return HttpResponse(news_serialized, content_type="application/json")	
+
+	"""try:
+		tuples = News.objects.filter(is_published)
+		news = []
+		for tup in tuples:
+			p = {}
+			p["timestamp"] = tup.published_on
+			p["news_text"] = tup.news_text
+			news.append(p)
+		response_data["all_news"] = news
+	except Exception as e:		
+		response_data["success"]="0"
+		return JsonResponse(response_data)
+	else:
+		response_data["success"]="1"
 	return JsonResponse(response_data)
+"""

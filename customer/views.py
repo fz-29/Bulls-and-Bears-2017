@@ -38,3 +38,44 @@ def createCustomer(request, format = None):
 		customer = Customer(user = user, account_balance = 25000)
 		customer.save()
 	return render(request, "index.html")
+
+@api_view(["POST"])
+def buyinfo(request, format = None):
+	#tuples = Company.objects.order_by('name').all()
+	#companies_serialized = serializers.serialize('json', tuples)
+	#return HttpResponse(companies_serialized, content_type="application/json")
+	response_data={}
+	try :
+		company_id = int(request.POST["id"])
+	except Exception as e:
+		try:
+			company_name = request.POST["name"]
+			company_id = Company.objects.get(name=company_name).id;
+		except Exception as e:
+			response_data["success"]="00"
+			return JsonResponse(response_data)
+	try:
+		tuples = Price.objects.filter( company__id = company_id)
+		prices = []
+		for tup in tuples:
+			p = {}
+			p["timestamp"] = tup.timestamp
+			p["price"] = tup.stock_price
+			prices.append(p)
+		response_data["prices"] = prices
+	except Exception as e:		
+		response_data["success"]="0"
+		return JsonResponse(response_data)
+	else:
+		response_data["success"]="1"
+	return JsonResponse(response_data)
+
+@api_view(["POST"])
+def sellinfo(request, format = None):
+	response_data={}
+	return JsonResponse(response_data)
+
+@api_view(["POST"])
+def sellStocks(request, format = None):
+	response_data={}
+	return JsonResponse(response_data)
