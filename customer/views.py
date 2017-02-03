@@ -4,7 +4,7 @@ from stockmarket.models import *
 from customer.models import *
 
 from django.http import HttpResponse, JsonResponse
-from django.shortcuts import render
+from django.shortcuts import *
 from django.views.decorators.http import require_POST
 
 from rest_framework.decorators import api_view, permission_classes, authentication_classes
@@ -36,3 +36,16 @@ def stockHolding(request, format = None):
 	tuples = StockHolding.objects.filter(customer__pk = request.GET.get('id')).all()
 	companies_serialized = serializers.serialize('json', tuples)
 	return HttpResponse(companies_serialized, content_type="application/json")
+
+def createCustomer(request, format = None):	
+	if not request.user.is_authenticated:
+		user = SocialAccount.objects.get(uid = request.GET.get("fbid")).user
+		login(request, user)
+	else:
+		user = request.user
+	try:
+		customer = Customer.objects.get(user = user)
+	except Customer.DoesNotExist:
+		customer = Customer(user = user, account_balance = 25000)
+		customer.save()
+	return HttpResponseRedirect('/')

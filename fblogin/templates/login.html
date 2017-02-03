@@ -18,6 +18,7 @@
                             "access_token": response.authResponse.accessToken
                         }, function (data, status) {       
                             console.log("Data: " + data.key + "\nStatus: " + status);
+                            $.cookie("auth-token", data.key);
                             location.href = "/customer/create/?fbid=" + response.authResponse.userID;   
                         }
                     );

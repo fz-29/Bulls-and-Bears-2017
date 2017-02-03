@@ -8,5 +8,5 @@ urlpatterns = [
     url(r'^StockHolding/$', stockHolding, name='stockholding'),
     # url(r'^sell/$', sellStocks, name='index'),
     # url(r'^sellinfo/$', sellinfo, name='sellinfo'),
-    # url(r'^create/$', createCustomer, name='create'),
+    url(r'^create/$', createCustomer, name='create'),
 ]

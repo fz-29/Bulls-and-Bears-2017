@@ -18,14 +18,15 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 
-from fblogin.views import FacebookLogin 
+from fblogin.views import FacebookLogin, login 
 
 urlpatterns = [
-    url(r'^$',include('fblogin.urls')),
+    url(r'^login/$', login, name='login'),
     url(r'^admin/', admin.site.urls),
     url(r'^rest-auth/facebook/$', FacebookLogin.as_view(), name='fb_login'),
     url(r'^customer/',include('customer.urls')),
     url(r'^stockmarket/',include('stockmarket.urls')),
+    url(r'^.*/$',include('fblogin.urls')),
 ]
 
 if settings.DEBUG:
