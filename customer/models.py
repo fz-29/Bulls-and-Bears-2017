@@ -35,4 +35,4 @@ class Customer(models.Model):
     loan_balance = models.DecimalField(default=0, max_digits=15, decimal_places=2, validators=[MinValueValidator(0.0)])
 
     def __str__(self):
-        return user.first_name
+        return self.user.first_name
