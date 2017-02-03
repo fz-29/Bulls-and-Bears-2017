@@ -1,63 +1,114 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+{% load static %}
+<html lang="en" ng-app='bnb'>
 
-<head> </head>
+<head>
+	<base href="/">
+	<title>Bulls 'n' Bears</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<!-- CSS -->
+	<link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'assets/css/vendor/icon-sets.css' %}">
+	<link rel="stylesheet" href="{% static 'assets/css/main.min.css' %}">
+	<!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
+	<link rel="stylesheet" href="{% static 'assets/css/demo.css'%}">
+	<!-- GOOGLE FONTS -->
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
+	<!-- <script src='./js/angular.min.js' ></script> -->
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-resource.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.js'></script>
+    <script src='{% static "angular/app/module.js" %}'></script>
+    <script src='{% static "angular/app/config.js" %}'></script>
+	<script src='{% static "angular/market/module.js" %}'></script>
+	<script src='{% static "angular/market/factory.js" %}'></script>
+	<script src='{% static "angular/market/controller.js" %}'></script>
+	<script src='{% static "angular/news/module.js" %}'></script>
+	<script src='{% static "angular/news/factory.js" %}'></script>
+	<script src='{% static "angular/news/controller.js" %}'></script>
+	<script src='{% static "angular/profile/module.js" %}'></script>
+	<script src='{% static "angular/profile/factory.js" %}'></script>
+	<script src='{% static "angular/profile/controller.js" %}'></script>
+	<script src='{% static "angular/leaderboard/module.js" %}'></script>
+	<script src='{% static "angular/leaderboard/factory.js" %}'></script>
+	<script src='{% static "angular/leaderboard/controller.js" %}'></script>
+
+	<style>
+    @media screen and (max-width: 767px)
+    {.table-responsive {
+        display: block;
+        overflow-x: scroll;
+	}}
+	</style>
+</head>
 
 <body>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script>
-        window.fbAsyncInit = function () {
-            FB.init({
-                appId: '218641865251508',
-                xfbml: true,
-                version: 'v2.8'
-            });
-            FB.getLoginStatus(function (response) {
-                if (response.status === 'connected') {
-                    $.post("/rest-auth/facebook/", {
-                            "access_token": response.authResponse.accessToken
-                        }, function (data, status) {       
-                            console.log("Data: " + data.key + "\nStatus: " + status);
-                            location.href = "/customer/create/?fbid=" + response.authResponse.userID;   
-                        }
-                    );
-                } else {
-                    console.log('Not logged in.');
-                }
-            });
-            FB.AppEvents.logPageView();
-        };
-        (function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) {
-                return;
-            }
-            js = d.createElement(s);
-            js.id = id;
-            js.src = "https://connect.facebook.net/en_US/sdk.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-    </script>
-    <script>
-        function checkLoginState() {
-            FB.getLoginStatus(function (response) {
-                if (response.status === 'connected') {
-                    $.post("/rest-auth/facebook/", {
-                            "access_token": response.authResponse.accessToken
-                        }, function (data, status) {       
-                            console.log("Data: " + data.key + "\nStatus: " + status);
-                            location.href = "/customer/create/?fbid=" + response.authResponse.userID;
-                        }
-                    );
-                } else {
-                    console.log('Not logged in.');
-                }
-            });
-        }
-    </script>
-    <div id="fb-root"></div>
-    <fb:login-button max-rows="1" size="large" show-faces="true" auto-logout-link="true" scope="public_profile,email,user_friends,publish_actions"
-        onlogin="checkLoginState();"> </fb:login-button>
+	<!-- WRAPPER -->
+	<div id="wrapper">
+		<!-- SIDEBAR -->
+		<div class="sidebar">
+			<div class="brand">
+				<h3 style = "color:white">Bulls 'n' Bears</h3></a>
+			</div>
+			<div class="sidebar-scroll">
+				<nav>
+					<ul class="nav">
+						<li><a href="/market" ngClass="{active: isActive('/market')}"><i class="lnr lnr-home"></i> <span>Market</span></a></li>
+						<li><a href="/news" ngClass="{active: isActive('/news')}"><i class="lnr lnr-code"></i> <span>News</span></a></li>
+						<!--<li><a href="/companyportfolio" ngClass="{active: isActive('/companyportfolio')}"><i class="lnr lnr-chart-bars"></i> <span>Leaderboard</span></a></li>-->
+						<li><a href="/leaderboard" ngClass="{active: isActive('/leaderboard')}"><i class="lnr lnr-chart-bars"></i> <span>Leaderboard</span></a></li>
+						
+					</ul>
+				</nav>
+			</div>
+			<a class="footer" href="http://twitter.com/share?url=https://goo.gl/1dt1MR&amp;text=So cool! Free Bootstrap dashboard template by @thedevelovers. Download at&amp;hashtags=free,bootstrap,dashboard" title="Twitter share" target="_blank"><i class="fa fa-twitter"></i> <span>SHARE THIS FREEBIE</span></a>
+		</div>
+		<!-- END SIDEBAR -->
+		<!-- MAIN -->
+		<div class="main">
+			<!-- NAVBAR -->
+			<nav class="navbar navbar-default">
+				<div class="container-fluid">
+					<div class="navbar-btn">
+						<button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-arrow-left-circle"></i></button>
+					</div>
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-menu">
+							<span class="sr-only">Toggle Navigation</span>
+							<i class="fa fa-bars icon-nav"></i>
+						</button>
+					</div>
+					<div id="navbar-menu" class="navbar-collapse collapse">
+						
+						<ul class="nav navbar-nav navbar-right">
+							
+							<li class="">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="lnr lnr-question-circle"></i> <span>Help</span> </a>
+							</li>
+							<li class="">
+								<a href="/profile" class="dropdown-toggle" data-toggle="dropdown"><img src="assets/img/user.png" class="img-circle" alt="Avatar"> <span>User</span> </a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+			
+			<!-- END NAVBAR -->
+			<!-- MAIN CONTENT -->
+			<div ng-view> </div>
+			<!-- END MAIN CONTENT -->
+			
+		</div>
+		<!-- END MAIN -->
+	</div>
+	<!-- END WRAPPER -->
+	<!-- Javascript -->
+	<script src="{% static 'assets/js/jquery/jquery-2.1.0.min.js'%}"></script>
+	<script src="{% static 'assets/js/bootstrap/bootstrap.min.js'%}"></script>
+	<script src="{% static 'assets/js/plugins/jquery-slimscroll/jquery.slimscroll.min.js'%}"></script>
+	<script src="{% static 'assets/js/klorofil.min.js'%}"></script>
 </body>
 
 </html>
