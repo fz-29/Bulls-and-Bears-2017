@@ -21,11 +21,11 @@ from django.conf.urls.static import static
 from fblogin.views import FacebookLogin 
 
 urlpatterns = [
+    url(r'^$',include('fblogin.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^rest-auth/facebook/$', FacebookLogin.as_view(), name='fb_login'),
     url(r'^customer/',include('customer.urls')),
     url(r'^stockmarket/',include('stockmarket.urls')),
-    url(r'^login/',include('fblogin.urls')),
 ]
 
 if settings.DEBUG:
