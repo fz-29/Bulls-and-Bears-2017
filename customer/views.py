@@ -30,3 +30,9 @@ def customerDetail(request, format = None):
 	obj = get_object_or_404(Customer, pk=request.GET.get('id'))
 	customer_serialized = serializers.serialize('json', [obj])
 	return HttpResponse(customer_serialized[1:-1], content_type="application/json")
+
+@api_view(["GET"])
+def stockHolding(request, format = None):
+	tuples = StockHolding.objects.filter(customer__pk = request.GET.get('id')).all()
+	companies_serialized = serializers.serialize('json', tuples)
+	return HttpResponse(companies_serialized, content_type="application/json")
