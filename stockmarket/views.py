@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import *
 from .models import *
 
 from django.http import HttpResponse, JsonResponse
@@ -22,58 +22,39 @@ def companyList(request, format = None):
 	companies_serialized = serializers.serialize('json', tuples)
 	return HttpResponse(companies_serialized, content_type="application/json")
 
-@api_view(["POST"])
-def company_stock_prices(request, format = None):
-	response_data={}
-	try :
-		company_id = int(request.POST["id"])
-	except Exception as e:
-		try:
-			company_name = request.POST["name"]
-			company_id = Company.objects.get(name=company_name).id;
-		except Exception as e:
-			response_data["success"]="0"
-			return JsonResponse(response_data)
-	try:
-		tuples = CompanyHistory.objects.filter(company__id = company_id)
-		prices = []
-		for tup in tuples:
-			p = {}
-			p["timestamp"] = tup.timestamp
-			p["price"] = tup.price
-			prices.append(p)
-		response_data["prices"] = prices
-	except Exception as e:		
-		response_data["success"]=e
-		return JsonResponse(response_data)
-	else:
-		response_data["success"]="1"
-	return JsonResponse(response_data)
-
-@api_view(["POST"])
-def recent_top_news(request, format = None):
-	response_data={}
+@api_view(["GET"])
+def companyDetail(request, format = None):
+	obj = get_object_or_404(Company, pk=request.GET.get('id'))
+	company_serialized = serializers.serialize('json', [obj])
+	return HttpResponse(company_serialized[1:-1], content_type="application/json")
 
 @api_view(["GET"])
-def all_news(request, format = None):
-	#response_data={}
-	tuples = News.objects.order_by('published_on').reverse().filter(is_published=True)
-	news_serialized = serializers.serialize('json', tuples)
-	return HttpResponse(news_serialized, content_type="application/json")	
+def companyHistory(request, format = None):
+	tuples = CompanyHistory.objects.filter(company__pk=request.GET.get('id')).order_by('timestamp').all()
+	company_history_serialized = serializers.serialize('json', tuples)
+	return HttpResponse(company_history_serialized, content_type="application/json")
 
-	"""try:
-		tuples = News.objects.filter(is_published)
-		news = []
-		for tup in tuples:
-			p = {}
-			p["timestamp"] = tup.published_on
-			p["news_text"] = tup.news_text
-			news.append(p)
-		response_data["all_news"] = news
-	except Exception as e:		
-		response_data["success"]="0"
-		return JsonResponse(response_data)
-	else:
-		response_data["success"]="1"
-	return JsonResponse(response_data)
-"""
+@api_view(["GET"])
+def loanDetail(request, format = None):
+	obj = get_object_or_404(Loan, customer__pk=request.GET.get('id'))
+	loan_serialized = serializers.serialize('json', [obj])
+	return HttpResponse(loan_serialized[1:-1], content_type="application/json")
+
+@api_view(["GET"])
+def newsList(request, format = None):
+	tuples = News.objects.filter(is_published=True).order_by('-published_on').all()
+	news_serialized = serializers.serialize('json', tuples)
+	return HttpResponse(news_serialized, content_type="application/json")
+
+@api_view(["GET"])
+def newsDetail(request, format=None):
+	obj = get_object_or_404(News, pk=request.GET.get('id'))
+	news_serialized = serializers.serialize('json', [obj])
+	return HttpResponse(news_serialized[1:-1], content_type="application/json")
+
+@api_view(["GET"])
+def newsLatest(request, format=None):
+	obj = News.objects.filter(is_published=True).order_by('-published_on').all().first()
+	news_serialized = serializers.serialize('json', [obj])
+	return HttpResponse(news_serialized[1:-1], content_type="application/json")
+
