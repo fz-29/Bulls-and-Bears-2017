@@ -19,32 +19,32 @@ from django.core import serializers
 
 import json
 
-# @api_view(["GET"])
+@api_view(["GET"])
 def customerList(request, format = None):
-	if not request.user.is_authenticated:
-		raise Http404
 	tuples = Customer.objects.all()
 	companies_serialized = serializers.serialize('json', tuples)
 	return HttpResponse(companies_serialized, content_type="application/json")
 
-# @api_view(["GET"])
+@api_view(["GET"])
 def customerDetail(request, format = None):
-	if not request.user.is_authenticated:
-		raise Http404
 	obj = get_object_or_404(Customer, pk=request.GET.get('id'))
 	customer_serialized = serializers.serialize('json', [obj])
 	return HttpResponse(customer_serialized[1:-1], content_type="application/json")
 
-# @api_view(["GET"])
+@api_view(["GET"])
 def stockHolding(request, format = None):
-	if not request.user.is_authenticated:
-		raise Http404
+	tuples = StockHolding.objects.filter(customer__pk = request.GET.get('id')).all()
+	companies_serialized = serializers.serialize('json', tuples)
+	return HttpResponse(companies_serialized, content_type="application/json")
+
+@api_view(["GET"])
+def stockShorted(request, format = None):
 	tuples = StockHolding.objects.filter(customer__pk = request.GET.get('id')).all()
 	companies_serialized = serializers.serialize('json', tuples)
 	return HttpResponse(companies_serialized, content_type="application/json")
 
 def createCustomer(request, format = None):	
-	if not request.user.is_authenticated:
+	if not request.user.is_authenticated:	
 		user = SocialAccount.objects.get(uid = request.GET.get("fbid")).user
 		login(request, user)
 	else:
@@ -53,5 +53,11 @@ def createCustomer(request, format = None):
 		customer = Customer.objects.get(user = user)
 	except Customer.DoesNotExist:
 		customer = Customer(user = user, account_balance = 25000)
+		companies = Company.objects.all()
 		customer.save()
+		for company in companies:
+			sh = StockHolding(company=company, customer=customer, quantity=0)
+			ss = StockShorted(company=company, customer=customer, quantity=0)
+			sh.save()
+			ss.save()
 	return HttpResponseRedirect('/')

@@ -16,9 +16,10 @@ from django.core import serializers
 
 import json
 
+@api_view(["GET"])
 def companyList(request, format = None):
-	if not request.user.is_authenticated:
-		raise Http404
+	# if not request.user.is_authenticated:
+	# 	raise Http404
 	tuples = Company.objects.order_by('name').all()
 	companies_serialized = serializers.serialize('json', tuples)
 	return HttpResponse(companies_serialized, content_type="application/json")
