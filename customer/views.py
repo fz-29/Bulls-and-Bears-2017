@@ -49,6 +49,10 @@ def customerActivity(request, format=None):
 	serialized = serializers.serialize('json', tuples)
 	return HttpResponse(serialized, content_type="application/json")
 
+@api_view(["POST"])
+def buy(request, format=None):
+	return HttpResponse(str(request.POST.get('data')))
+
 def createCustomer(request, format = None):	
 	if not request.user.is_authenticated:	
 		user = SocialAccount.objects.get(uid = request.GET.get("fbid")).user
