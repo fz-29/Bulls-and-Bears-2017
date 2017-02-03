@@ -15,67 +15,24 @@ from rest_framework.permissions import IsAuthenticated
 
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from django.core import serializers
 
 import json
 
-@api_view(["POST"])
-@authentication_classes([TokenAuthentication])
-@permission_classes((IsAuthenticated,))
-def buyStocks(request, format = None):
-	response_data={}
-	response_data["message"]="You are logged in."
-	return JsonResponse(response_data)
+@api_view(["GET"])
+def customerList(request, format = None):
+	tuples = Customer.objects.all()
+	companies_serialized = serializers.serialize('json', tuples)
+	return HttpResponse(companies_serialized, content_type="application/json")
 
-def createCustomer(request, format = None):	
-	if not request.user.is_authenticated:
-		user = SocialAccount.objects.get(uid = request.GET.get("fbid")).user
-		login(request, user)
-	else:
-		user = request.user
-	try:
-		customer = Customer.objects.get(user = user)
-	except Customer.DoesNotExist:
-		customer = Customer(user = user, account_balance = 25000)
-		customer.save()
-	return render(request, "index.html")
+@api_view(["GET"])
+def customerDetail(request, format = None):
+	obj = get_object_or_404(Customer, pk=request.GET.get('id'))
+	customer_serialized = serializers.serialize('json', [obj])
+	return HttpResponse(customer_serialized[1:-1], content_type="application/json")
 
-@api_view(["POST"])
-def buyinfo(request, format = None):
-	#tuples = Company.objects.order_by('name').all()
-	#companies_serialized = serializers.serialize('json', tuples)
-	#return HttpResponse(companies_serialized, content_type="application/json")
-	response_data={}
-	try :
-		company_id = int(request.POST["id"])
-	except Exception as e:
-		try:
-			company_name = request.POST["name"]
-			company_id = Company.objects.get(name=company_name).id;
-		except Exception as e:
-			response_data["success"]="00"
-			return JsonResponse(response_data)
-	try:
-		tuples = Price.objects.filter( company__id = company_id)
-		prices = []
-		for tup in tuples:
-			p = {}
-			p["timestamp"] = tup.timestamp
-			p["price"] = tup.stock_price
-			prices.append(p)
-		response_data["prices"] = prices
-	except Exception as e:		
-		response_data["success"]="0"
-		return JsonResponse(response_data)
-	else:
-		response_data["success"]="1"
-	return JsonResponse(response_data)
-
-@api_view(["POST"])
-def sellinfo(request, format = None):
-	response_data={}
-	return JsonResponse(response_data)
-
-@api_view(["POST"])
-def sellStocks(request, format = None):
-	response_data={}
-	return JsonResponse(response_data)
+@api_view(["GET"])
+def stockHolding(request, format = None):
+	tuples = StockHolding.objects.filter(customer__pk = request.GET.get('id')).all()
+	companies_serialized = serializers.serialize('json', tuples)
+	return HttpResponse(companies_serialized, content_type="application/json")
