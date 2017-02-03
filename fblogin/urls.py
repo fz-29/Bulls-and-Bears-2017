@@ -4,5 +4,5 @@ from django.contrib import admin
 from fblogin.views import * 
 
 urlpatterns = [
-    url(r'^.*/$', home, name='home'),
+    url(r'^$', home, name='home'),
 ]
