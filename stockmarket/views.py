@@ -25,12 +25,16 @@ def companyList(request, format = None):
 	response_data['companies'] = []
 	for company in tuples:
 		history = CompanyHistory.objects.filter(company=company).order_by('-timestamp')
+		try:
+			trend=round((history[0].price - history[1].price) / company.stock_price * 100, 2) if len(history) > 1 else 0
+		except:
+			trend=0
 		response_data['companies'].append({
 			'symbol': company.symbol,
 			'name': company.name,
 			'stock_price': company.stock_price,
 			'change': history[0].price - history[1].price if len(history) > 1 else 0,
-			'trend': round((history[0].price - history[1].price) / company.stock_price * 100, 2) if len(history) > 1 else 0,
+			'trend': trend,
 			'available_quantity': company.available_quantity
 		})
 	return JsonResponse(response_data)
