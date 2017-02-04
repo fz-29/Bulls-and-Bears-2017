@@ -23,9 +23,19 @@ import json
 
 @api_view(["GET"])
 def customerList(request, format = None):
-	tuples = Customer.objects.all()
-	customer_serialized = serializers.serialize('json', tuples)
-	return HttpResponse(customer_serialized, content_type="application/json")
+	unsorted_tuples = Customer.objects.all()
+	tuples = sorted(unsorted_tuples, key= lambda t: t.worth())
+	response_data = []
+	for customer in tuples:
+		response_data.append({
+			''
+			'name': customer.user.first_name + ' ' + customer.user.last_name,
+			'worth': customer.worth()
+		})
+	response_data.reverse()
+	return JsonResponse(response_data, safe=False)
+	# customer_serialized = serializers.serialize('json', tuples)
+	# return HttpResponse(customer_serialized, content_type="application/json")
 
 @api_view(["GET"])
 def customerDetail(request, format = None):
