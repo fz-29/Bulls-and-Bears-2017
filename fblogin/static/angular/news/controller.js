@@ -1,9 +1,11 @@
 'use strict';
 angular.module('news')
-.controller('newsController', function($scope, newsService) {
+.controller('newsController', function($scope, $cookies, newsService) {
     $scope.newsList = [];
-    
-	newsService.getNewsList().then(function(newsList){
+    var authToken = 'Token ' + $cookies.get('authToken');
+	console.log("authToken : " + authToken);
+	newsService.getNewsList(authToken).then(function(newsList){
 		$scope.newsList = newsList;
 	});
+
 });

@@ -12,7 +12,7 @@ angular.module('bnb').
                 templateUrl:'/static/templates/market.html'
             }).
             when("/profile", {
-                //controller:'profileController as profile',
+                controller:'profileController as profile',
                 templateUrl:'/static/templates/profile.html'
             }).
             when("/news", {
@@ -24,7 +24,7 @@ angular.module('bnb').
                 templateUrl:'/static/templates/companyportfolio.html'
             }).
             when("/leaderboard", {
-                //controller:'leaderboardController as leaderboard',
+                controller:'leaderboardController as leaderboard',
                 templateUrl:'/static/templates/leaderboard.html'
             }).
             otherwise({

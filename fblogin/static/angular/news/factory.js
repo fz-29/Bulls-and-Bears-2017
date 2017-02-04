@@ -2,9 +2,17 @@
 angular.module('news')
 .factory('newsService', function($http) {
 	return {
-		getNewsList : function() {
-			return $http.get("/stockmarket/newslist/").then(function(response) {
-                console.log(response);
+		getNewsList : function(authToken) {
+			return $http({
+				method: 'GET',
+				url: '/stockmarket/newslist/',
+				headers: { 
+					'Authorization': authToken ,
+					'Accept': 'application/json',
+        			"X-Login-Ajax-call": 'true'
+			 }
+			}).then(function(response){
+				console.log(response);
 				return response.data;
 			});
 		}

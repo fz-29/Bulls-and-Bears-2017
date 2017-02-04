@@ -2,9 +2,17 @@
 angular.module('leaderboard')
 .factory('leaderboardService', function($http) {
 	return {
-		getLeaderboard : function() {
-			return $http.get("http://127.0.0.1:8080/stockmarket//").then(function(response) {
-                console.log(response);
+		getCustomerList : function(authToken) {
+			return $http({
+				method: 'GET',
+				url: '/customer/customerlist/',
+				headers: { 
+					'Authorization': authToken ,
+					'Accept': 'application/json',
+        			"X-Login-Ajax-call": 'true'
+			 }
+			}).then(function(response){
+				console.log(response);
 				return response.data;
 			});
 		}

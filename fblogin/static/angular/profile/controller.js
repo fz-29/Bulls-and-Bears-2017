@@ -1,9 +1,11 @@
 'use strict';
-angular.module('news')
-.controller('newsController', function($scope, newsService) {
-    $scope.newsList = [];
-    
-	newsService.getNewsList().then(function(newsList){
-		$scope.newsList = newsList;
+angular.module('profile')
+.controller('profileController', function($scope, $cookies, profileService) {
+    $scope.customerDetail = {};
+    var authToken = 'Token ' + $cookies.get('authToken');
+	console.log("authToken : " + authToken);
+	profileService.getProfile(authToken).then(function(customerDetail){
+		$scope.customerDetail = customerDetail;
 	});
+
 });

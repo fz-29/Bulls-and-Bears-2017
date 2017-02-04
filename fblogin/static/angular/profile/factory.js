@@ -2,9 +2,17 @@
 angular.module('profile')
 .factory('profileService', function($http) {
 	return {
-		getNewsList : function() {
-			return $http.get("http://127.0.0.1:8080/stockmarket//").then(function(response) {
-                console.log(response);
+		getProfile : function(authToken) {
+			return $http({
+				method: 'GET',
+				url: '/stockmarket/newslist/',
+				headers: { 
+					'Authorization': authToken ,
+					'Accept': 'application/json',
+        			"X-Login-Ajax-call": 'true'
+			 }
+			}).then(function(response){
+				console.log(response);
 				return response.data;
 			});
 		}
