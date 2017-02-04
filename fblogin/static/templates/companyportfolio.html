@@ -9,7 +9,7 @@
 			</div>
 			<div class="panel-body">
 				<div class = "col-md-6">
-					<div id="chart_div2" class="chart"></div>
+					<!--<div id="chart_div2" class="chart"></div>-->
 				</div>
 					<div class="col-md-2">
 						<div class="weekly-summary text-right">
@@ -29,7 +29,33 @@
 					<button type="button" class="btn btn-default" style="margin:auto;margin-bottom:30px;color:black;">Buy</button>
 					<button type="button" class="btn btn-default" style="margin:auto;margin-bottom:30px;color:black;">Sell</button>
 					<button type="button" class="btn btn-default" style="margin:auto;margin-bottom:30px;color:black;">Short</button>
-					<button type="button" class="btn btn-default" style="margin:auto;margin-bottom:30px;color:black;">Recover</button>
+					<button type="button" class="btn btn-default" style="margin:auto;margin-bottom:30px;color:black;">Cover</button>
+					<!-- The Modal -->
+					<div id="myModal" class="modal">
+						<!-- Modal content -->
+						<div class="modal-content">
+							<span class="close">&times;</span>
+							<div data-role="page">
+								<div data-role="header">
+								<h1>Buy</h1>
+								</div>
+
+								<div data-role="main" class="ui-content">
+									<form method="post" action="">
+										<div data-role="rangeslider">
+											<label for="price-min">Select Number of Stocks</label>
+
+											<!--<label for="price-max">Select Number of Stocks</label>-->
+											<input type="range" name="price-max" id="price-max" value="800" min="0" max="1000">
+										</div>
+										<input type="submit" data-inline="true" value="Submit">
+									</form>
+								</div>
+							</div> 
+						</div>
+
+					</div>
+
 					<h3 class="panel-title">Company Description</h3>
 					<p>Write Description Here.</p>
 				</div>

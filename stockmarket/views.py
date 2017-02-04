@@ -1,5 +1,6 @@
 from django.shortcuts import *
 from .models import *
+from customer.models import *
 
 from django.http import HttpResponse, JsonResponse
 from django.views.decorators.http import require_POST
@@ -19,8 +20,20 @@ import json
 @api_view(["GET"])
 def companyList(request, format = None):
 	tuples = Company.objects.order_by('name').all()
-	companies_serialized = serializers.serialize('json', tuples)
-	return HttpResponse(companies_serialized, content_type="application/json")
+	response_data = {}
+	response_data['account_balance'] = Customer.objects.get(user=request.user).account_balance
+	response_data['companies'] = []
+	for company in tuples:
+		history = CompanyHistory.objects.filter(company=company).order_by('-timestamp')
+		response_data['companies'].append({
+			'symbol': company.symbol,
+			'name': company.name,
+			'stock_price': company.stock_price,
+			'change': history[0].price - history[1].price if len(history) > 1 else 0,
+			'trend': (history[0].price - history[1].price) / company.stock_price * 100 if len(history) > 1 else 0,
+			'available_quantity': company.available_quantity
+		})
+	return JsonResponse(response_data)
 
 @api_view(["GET"])
 def companyDetail(request, format = None):
