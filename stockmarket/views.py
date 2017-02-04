@@ -18,8 +18,7 @@ import json
 
 @api_view(["GET"])
 def companyList(request, format = None):
-	# if not request.user.is_authenticated:
-	# 	raise Http404
+	# print(request.META['HTTP_AUTHORIZATION'])
 	tuples = Company.objects.order_by('name').all()
 	companies_serialized = serializers.serialize('json', tuples)
 	return HttpResponse(companies_serialized, content_type="application/json")
