@@ -30,7 +30,7 @@ def companyList(request, format = None):
 			'name': company.name,
 			'stock_price': company.stock_price,
 			'change': history[0].price - history[1].price if len(history) > 1 else 0,
-			'trend': (history[0].price - history[1].price) / company.stock_price * 100 if len(history) > 1 else 0,
+			'trend': round((history[0].price - history[1].price) / company.stock_price * 100, 2) if len(history) > 1 else 0,
 			'available_quantity': company.available_quantity
 		})
 	return JsonResponse(response_data)
