@@ -55,7 +55,7 @@ class Loan(models.Model):
     customer = models.ForeignKey('customer.Customer', on_delete=models.CASCADE)
     amount = models.DecimalField(default=0, max_digits=15, decimal_places=2, validators=[MinValueValidator(0.0)])
     take_out_time = models.DateTimeField(auto_now_add=True)
-    repay_time = models.DateTimeField(blank=True)
+    repay_time = models.DateTimeField(null=True, blank=True)
 
     def __str__(self):
         return self.customer.user.first_name

@@ -69,7 +69,7 @@ def buy(request, format=None):
 		company.save()
 		stockHolding.save()
 		return JsonResponse({"success":True})
-	return return JsonResponse({"success":False})
+	return JsonResponse({"success":False})
 
 def createCustomer(request, format = None):	
 	if not request.user.is_authenticated:	
