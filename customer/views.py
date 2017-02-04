@@ -28,7 +28,7 @@ def customerList(request, format = None):
 	response_data = []
 	for customer in tuples:
 		response_data.append({
-			''
+			# ''
 			'name': customer.user.first_name + ' ' + customer.user.last_name,
 			'worth': customer.worth()
 		})
