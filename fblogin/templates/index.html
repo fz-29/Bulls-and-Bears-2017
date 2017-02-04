@@ -45,6 +45,23 @@
         display: block;
         overflow-x: scroll;
 	}}
+	/* This element defines the size the iframe will take.
+	In this example we want to have a ratio of 25:14 */
+	.aspect-ratio {
+	position: relative;
+	width: 100%;
+	height: 0;
+	padding-bottom: 56%; /* The height of the item will now be 56% of the width. */
+	}
+
+	/* Adjust the iframe so it's rendered in the outer-width and outer-height of it's parent */
+	.aspect-ratio iframe {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	}
 	</style>
 </head>
 
