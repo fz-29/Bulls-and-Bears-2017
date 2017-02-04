@@ -167,9 +167,11 @@ def createCustomer(request, format = None):
 	try:
 		customer = Customer.objects.get(user = user)
 	except Customer.DoesNotExist:
-		customer = Customer(user = user, account_balance = 25000,)
+		customer = Customer(user = user, account_balance = 25000)
+		loan = Loan(customer=customer, amount=0)
 		companies = Company.objects.all()
 		customer.save()
+		loan.save()
 		for company in companies:
 			sh = StockHolding(company=company, customer=customer, quantity=0)
 			ss = StockShorted(company=company, customer=customer, quantity=0)
