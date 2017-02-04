@@ -2,6 +2,7 @@
 angular.module('bnb', [
     'ngResource'
     , 'ngRoute'
+    , 'ngCookies'
     , 'market'
     , 'news'
     , 'profile'
