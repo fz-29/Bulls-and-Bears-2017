@@ -21,7 +21,7 @@
     <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-resource.js'></script>
     <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.js'></script>
 	<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-cookies.js'></script>
-    <script src='{% static "angular/app/module.js" %}'></script>
+	<script src='{% static "angular/app/module.js" %}'></script>
     <script src='{% static "angular/app/config.js" %}'></script>
 	<script src='{% static "angular/market/module.js" %}'></script>
 	<script src='{% static "angular/market/factory.js" %}'></script>
@@ -35,6 +35,9 @@
 	<script src='{% static "angular/leaderboard/module.js" %}'></script>
 	<script src='{% static "angular/leaderboard/factory.js" %}'></script>
 	<script src='{% static "angular/leaderboard/controller.js" %}'></script>
+	<script src='{% static "angular/portfolio/module.js" %}'></script>
+	<script src='{% static "angular/portfolio/factory.js" %}'></script>
+	<script src='{% static "angular/portfolio/controller.js" %}'></script>
 
 	<style>
     @media screen and (max-width: 767px)
@@ -88,7 +91,7 @@
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="lnr lnr-question-circle"></i> <span>Help</span> </a>
 							</li>
 							<li class="">
-								<a href="/profile" class="dropdown-toggle" data-toggle="dropdown"><img src="assets/img/user.png" class="img-circle" alt="Avatar"> <span>User</span> </a>
+								<a href="/profile" class="dropdown-toggle" data-toggle="dropdown"><img src="https://graph.facebook.com/{{fbid}}/picture?height=20" class="img-circle" alt="Avatar"> <span>{{ name }}</span> </a>
 							</li>
 						</ul>
 					</div>
