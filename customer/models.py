@@ -1,6 +1,8 @@
 from django.core.validators import MinValueValidator
 from django.conf import settings
 from django.db import models
+from stockmarket.models import *
+import decimal
 # Create your models here.
 
 class StockHolding(models.Model):
@@ -32,6 +34,18 @@ class CustomerActivity(models.Model):
 class Customer(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, default=1, on_delete=models.CASCADE)
     account_balance = models.DecimalField(default=0, max_digits=15, decimal_places=2, validators=[MinValueValidator(0.0)])
+
+    def worth(self):
+        loan = Loan.objects.filter(customer=self).first().amount
+        stockholding_amount = decimal.Decimal(0.00)
+        stockholdings = StockHolding.objects.filter(customer=self)
+        for stockholding in stockholdings:
+            stockholding_amount += stockholding.company.stock_price * stockholding.quantity
+        stockshorted_amount = decimal.Decimal(0.00)
+        stockshorteds = StockShorted.objects.filter(customer=self)
+        for stockshorted in stockshorteds:
+            stockshorted_amount += stockshorted.company.stock_price * stockshorted.quantity
+        return self.account_balance + stockholding_amount - stockshorted_amount - loan
 
     def __str__(self):
         return self.user.first_name
