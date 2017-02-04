@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-<html>
+{% load static %}
+<html lang="en" ng-app='xcms'>
 
 <head> </head>
 
 <body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-cookies.js'></script>
+    <script src='{% static "angular/login.js" %}'></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>-->
     <script>
         window.fbAsyncInit = function () {
             FB.init({
@@ -18,8 +23,11 @@
                             "access_token": response.authResponse.accessToken
                         }, function (data, status) {       
                             console.log("Data: " + data.key + "\nStatus: " + status);
-                            $.cookie("auth-token", data.key);
-                            location.href = "/customer/create/?fbid=" + response.authResponse.userID;   
+                            // $.cookie('authToken', data.key, { path: '/' });
+                            // console.log($.cookie());
+                            $('#uID').val(response.authResponse.userID).change();
+                            $('#dk').val(data.key).change();
+                            // location.href = "/customer/create/?fbid=" + response.authResponse.userID;   
                         }
                     );
                 } else {
@@ -47,7 +55,11 @@
                             "access_token": response.authResponse.accessToken
                         }, function (data, status) {       
                             console.log("Data: " + data.key + "\nStatus: " + status);
-                            location.href = "/customer/create/?fbid=" + response.authResponse.userID;
+                            // $.cookie('authToken', data.key, { path: '/' });
+                            // console.log($.cookie());
+                            $('#uID').val(response.authResponse.userID).change();
+                            $('#dk').val(data.key).change();
+                            // location.href = "/customer/create/?fbid=" + response.authResponse.userID;
                         }
                     );
                 } else {
@@ -59,6 +71,10 @@
     <div id="fb-root"></div>
     <fb:login-button max-rows="1" size="large" show-faces="true" auto-logout-link="true" scope="public_profile,email,user_friends,publish_actions"
         onlogin="checkLoginState();"> </fb:login-button>
+        <div ng-controller="mainCtrl">
+        <input id="dk" hidden type="text" ng-change="setCookie()" ng-model="dataKey"></div>
+        <input id="uID" hidden type="text" ng-model="response"></div>
+        </div>
 </body>
 
 </html>
