@@ -1,6 +1,6 @@
 from django.db import models
 from django.core.validators import MinValueValidator
-
+import decimal
 # store company info, stock_price
 class Company(models.Model):
     name = models.CharField(max_length=35)
@@ -53,7 +53,7 @@ class News(models.Model):
 
 class Loan(models.Model):
     customer = models.ForeignKey('customer.Customer', on_delete=models.CASCADE)
-    amount = models.DecimalField(default=0, max_digits=15, decimal_places=2, validators=[MinValueValidator(0.0)])
+    amount = models.DecimalField(default=0, max_digits=15, decimal_places=2, validators=[MinValueValidator(decimal.Decimal(0.0))])
     take_out_time = models.DateTimeField(auto_now_add=True)
     repay_time = models.DateTimeField(null=True, blank=True)
 

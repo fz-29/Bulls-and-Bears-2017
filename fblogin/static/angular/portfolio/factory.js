@@ -1,11 +1,11 @@
 'use strict';
-angular.module('profile')
-.factory('profileService', function($http) {
+angular.module('portfolio')
+.factory('portfolioService', function($http) {
 	return {
-		getProfile : function(authToken) {
+		getCompanyPortfolio : function(authToken) {
 			return $http({
 				method: 'GET',
-				url: '/customer/customerdetail/',
+				url: '/stockmarket/newslist/',
 				headers: { 
 					'Authorization': authToken ,
 					'Accept': 'application/json',

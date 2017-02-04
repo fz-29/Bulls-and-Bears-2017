@@ -7,4 +7,5 @@ angular.module('bnb', [
     , 'news'
     , 'leaderboard'
     , 'profile'
+    , 'portfolio'
 ]);

@@ -33,10 +33,10 @@ class CustomerActivity(models.Model):
 
 class Customer(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, default=1, on_delete=models.CASCADE)
-    account_balance = models.DecimalField(default=0, max_digits=15, decimal_places=2, validators=[MinValueValidator(0.0)])
+    account_balance = models.DecimalField(default=0, max_digits=15, decimal_places=2, validators=[MinValueValidator(decimal.Decimal(0.0))])
 
     def worth(self):
-        loan = Loan.objects.filter(customer=self).first().amount
+        loan = Loan.objects.get(customer=self).amount
         stockholding_amount = decimal.Decimal(0.00)
         stockholdings = StockHolding.objects.filter(customer=self)
         for stockholding in stockholdings:
