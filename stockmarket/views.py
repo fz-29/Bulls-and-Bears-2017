@@ -26,6 +26,7 @@ def companyList(request, format = None):
 	for company in tuples:
 		history = CompanyHistory.objects.filter(company=company).order_by('-timestamp')
 		response_data['companies'].append({
+			'id': company.id,
 			'symbol': company.symbol,
 			'name': company.name,
 			'stock_price': company.stock_price,
