@@ -9,6 +9,8 @@ class Company(models.Model):
     stock_price = models.DecimalField(max_digits=9, decimal_places=2, default=1000.0, validators=[MinValueValidator(0.0)])
     available_quantity = models.PositiveIntegerField(default=10000)
     total_quantity = models.PositiveIntegerField(default=10000)
+    annual_growth_rate = models.CharField(max_length=35, default='0%')
+    market_cap = models.CharField(max_length=35, default='0%')
 
     def __str__(self):
         return self.name
