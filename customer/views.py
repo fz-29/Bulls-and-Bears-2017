@@ -138,7 +138,6 @@ def cover(request, format=None):
 		return JsonResponse({"success":True})
 	return JsonResponse({"success":False})
 
-
 def createCustomer(request, format = None):	
 	if not request.user.is_authenticated:	
 		user = SocialAccount.objects.get(uid = request.GET.get("fbid")).user
