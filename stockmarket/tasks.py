@@ -160,4 +160,5 @@ def update_loan_interest():
 	loan_entries = Loan.objects.all()
 
 	for entry in loan_entries:
-		entry.amount = entry.amount(1.0 + interest_rate)
+		entry.amount *= entry.amount(1.0 + interest_rate)
+		entry.save()
