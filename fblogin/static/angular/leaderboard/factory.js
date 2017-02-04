@@ -1,11 +1,11 @@
 'use strict';
-angular.module('news')
-.factory('newsService', function($http) {
+angular.module('leaderboard')
+.factory('leaderboardService', function($http) {
 	return {
-		getNewsList : function(authToken) {
+		getCustomerList : function(authToken) {
 			return $http({
 				method: 'GET',
-				url: '/stockmarket/newslist/',
+				url: '/customer/customerlist/',
 				headers: { 
 					'Authorization': authToken ,
 					'Accept': 'application/json',
