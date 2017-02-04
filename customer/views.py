@@ -29,9 +29,14 @@ def customerList(request, format = None):
 
 @api_view(["GET"])
 def customerDetail(request, format = None):
-	obj = get_object_or_404(Customer, user=request.user)
-	customer_serialized = serializers.serialize('json', [obj])
-	return HttpResponse(customer_serialized[1:-1], content_type="application/json")
+	customer = get_object_or_404(Customer, user=request.user)
+	response_data ={}
+	response_data['fbid'] = SocialAccount.objects.get(user = customer.user).uid
+	response_data['name'] = customer.user.first_name + ' ' + customer.user.last_name
+	response_data['account_balance'] = customer.account_balance
+	response_data['loan_balance'] = Loan.objects.filter(customer=customer).first().amount
+	response_data['worth'] = customer.worth()
+	return JsonResponse(response_data)
 
 @api_view(["GET"])
 def stockHolding(request, format = None):
@@ -41,29 +46,51 @@ def stockHolding(request, format = None):
 
 @api_view(["GET"])
 def stockShorted(request, format = None):
+	# shorted_quantity=get_object_or_404(StockHolding, user=request.user, company__pk=request.GET.get('id')).quantity
 	tuples = StockShorted.objects.filter(customer__user = request.user).all()
 	serialized = serializers.serialize('json', tuples)
 	return HttpResponse(serialized, content_type="application/json")
+	# return HttpResponse(str(shorted_quntity))
 
 @api_view(["GET"])
 def customerActivity(request, format=None):
-	tuples = StockHolding.objects.filter(customer__user = request.user).all()
+	tuples = CustomerActivity.objects.filter(customer__user = request.user).all()
 	serialized = serializers.serialize('json', tuples)
 	return HttpResponse(serialized, content_type="application/json")
 
 @api_view(["POST"])
 def buy(request, format=None):
 	customer = get_object_or_404(Customer, user=request.user)
-	company = get_object_or_404(Company, pk=request.POST.get[id])
-	quantity = request.POST.get('quanity')
+	company = get_object_or_404(Company, pk=request.POST.get('id'))
+	quantity = int(request.POST.get('quantity'))
 	if quantity is None:
 		return JsonResponse({"success":False})
-	if 0 < quantity <= min(customer.account_balance//company.stock_price, company.available_quanity):
+	if 0 < quantity <= min(customer.account_balance//company.stock_price, company.available_quantity):
 		stockHolding = get_object_or_404(StockHolding, company=company, customer=customer)
-		stockHolding.quanity += quanity
-		customer.account_balance -= company.price * quanity
-		company.avail_quantity -= quanity
-		customerActivity = CustomerActivity('BUY', quanity, datetime.now())
+		stockHolding.quantity += quantity
+		customer.account_balance -= company.stock_price * quantity
+		company.available_quantity -= quantity
+		customerActivity = CustomerActivity(customer=customer, action='BUY', timestamp=timezone.now(), quantity=quantity, price=company.stock_price)
+		customerActivity.save()
+		customer.save()
+		company.save()
+		stockHolding.save()
+		return JsonResponse({"success":True})
+	return JsonResponse({"success":False})
+
+@api_view(["POST"])
+def sell(request, format=None):
+	customer = get_object_or_404(Customer, user=request.user)
+	company = get_object_or_404(Company, pk=request.POST.get('id'))
+	quantity = int(request.POST.get('quantity'))
+	stockHolding = get_object_or_404(StockHolding, company=company, customer=customer)
+	if quantity is None:
+		return JsonResponse({"success":False})
+	if 0 < quantity <= stockHolding.quantity:
+		stockHolding.quantity -= quantity
+		customer.account_balance += company.stock_price * quantity
+		company.available_quantity += quantity
+		customerActivity = CustomerActivity(customer=customer, action='SELL', timestamp=timezone.now(), quantity=quantity, price=company.stock_price)
 		customerActivity.save()
 		customer.save()
 		company.save()
