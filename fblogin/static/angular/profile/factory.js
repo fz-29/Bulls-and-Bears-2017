@@ -1,8 +1,8 @@
 'use strict';
-angular.module('news')
-.factory('newsService', function($http) {
+angular.module('profile')
+.factory('profileService', function($http) {
 	return {
-		getNewsList : function(authToken) {
+		getProfile : function(authToken) {
 			return $http({
 				method: 'GET',
 				url: '/stockmarket/newslist/',
