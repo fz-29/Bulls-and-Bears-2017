@@ -8,8 +8,8 @@
                     <!-- PROFILE HEADER -->
                     <div class="profile-header">
                         <div class="overlay"></div>
-                        <div class="profile-main"> <img src="assets/img/user-medium.png" class="img-circle" alt="Avatar">
-                            <h3 class="name">Samuel Gold</h3> <span class="online-status status-available">Available</span> </div>
+                        <div class="profile-main"> <img ng-src="{{ 'https://graph.facebook.com/' + customerDetail.fbid + '/picture?height=100' }}" class="img-circle" alt="Avatar">
+                            <h3 class="name">{{ customerDetail.name }}</h3> </div>
                     </div>
                     <!-- END PROFILE HEADER -->
                     <!-- PROFILE DETAIL -->
@@ -17,9 +17,9 @@
                         <div class="profile-info">
                             <h4 class="heading">Basic Info</h4>
                             <ul class="list-unstyled list-justify">
-                                <li>Current Blance <span>{{ customerDetail.fields.account_balance }}</span></li>
-                                <li>Networth <span>{{ customerDetail.fields.worth }}</span></li>
-                                <li>Loan Pending<span>{{ customerDetail.fields.loan_amt }}</span></li>
+                                <li>Current Blance <span>{{ customerDetail.account_balance }}</span></li>
+                                <li>Networth <span>{{ customerDetail.worth }}</span></li>
+                                <li>Loan Pending<span>{{ customerDetail.loan_balance }}</span></li>
                             </ul>
                         </div>
                         <p align="center">

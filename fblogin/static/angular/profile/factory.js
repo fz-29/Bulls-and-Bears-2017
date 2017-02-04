@@ -5,7 +5,7 @@ angular.module('profile')
 		getProfile : function(authToken) {
 			return $http({
 				method: 'GET',
-				url: '/stockmarket/newslist/',
+				url: '/customer/customerdetail/',
 				headers: { 
 					'Authorization': authToken ,
 					'Accept': 'application/json',
