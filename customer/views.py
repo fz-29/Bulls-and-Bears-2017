@@ -27,25 +27,25 @@ def customerList(request, format = None):
 
 @api_view(["GET"])
 def customerDetail(request, format = None):
-	obj = get_object_or_404(Customer, pk=request.GET.get('id'))
+	obj = get_object_or_404(Customer, user=request.user)
 	customer_serialized = serializers.serialize('json', [obj])
 	return HttpResponse(customer_serialized[1:-1], content_type="application/json")
 
 @api_view(["GET"])
 def stockHolding(request, format = None):
-	tuples = StockHolding.objects.filter(customer__pk = request.GET.get('id')).all()
+	tuples = StockHolding.objects.filter(customer__user = request.user).all()
 	serialized = serializers.serialize('json', tuples)
 	return HttpResponse(serialized, content_type="application/json")
 
 @api_view(["GET"])
 def stockShorted(request, format = None):
-	tuples = StockHolding.objects.filter(customer__pk = request.GET.get('id')).all()
+	tuples = StockHolding.objects.filter(customer__user = request.user).all()
 	serialized = serializers.serialize('json', tuples)
 	return HttpResponse(serialized, content_type="application/json")
 
 @api_view(["GET"])
 def customerActivity(request, format=None):
-	tuples = StockHolding.objects.filter(customer__pk = request.GET.get('id')).all()
+	tuples = StockHolding.objects.filter(customer__user = request.user).all()
 	serialized = serializers.serialize('json', tuples)
 	return HttpResponse(serialized, content_type="application/json")
 
