@@ -58,6 +58,26 @@ def customerActivity(request, format=None):
 	serialized = serializers.serialize('json', tuples)
 	return HttpResponse(serialized, content_type="application/json")
 
+@api_view(["GET"])
+def buyinfo(request, format=None):
+	availabe_balance = get_object_or_404(Customer, user=request.user).account_balance
+	price = get_object_or_404(Company, id=request.GET.get('id')).stock_price
+	quantity = get_object_or_404(Company, id=request.GET.get('id')).available_quantity
+	max_quant = availabe_balance//price
+	return JsonResponse({'quantity': min(max_quant,quantity)})
+
+@api_view(["GET"])
+def shortinfo(request, format=None):
+	return HttpResponse(str())
+
+@api_view(["GET"])
+def coverinfo(request, format=None):
+	return HttpResponse(str())
+
+@api_view(["GET"])
+def sellinfo(request, format=None):
+	return HttpResponse(str())
+
 @api_view(["POST"])
 def buy(request, format=None):
 	customer = get_object_or_404(Customer, user=request.user)
@@ -147,7 +167,7 @@ def createCustomer(request, format = None):
 	try:
 		customer = Customer.objects.get(user = user)
 	except Customer.DoesNotExist:
-		customer = Customer(user = user, account_balance = 25000)
+		customer = Customer(user = user, account_balance = 25000,)
 		companies = Company.objects.all()
 		customer.save()
 		for company in companies:
