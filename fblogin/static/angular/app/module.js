@@ -5,6 +5,6 @@ angular.module('bnb', [
     , 'ngCookies'
     , 'market'
     , 'news'
-    , 'profile'
-    , 'leaderboard'
+    // , 'profile'
+    // , 'leaderboard'
 ]);

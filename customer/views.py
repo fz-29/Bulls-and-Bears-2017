@@ -3,6 +3,8 @@ from allauth.socialaccount.models import SocialAccount
 from stockmarket.models import *
 from customer.models import *
 
+from django.utils import *
+
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import *
 from django.views.decorators.http import require_POST
@@ -27,31 +29,47 @@ def customerList(request, format = None):
 
 @api_view(["GET"])
 def customerDetail(request, format = None):
-	obj = get_object_or_404(Customer, pk=request.GET.get('id'))
+	obj = get_object_or_404(Customer, user=request.user)
 	customer_serialized = serializers.serialize('json', [obj])
 	return HttpResponse(customer_serialized[1:-1], content_type="application/json")
 
 @api_view(["GET"])
 def stockHolding(request, format = None):
-	tuples = StockHolding.objects.filter(customer__pk = request.GET.get('id')).all()
+	tuples = StockHolding.objects.filter(customer__user = request.user).all()
 	serialized = serializers.serialize('json', tuples)
 	return HttpResponse(serialized, content_type="application/json")
 
 @api_view(["GET"])
 def stockShorted(request, format = None):
-	tuples = StockHolding.objects.filter(customer__pk = request.GET.get('id')).all()
+	tuples = StockShorted.objects.filter(customer__user = request.user).all()
 	serialized = serializers.serialize('json', tuples)
 	return HttpResponse(serialized, content_type="application/json")
 
 @api_view(["GET"])
 def customerActivity(request, format=None):
-	tuples = StockHolding.objects.filter(customer__pk = request.GET.get('id')).all()
+	tuples = StockHolding.objects.filter(customer__user = request.user).all()
 	serialized = serializers.serialize('json', tuples)
 	return HttpResponse(serialized, content_type="application/json")
 
 @api_view(["POST"])
 def buy(request, format=None):
-	return HttpResponse(str(request.POST.get('data')))
+	customer = get_object_or_404(Customer, user=request.user)
+	company = get_object_or_404(Company, pk=request.POST.get[id])
+	quantity = request.POST.get('quanity')
+	if quantity is None:
+		return JsonResponse({"success":False})
+	if 0 < quantity <= min(customer.account_balance//company.stock_price, company.available_quanity):
+		stockHolding = get_object_or_404(StockHolding, company=company, customer=customer)
+		stockHolding.quanity += quanity
+		customer.account_balance -= company.price * quanity
+		company.avail_quantity -= quanity
+		customerActivity = CustomerActivity('BUY', quanity, datetime.now())
+		customerActivity.save()
+		customer.save()
+		company.save()
+		stockHolding.save()
+		return JsonResponse({"success":True})
+	return return JsonResponse({"success":False})
 
 def createCustomer(request, format = None):	
 	if not request.user.is_authenticated:	
