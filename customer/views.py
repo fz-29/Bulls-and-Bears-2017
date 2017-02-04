@@ -68,15 +68,17 @@ def buyinfo(request, format=None):
 
 @api_view(["GET"])
 def shortinfo(request, format=None):
-	return HttpResponse(str())
+	return JsonResponse({'quantity': 100})
 
 @api_view(["GET"])
 def coverinfo(request, format=None):
-	return HttpResponse(str())
+	quantity = get_object_or_404 (StockShorted , company__pk=request.GET.get('id'), customer__user=request.user).quantity
+	return JsonResponse({'quantity': quantity})
 
 @api_view(["GET"])
 def sellinfo(request, format=None):
-	return HttpResponse(str())
+	quantity = get_object_or_404 (StockHolding , company__pk=request.GET.get('id'), customer__user=request.user).quantity
+	return JsonResponse({'quantity': quantity})
 
 @api_view(["POST"])
 def buy(request, format=None):
