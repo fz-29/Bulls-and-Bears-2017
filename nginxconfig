@@ -1,0 +1,16 @@
+file - /etc/nginx/sites-available/bnb2017
+
+server {
+    listen 80;
+    server_name bnb2017.ieeedtu.com;
+
+    location = /favicon.ico { access_log off; log_not_found off; }
+    location /static/ {
+        root /home/ieee/bnbserver/bnb2017;
+    }
+
+    location / {
+        include proxy_params;
+        proxy_pass http://unix:/home/ieee/bnbserver/bnb2017/bnb2017.sock;
+    }
+}
