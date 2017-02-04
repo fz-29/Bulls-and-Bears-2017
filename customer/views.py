@@ -160,6 +160,11 @@ def cover(request, format=None):
 		return JsonResponse({"success":True})
 	return JsonResponse({"success":False})
 
+# @api_view(["GET"])
+# def takeloan(request, format=None):
+#     loan_amount
+#     return JsonResponse({"success":True})
+
 def createCustomer(request, format = None):	
 	if not request.user.is_authenticated:	
 		user = SocialAccount.objects.get(uid = request.GET.get("fbid")).user
@@ -170,9 +175,9 @@ def createCustomer(request, format = None):
 		customer = Customer.objects.get(user = user)
 	except Customer.DoesNotExist:
 		customer = Customer(user = user, account_balance = 25000)
-		loan = Loan(customer=customer, amount=0)
 		companies = Company.objects.all()
 		customer.save()
+		loan = Loan(customer=customer, amount=0)
 		loan.save()
 		for company in companies:
 			sh = StockHolding(company=company, customer=customer, quantity=0)
