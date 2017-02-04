@@ -29,9 +29,14 @@ def customerList(request, format = None):
 
 @api_view(["GET"])
 def customerDetail(request, format = None):
-	obj = get_object_or_404(Customer, user=request.user)
-	customer_serialized = serializers.serialize('json', [obj])
-	return HttpResponse(customer_serialized[1:-1], content_type="application/json")
+	customer = get_object_or_404(Customer, user=request.user)
+	response_data ={}
+	response_data['fbid'] = SocialAccount.objects.get(user = customer.user).uid
+	response_data['name'] = customer.user.first_name + ' ' + customer.user.last_name
+	response_data['account_balance'] = customer.account_balance
+	response_data['loan_balance'] = Loan.objects.filter(customer=customer).first().amount
+	response_data['worth'] = customer.worth()
+	return JsonResponse(response_data)
 
 @api_view(["GET"])
 def stockHolding(request, format = None):
@@ -41,9 +46,11 @@ def stockHolding(request, format = None):
 
 @api_view(["GET"])
 def stockShorted(request, format = None):
+	# shorted_quantity=get_object_or_404(StockHolding, user=request.user, company__pk=request.GET.get('id')).quantity
 	tuples = StockShorted.objects.filter(customer__user = request.user).all()
 	serialized = serializers.serialize('json', tuples)
 	return HttpResponse(serialized, content_type="application/json")
+	# return HttpResponse(str(shorted_quntity))
 
 @api_view(["GET"])
 def customerActivity(request, format=None):
@@ -90,9 +97,6 @@ def sell(request, format=None):
 		stockHolding.save()
 		return JsonResponse({"success":True})
 	return JsonResponse({"success":False})
-
-
-
 
 def createCustomer(request, format = None):	
 	if not request.user.is_authenticated:	
