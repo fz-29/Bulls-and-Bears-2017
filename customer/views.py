@@ -20,6 +20,7 @@ from rest_framework.views import APIView
 from django.core import serializers
 
 import json
+import datetime
 
 @api_view(["GET"])
 def customerList(request, format = None):
@@ -170,10 +171,28 @@ def cover(request, format=None):
 		return JsonResponse({"success":True})
 	return JsonResponse({"success":False})
 
-# @api_view(["GET"])
-# def takeloan(request, format=None):
-#     loan_amount
-#     return JsonResponse({"success":True})
+@api_view(["POST"])
+def takeloan(request, format=None):
+	loan= get_object_or_404(Loan, customer__user=request.user)
+	customer = get_object_or_404(Customer, user=request.user)
+	if loan.amount==0:
+		loan.amount = 10000
+		customer.account_balance += 10000 
+		loan.save()
+		customer.save()
+	return JsonResponse({"success":True})
+
+@api_view(["POST"])
+def repayloan(request, format=None):
+	loan= get_object_or_404(Loan, customer__user=request.user)
+	customer = get_object_or_404(Customer, user=request.user)
+	if loan.amount >= 0 and loan.amount <= customer.account_balance:
+		loan.amount = 0
+		customer.account_balance -= 10000
+		loan.repay_time=datetime.datetime.now()
+		loan.save()
+		customer.save()
+	return JsonResponse({"success":True})
 
 def createCustomer(request, format = None):	
 	if not request.user.is_authenticated:	
