@@ -160,5 +160,6 @@ def update_loan_interest():
 	loan_entries = Loan.objects.all()
 
 	for entry in loan_entries:
-		entry.amount *= (1.0 + interest_rate)
+		new_amount = float(entry.amount) * (1.0 + interest_rate)
+		entry.amount = new_amount
 		entry.save()
