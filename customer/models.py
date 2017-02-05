@@ -34,6 +34,7 @@ class CustomerActivity(models.Model):
 class Customer(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, default=1, on_delete=models.CASCADE)
     account_balance = models.DecimalField(default=0, max_digits=15, decimal_places=2, validators=[MinValueValidator(decimal.Decimal(0.0))])
+    ban = models.BooleanField(default=False)
 
     def worth(self):
         loan = Loan.objects.get(customer=self).amount
