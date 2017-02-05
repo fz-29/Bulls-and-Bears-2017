@@ -1,10 +1,11 @@
 'use strict';
 angular.module('portfolio')
-.controller('portfolioController', function($routeParams, $scope, $http, $cookies, portfolioService) {
+.controller('portfolioController', function($routeParams, $scope, $http, $cookies, $interval, portfolioService) {
     $scope.company = {};
     var authToken = 'Token ' + $cookies.get('authToken');
 	var chartData = {};
 	console.log("authToken : " + authToken);
+	$scope.callAtInterval = function(){
 	portfolioService.getCompanyPortfolio(authToken, $routeParams.id).then(function(companyPortfolio){
 		$scope.company = companyPortfolio;
 		console.log(companyPortfolio.price_history);
@@ -28,8 +29,10 @@ angular.module('portfolio')
 			data: chartData,
 			width: '100%'
 		});
-	});
-
+	});}
+	$scope.callAtInterval();
+	$interval( function(){ $scope.callAtInterval(); }, 60000);
+	
 	$scope.buy = function(){
 		console.log("buyQty: " + $scope.buyQty);
 		$scope.data = 'id=' + $routeParams.id +
