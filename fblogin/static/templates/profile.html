@@ -44,11 +44,11 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>AMAZON</td>
-                                    <td>30</td>
-                                    <td>60</td>
-                                    <td>123</td>
+                                <tr ng-repeat="profile in customerDetail.portfolio">
+                                    <td><a type="button" ng-href="{{ '/portfolio/' + profile.company_id }}" class="btn btn-default"><b>{{ profile.company_symbol }}</b></a></td>
+                                    <td>{{ profile.stockholding }}</td>
+                                    <td>{{ profile.stockshorted }}</td>
+                                    <td>{{ profile.stock_price }}</td>
                                 </tr>
                             </tbody>
                         </table>
