@@ -9,7 +9,4 @@ angular.module('market')
 		$scope.accountBalance = companyList.accountBalance;
 		$scope.companies = companyList.companies;
 	});
-	// marketService.getAccountBalance(authToken).then(function(customerDetail){
-	// 	$scope.accountBalance = customerDetail.account_balance;
-	// });
 });

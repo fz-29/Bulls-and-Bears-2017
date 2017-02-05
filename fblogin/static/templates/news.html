@@ -22,11 +22,14 @@
 				<div id="panel-scrolling-demo" class="panel">
 					<div class="panel-body">
 						<h4>{{ news.fields.published_on | date:"MMM d, y h:mm a" }}</h4>
-						<video width=100% controls>
-  							<source ng-src="{{ '/media/' + news.fields.media }}" type="video/mp4">
+						<!--<video width=100% controls>-->
+  							<!--<source ng-src="{{ '/media/' + news.fields.media }}" type="video/mp4">-->
   							<!--<source src="movie.ogg" type="video/ogg">-->
-							Your browser does not support the video tag.
-						</video>
+							  <div class="aspect-ratio">
+							  <iframe width="550" height="275" src="https://www.youtube.com/embed/_7BTqcIl4tc" frameborder="0" allowfullscreen></iframe>
+							  </div>
+							<!--Your browser does not support the video tag.-->
+						<!--</video>-->
 						<p>{{ news.fields.news_text }}</p>
 					</div>
 				</div>
