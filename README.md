@@ -48,3 +48,4 @@ for more checkout installation guide [Django-rest-auth: Social Install](https://
 	- Password : wmgStranger505++
 	
 5. Rulebook
+https://drive.google.com/open?id=0B0d2sAXm8in1NVFWbkNGZzh3WHNWWVZRUXVXS1NlQ3VUUjQw
