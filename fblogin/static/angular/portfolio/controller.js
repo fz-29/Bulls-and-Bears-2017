@@ -31,7 +31,7 @@ angular.module('portfolio')
 		});
 	});}
 	$scope.callAtInterval();
-	$interval( function(){ $scope.callAtInterval(); }, 60000);
+	// $interval( function(){ $scope.callAtInterval(); }, 60000);
 	
 	$scope.buy = function(){
 		console.log("buyQty: " + $scope.buyQty);
