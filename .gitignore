@@ -137,5 +137,5 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
-*.sqlite3
-*.sqlite3
+
+temp.py
