@@ -55,7 +55,8 @@ def companyDetail(request, format = None):
 	response_data['buy_max'] = min(customer.account_balance//company.stock_price, company.available_quantity)
 	response_data['sell_max'] = StockHolding.objects.get(customer=customer, company=company).quantity
 	response_data['short_max'] = 100
-	response_data['cover_max'] = min(StockShorted.objects.get(customer=customer, company=company).quantity, customer.account_balance//company.price)
+	response_data['cover_max'] = min(StockShorted.objects.get(customer=customer, company=company).quantity, customer.account_balance//company.stock_price)
+	response_data['account_balance'] = customer.account_balance
 	return JsonResponse(response_data)
 
 @api_view(["GET"])
