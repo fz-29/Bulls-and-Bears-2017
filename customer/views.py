@@ -54,7 +54,8 @@ def customerDetail(request, format = None):
 			'company_id': company.id,
 			'company_symbol': company.symbol,
 			'stockholding': StockHolding.objects.get(company=company, customer=customer).quantity,
-			'stockshorted': StockShorted.objects.get(company=company, customer=customer).quantity
+			'stockshorted': StockShorted.objects.get(company=company, customer=customer).quantity,
+			'stock_price': company.stock_price,
 		})
 	return JsonResponse(response_data)
 
