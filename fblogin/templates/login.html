@@ -1,80 +1,46 @@
 <!DOCTYPE html>
 {% load static %}
+<!DOCTYPE html>
 <html lang="en" ng-app='xcms'>
 
-<head> </head>
+<head>
+  <meta charset="UTF-8">
+  <title>Bulls 'n' Bears</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  
+  <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Open+Sans'>
+
+  <link rel="stylesheet" href='{% static "assets/css/style.css" %}'>
+  <!--<link rel="icon" type="image/png" sizes="96x96" href="css/images/bnb.png">-->
+</head>
 
 <body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js'></script>
     <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-cookies.js'></script>
-    <script src='{% static "angular/login.js" %}'></script>
-    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>-->
-    <script>
-        window.fbAsyncInit = function () {
-            FB.init({
-                appId: '218641865251508',
-                xfbml: true,
-                version: 'v2.8'
-            });
-            FB.getLoginStatus(function (response) {
-                if (response.status === 'connected') {
-                    $.post("/rest-auth/facebook/", {
-                            "access_token": response.authResponse.accessToken
-                        }, function (data, status) {       
-                            console.log("Data: " + data.key + "\nStatus: " + status);
-                            // $.cookie('authToken', data.key, { path: '/' });
-                            // console.log($.cookie());
-                            $('#uID').val(response.authResponse.userID).change();
-                            $('#dk').val(data.key).change();
-                            // location.href = "/customer/create/?fbid=" + response.authResponse.userID;   
-                        }
-                    );
-                } else {
-                    console.log('Not logged in.');
-                }
-            });
-            FB.AppEvents.logPageView();
-        };
-        (function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) {
-                return;
-            }
-            js = d.createElement(s);
-            js.id = id;
-            js.src = "https://connect.facebook.net/en_US/sdk.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-    </script>
-    <script>
-        function checkLoginState() {
-            FB.getLoginStatus(function (response) {
-                if (response.status === 'connected') {
-                    $.post("/rest-auth/facebook/", {
-                            "access_token": response.authResponse.accessToken
-                        }, function (data, status) {       
-                            console.log("Data: " + data.key + "\nStatus: " + status);
-                            // $.cookie('authToken', data.key, { path: '/' });
-                            // console.log($.cookie());
-                            $('#uID').val(response.authResponse.userID).change();
-                            $('#dk').val(data.key).change();
-                            // location.href = "/customer/create/?fbid=" + response.authResponse.userID;
-                        }
-                    );
-                } else {
-                    console.log('Not logged in.');
-                }
-            });
-        }
-    </script>
+    <script src='{% static "angular/login/login.js" %}'></script>
+    <!-- FB SDK Code -->
+    <script src='{% static "assets/js/fblogin.js" %}'></script>
+
+    <div class="cont">
+        <div class="demo">
+            <div class="login">
+                <div> <img class="img-circle" src="{% static 'assets/img/bnb.png' %}"> </div>
+                <div class="image-cropper"> <img src="{% static 'assets/img/bnb3.png' %}" class="rounded" /> </div>
+                <hr>
+                <br>
+                <div class="login__form">
+                    <div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="false" onlogin="checkLoginState();"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div id="fb-root"></div>
-    <fb:login-button max-rows="1" size="large" show-faces="true" auto-logout-link="true" scope="public_profile,email,user_friends,publish_actions"
-        onlogin="checkLoginState();"> </fb:login-button>
-        <div ng-controller="mainCtrl">
+    <div ng-controller="mainCtrl">
         <input id="dk" hidden type="text" ng-change="setCookie()" ng-model="dataKey"></div>
         <input id="uID" hidden type="text" ng-model="response"></div>
-        </div>
+    </div>
 </body>
 
 </html>
