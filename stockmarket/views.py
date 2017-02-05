@@ -42,9 +42,21 @@ def companyList(request, format = None):
 
 @api_view(["GET"])
 def companyDetail(request, format = None):
-	obj = get_object_or_404(Company, pk=request.GET.get('id'))
-	company_serialized = serializers.serialize('json', [obj])
-	return HttpResponse(company_serialized[1:-1], content_type="application/json")
+	company = get_object_or_404(Company, pk=request.GET.get('id'))
+	customer = get_object_or_404(Customer, user=request.user)
+	response_data = {}
+	response_data['symbol'] = company.symbol
+	response_data['name'] = company.name
+	response_data['description'] = company.description
+	response_data['stock_price'] = company.stock_price
+	response_data['available_quantity'] = company.available_quantity
+	response_data['annual_growth_rate'] = company.annual_growth_rate
+	response_data['market_cap'] = company.market_cap
+	response_data['buy_max'] = min(customer.account_balance//company.stock_price, company.available_quantity)
+	response_data['sell_max'] = StockHolding.objects.get(customer=customer, company=company).quantity
+	response_data['short_max'] = 100
+	response_data['cover_max'] = min(StockShorted.objects.get(customer=customer, company=company).quantity, customer.account_balance//company.price)
+	return JsonResponse(response_data)
 
 @api_view(["GET"])
 def companyHistory(request, format = None):
