@@ -4,6 +4,7 @@
 
 		<div class="panel panel-headline">
 			<div class="panel-heading">
+				<h3 class="panel-title">Available Balance : 1234</h3>
 				<h3 class="panel-title">{{ company.name }}</h3>
 			</div>
 			<div class="panel-body">
@@ -12,11 +13,11 @@
 				</div>
 					<div class="col-md-2">
 						<div class="weekly-summary text-right">
-							<span class="number">{{ company.stock_price }}</span> 
+							<span class="number"> {{ company.stock_price }}</span> 
 							<span class="info-label">Price</span>
 						</div>
 						<div class="weekly-summary text-right">
-							<span class="number">{{ company.annual_growth_rate }}</span>
+							<span class="number">{{ company.annual_growth_rate }} % </span>
 							<span class="info-label">Annual Growth Rate</span>
 						</div>
 						<div class="weekly-summary text-right">
