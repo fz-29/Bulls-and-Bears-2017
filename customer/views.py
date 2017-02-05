@@ -53,13 +53,14 @@ def customerDetail(request, format = None):
 	response_data['portfolio'] = []
 	companies = Company.objects.all()
 	for company in companies:
-		response_data['portfolio'].append({
-			'company_id': company.id,
-			'company_symbol': company.symbol,
-			'stockholding': StockHolding.objects.get(company=company, customer=customer).quantity,
-			'stockshorted': StockShorted.objects.get(company=company, customer=customer).quantity,
-			'stock_price': company.stock_price,
-		})
+		if StockHolding.objects.get(company=company, customer=customer).quantity > 0 and StockShorted.objects.get(company=company, customer=customer).quantity > 0:
+			response_data['portfolio'].append({
+				'company_id': company.id,
+				'company_symbol': company.symbol,
+				'stockholding': StockHolding.objects.get(company=company, customer=customer).quantity,
+				'stockshorted': StockShorted.objects.get(company=company, customer=customer).quantity,
+				'stock_price': company.stock_price,
+			})
 	return JsonResponse(response_data)
 
 @ratelimit(key='ip', rate = '10/m')
@@ -200,8 +201,8 @@ def takeloan(request, format=None):
 	customer = get_object_or_404(Customer, user=request.user)
 	loan= get_object_or_404(Loan, customer=customer)
 	if loan.amount==0:
-		loan.amount = 10000
-		customer.account_balance += 10000 
+		loan.amount = 50000
+		customer.account_balance += 50000 
 		loan.save()
 		customer.save()
 		return JsonResponse({"success":True})
@@ -214,7 +215,7 @@ def repayloan(request, format=None):
 	customer = get_object_or_404(Customer, user=request.user)
 	if loan.amount > 0 and loan.amount <= customer.account_balance:
 		loan.amount = 0
-		customer.account_balance -= 10000
+		customer.account_balance -= 50000
 		loan.repay_time=datetime.datetime.now()
 		loan.save()
 		customer.save()
@@ -231,7 +232,7 @@ def createCustomer(request, format = None):
 	try:
 		customer = Customer.objects.get(user = user)
 	except Customer.DoesNotExist:
-		customer = Customer(user = user, account_balance = 25000)
+		customer = Customer(user = user, account_balance = 1000000)
 		companies = Company.objects.all()
 		customer.save()
 		loan = Loan(customer=customer, amount=0)

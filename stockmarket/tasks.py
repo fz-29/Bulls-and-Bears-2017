@@ -99,7 +99,7 @@ def revise_stock_price_by_stocks():
 				# Stock Price of Complementary Company
 
 				# Stock Price of Supplementary Company
-				print F1
+				# print F1
 				price = price + price * control_update_2 * (F1 + F2 + F3)
 				company.stock_price = price
 				company.save()
