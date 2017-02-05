@@ -3,9 +3,31 @@ angular.module('portfolio')
 .controller('portfolioController', function($routeParams, $scope, $http, $cookies, portfolioService) {
     $scope.company = {};
     var authToken = 'Token ' + $cookies.get('authToken');
+	var chartData = {};
 	console.log("authToken : " + authToken);
 	portfolioService.getCompanyPortfolio(authToken, $routeParams.id).then(function(companyPortfolio){
 		$scope.company = companyPortfolio;
+		console.log(companyPortfolio.price_history);
+		chartData = {
+			type: "area",  // Specify your chart type here.
+			title: {},
+			legend: {}, // Creates an interactive legend
+			series: [  // Insert your series data here.
+				{ 
+					values: companyPortfolio.price_history,
+					text: "Price History"
+				},
+				// {
+				// 	values: $scope.company.stock_history,
+				// 	text: "Stock History"
+				// }
+			]
+			};
+			zingchart.render({ // Render Method[3]
+			id: "chartDiv",
+			data: chartData,
+			width: '100%'
+		});
 	});
 
 	$scope.buy = function(){
@@ -92,20 +114,4 @@ angular.module('portfolio')
 			}
 		});
 	}
-
-	var chartData = {
-		type: "line",  // Specify your chart type here.
-		title: {},
-		legend: {}, // Creates an interactive legend
-		series: [  // Insert your series data here.
-			{ values: [35, 42, 67, 89]},
-			{ values: [28, 40, 39, 36]}
-		]
-		};
-		zingchart.render({ // Render Method[3]
-		id: "chartDiv",
-		data: chartData,
-		height: 400,
-		width: 600
-    });
 });
