@@ -46,3 +46,5 @@ for more checkout installation guide [Django-rest-auth: Social Install](https://
 4. Django Admin Credentials
 	- Username : admin
 	- Password : wmgStranger505++
+	
+5. Rulebook
