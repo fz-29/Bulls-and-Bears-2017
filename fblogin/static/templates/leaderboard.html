@@ -18,9 +18,9 @@
 
 							<tbody>
 								<tr ng-repeat="customer in customerList">
-									<td>{{ customer.fields.rank }}</td>
-									<td>{{ customer.fields.name }}</td>
-									<td>{{ customer.fields.worth }}</td>
+									<td>{{ $index + 1 }}</td>
+									<td>{{ customer.name }}</td>
+									<td>{{ customer.worth }}</td>
 								</tr>
 							</tbody>
 						</table>

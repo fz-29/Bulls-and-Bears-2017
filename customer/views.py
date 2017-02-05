@@ -20,6 +20,7 @@ from rest_framework.views import APIView
 from django.core import serializers
 
 import json
+import datetime
 
 @api_view(["GET"])
 def customerList(request, format = None):
@@ -170,6 +171,31 @@ def cover(request, format=None):
 		return JsonResponse({"success":True})
 	return JsonResponse({"success":False})
 
+@api_view(["POST"])
+def takeloan(request, format=None):
+	customer = get_object_or_404(Customer, user=request.user)
+	loan= get_object_or_404(Loan, customer=customer)
+	if loan.amount==0:
+		loan.amount = 10000
+		customer.account_balance += 10000 
+		loan.save()
+		customer.save()
+		return JsonResponse({"success":True})
+	return JsonResponse({"success":False})
+
+@api_view(["POST"])
+def repayloan(request, format=None):
+	loan= get_object_or_404(Loan, customer__user=request.user)
+	customer = get_object_or_404(Customer, user=request.user)
+	if loan.amount > 0 and loan.amount <= customer.account_balance:
+		loan.amount = 0
+		customer.account_balance -= 10000
+		loan.repay_time=datetime.datetime.now()
+		loan.save()
+		customer.save()
+		return JsonResponse({"success":True})
+	return JsonResponse({"success":False})
+
 def createCustomer(request, format = None):	
 	if not request.user.is_authenticated:	
 		user = SocialAccount.objects.get(uid = request.GET.get("fbid")).user
@@ -180,9 +206,9 @@ def createCustomer(request, format = None):
 		customer = Customer.objects.get(user = user)
 	except Customer.DoesNotExist:
 		customer = Customer(user = user, account_balance = 25000)
-		loan = Loan(customer=customer, amount=0)
 		companies = Company.objects.all()
 		customer.save()
+		loan = Loan(customer=customer, amount=0)
 		loan.save()
 		for company in companies:
 			sh = StockHolding(company=company, customer=customer, quantity=0)

@@ -18,4 +18,7 @@ urlpatterns = [
     url(r'^shortinfo/$', shortinfo, name='shortinfo'),
     url(r'^coverinfo/$', sellinfo, name='coverinfo'),
     url(r'^create/$', createCustomer, name='create'),
+    url(r'^takeloan/$', takeloan, name='takeloan'),
+    url(r'^repayloan/$', repayloan, name='repayloan'),
+
 ]

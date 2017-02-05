@@ -6,9 +6,7 @@ angular.module('market')
     var authToken = 'Token ' + $cookies.get('authToken');
 	console.log("authToken : " + authToken);
 	marketService.getCompanyList(authToken).then(function(companyList){
-		$scope.companies = companyList;
-	});
-	marketService.getAccountBalance(authToken).then(function(customerDetail){
-		$scope.accountBalance = customerDetail.account_balance;
+		$scope.accountBalance = companyList.accountBalance;
+		$scope.companies = companyList.companies;
 	});
 });
