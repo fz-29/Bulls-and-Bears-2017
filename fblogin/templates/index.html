@@ -39,7 +39,8 @@
 	<script src='{% static "angular/portfolio/module.js" %}'></script>
 	<script src='{% static "angular/portfolio/factory.js" %}'></script>
 	<script src='{% static "angular/portfolio/controller.js" %}'></script>
-
+	<link rel="shortcut icon" href="{% static 'favicon' %}" type="image/x-icon">
+    <link rel="icon" href="{% static 'favicon' %}" type="image/x-icon">
 	<style>
     @media screen and (max-width: 767px)
     {.table-responsive {
@@ -72,7 +73,7 @@
 		<!-- SIDEBAR -->
 		<div class="sidebar">
 			<div class="brand">
-				<h3 style = "color:white">Bulls 'n' Bears</h3></a>
+				<img src='{% static "assets/img/bnb.png" %}' width="100%">
 			</div>
 			<div class="sidebar-scroll">
 				<nav>
@@ -94,6 +95,7 @@
 				<div class="container-fluid">
 					<div class="navbar-btn">
 						<button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-arrow-left-circle"></i></button>
+						<span class="lead">Bulls 'n' Bears</span>
 					</div>
 					<div class="navbar-header">
 						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-menu">
