@@ -147,6 +147,10 @@ def publish_by_interval():
 	to_publish_news.is_published = True
 	to_publish_news.save()
 
+	to_publish_news = News.objects.filter(is_published=False).earliest('published_on')
+	to_publish_news.is_published = True
+	to_publish_news.save()
+
 @shared_task
 def update_loan_interest():
 	'''
