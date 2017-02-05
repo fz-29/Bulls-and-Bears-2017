@@ -137,8 +137,5 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
-<<<<<<< HEAD
 
-temp.py
-=======
->>>>>>> 98710675c3caf6410b467688d21419160a268bb2
+*.pyc
