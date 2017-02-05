@@ -57,6 +57,14 @@ def companyDetail(request, format = None):
 	response_data['short_max'] = 100
 	response_data['cover_max'] = min(StockShorted.objects.get(customer=customer, company=company).quantity, customer.account_balance//company.stock_price)
 	response_data['account_balance'] = customer.account_balance
+	response_data['price_history'] = []
+	response_data['stock_history'] = []
+	companyhistory = []
+	tuples = CompanyHistory.objects.filter(company__pk=request.GET.get('id')).order_by('timestamp').all()
+	tuples = tuples[:60:3] if len(tuples) >= 20 else tuples
+	for history in tuples:
+		response_data['price_history'].append(history.price)
+		response_data['stock_history'].append(history.stocks_available)
 	return JsonResponse(response_data)
 
 @api_view(["GET"])
