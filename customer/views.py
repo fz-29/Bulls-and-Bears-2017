@@ -47,6 +47,15 @@ def customerDetail(request, format = None):
 	response_data['account_balance'] = customer.account_balance
 	response_data['loan_balance'] = Loan.objects.filter(customer=customer).first().amount
 	response_data['worth'] = customer.worth()
+	response_data['portfolio'] = []
+	companies = Company.objects.all()
+	for company in companies:
+		response_data['portfolio'].append({
+			'company_id': company.id,
+			'company_symbol': company.symbol,
+			'stockholding': StockHolding.objects.get(company=company, customer=customer).quantity,
+			'stockshorted': StockShorted.objects.get(company=company, customer=customer).quantity
+		})
 	return JsonResponse(response_data)
 
 @api_view(["GET"])

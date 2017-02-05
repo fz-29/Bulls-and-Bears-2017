@@ -2,10 +2,10 @@
 angular.module('portfolio')
 .factory('portfolioService', function($http) {
 	return {
-		getCompanyPortfolio : function(authToken) {
+		getCompanyPortfolio : function(authToken, id) {
 			return $http({
 				method: 'GET',
-				url: '/stockmarket/newslist/',
+				url: '/stockmarket/companydetail/?id='+id,
 				headers: { 
 					'Authorization': authToken ,
 					'Accept': 'application/json',
