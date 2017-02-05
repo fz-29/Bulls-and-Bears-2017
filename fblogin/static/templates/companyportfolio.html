@@ -11,7 +11,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="weekly-summary text-right"> <span class="number"> &#8377; {{ company.stock_price }}</span> <span class="info-label">Price</span> </div>
-                    <div class="weekly-summary text-right"> <span class="number">{{ company.annual_growth_rate }} % </span> <span class="info-label">Annual Growth Rate</span> </div>
+                    <div class="weekly-summary text-right"> <span class="number">{{ company.annual_growth_rate }} </span> <span class="info-label">Annual Growth Rate</span> </div>
                     <div class="weekly-summary text-right"> <span class="number">{{ company.market_cap }}</span> <span class="info-label">Market Capitalisation(in Cr.)</span> </div>
                 </div>
             </div>
@@ -51,7 +51,7 @@
         </div>
         <div class="panel">
             <div class="panel-body">
-                <p>{{ company.description }}</p>
+                <p><a target="_blank" ng-href="{{ company.description }}">Open Description</a></p>
             </div>
         </div>
     </div>

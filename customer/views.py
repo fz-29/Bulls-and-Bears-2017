@@ -50,13 +50,14 @@ def customerDetail(request, format = None):
 	response_data['portfolio'] = []
 	companies = Company.objects.all()
 	for company in companies:
-		response_data['portfolio'].append({
-			'company_id': company.id,
-			'company_symbol': company.symbol,
-			'stockholding': StockHolding.objects.get(company=company, customer=customer).quantity,
-			'stockshorted': StockShorted.objects.get(company=company, customer=customer).quantity,
-			'stock_price': company.stock_price,
-		})
+		if StockHolding.objects.get(company=company, customer=customer).quantity > 0 and StockShorted.objects.get(company=company, customer=customer).quantity > 0:
+			response_data['portfolio'].append({
+				'company_id': company.id,
+				'company_symbol': company.symbol,
+				'stockholding': StockHolding.objects.get(company=company, customer=customer).quantity,
+				'stockshorted': StockShorted.objects.get(company=company, customer=customer).quantity,
+				'stock_price': company.stock_price,
+			})
 	return JsonResponse(response_data)
 
 @api_view(["GET"])
