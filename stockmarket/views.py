@@ -30,6 +30,7 @@ def companyList(request, format = None):
 		except:
 			trend=0
 		response_data['companies'].append({
+			'id': company.id,
 			'symbol': company.symbol,
 			'name': company.name,
 			'stock_price': company.stock_price,
