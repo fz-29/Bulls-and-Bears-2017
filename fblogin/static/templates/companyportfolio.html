@@ -29,7 +29,7 @@
                     <form ng-submit="sell()">
                         <div class="input-group"> <span class="input-group-addon">Amount: ₹ {{ (sellQty * company.stock_price).toFixed(2) }}</span>
                             <input class="form-control" type="number" ng-init="sellQty = 0" ng-model="sellQty" min="0" max="{{ company.sell_max }}"> <span class="input-group-btn">
-                                <button type="submit" class="btn btn-error">Sell</button>
+                                <button type="submit" class="btn btn-danger">Sell</button>
                             </span> </div>
                     </form>
                     <br>
@@ -43,7 +43,7 @@
                     <form ng-submit="cover()">
                         <div class="input-group"> <span class="input-group-addon">Amount: ₹ {{ (coverQty * company.stock_price).toFixed(2) }}</span>
                             <input class="form-control" type="number" ng-init="coverQty = 0" ng-model="coverQty" min="1" max="{{ company.cover_max }}"> <span class="input-group-btn">
-                                <button type="submit" class="btn btn-cover">Cover</button>
+                                <button type="submit" class="btn btn-danger">Cover</button>
                             </span> </div>
                     </form>
                 </div>
