@@ -55,7 +55,7 @@ def revise_stock_price_by_news():
 		impact_info.save()
 
 	#update history and random noise
-	revise_stock_price_random()
+	#revise_stock_price_random()
 
 
 @shared_task
@@ -107,7 +107,7 @@ def revise_stock_price_by_stocks():
 		pass
 
 	#update history and random noise
-	revise_stock_price_random()
+	#revise_stock_price_random()
 
 @shared_task
 def revise_stock_price_random():
@@ -160,5 +160,6 @@ def update_loan_interest():
 	loan_entries = Loan.objects.all()
 
 	for entry in loan_entries:
-		entry.amount *= entry.amount(1.0 + interest_rate)
+		new_amount = float(entry.amount) * (1.0 + interest_rate)
+		entry.amount = new_amount
 		entry.save()
