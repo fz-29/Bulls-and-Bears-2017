@@ -19,7 +19,7 @@ angular.module('bnb').
                 controller:'newsController as news',
                 templateUrl:'/static/templates/news.html'
             }).
-            when("/portfolio", {
+            when("/portfolio/:id", {
                 controller:'portfolioController as portfolio',
                 templateUrl:'/static/templates/companyportfolio.html'
             }).
