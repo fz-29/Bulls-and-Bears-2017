@@ -30,9 +30,7 @@ app.autodiscover_tasks()
 #     },
 # }
 
-app.conf.update(...
-        CELERY_TIMEZONE = 'Asia/Kolkata'   # set timezone in here
-        )
+app.conf.update(CELERY_TIMEZONE = 'Asia/Kolkata')
 
 @app.task(bind=True)
 def debug_task(self):
