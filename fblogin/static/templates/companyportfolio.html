@@ -22,28 +22,28 @@
                     <form ng-submit="buy()">
                         <div class="input-group"> <span class="input-group-addon">Amount: ₹ {{ (buyQty * company.stock_price).toFixed(2) }}</span>
                             <input class="form-control" type="number" ng-init="buyQty = 0" ng-model="buyQty" min="0" max="{{ company.buy_max }}"> <span class="input-group-btn">
-                                <button type="submit" class="btn btn-default">Buy</button>
+                                <button type="submit" class="btn btn-success">Buy</button>
                             </span> </div>
                     </form>
                     <br>
                     <form ng-submit="sell()">
                         <div class="input-group"> <span class="input-group-addon">Amount: ₹ {{ (sellQty * company.stock_price).toFixed(2) }}</span>
                             <input class="form-control" type="number" ng-init="sellQty = 0" ng-model="sellQty" min="0" max="{{ company.sell_max }}"> <span class="input-group-btn">
-                                <button type="submit" class="btn btn-default">Sell</button>
+                                <button type="submit" class="btn btn-error">Sell</button>
                             </span> </div>
                     </form>
                     <br>
                     <form ng-submit="short()">
                         <div class="input-group"> <span class="input-group-addon">Amount: ₹ {{ (shortQty * company.stock_price).toFixed(2) }}</span>
                             <input class="form-control" type="number" ng-init="shortQty = 0" ng-model="shortQty" min="1" max="{{ company.short_max }}"> <span class="input-group-btn">
-                                <button type="submit" class="btn btn-default">Short</button>
+                                <button type="submit" class="btn btn-success">Short</button>
                             </span> </div>
                     </form>
                     <br>
                     <form ng-submit="cover()">
                         <div class="input-group"> <span class="input-group-addon">Amount: ₹ {{ (coverQty * company.stock_price).toFixed(2) }}</span>
                             <input class="form-control" type="number" ng-init="coverQty = 0" ng-model="coverQty" min="1" max="{{ company.cover_max }}"> <span class="input-group-btn">
-                                <button type="submit" class="btn btn-default">Cover</button>
+                                <button type="submit" class="btn btn-cover">Cover</button>
                             </span> </div>
                     </form>
                 </div>
