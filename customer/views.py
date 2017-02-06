@@ -31,14 +31,11 @@ def customerList(request, format = None):
 	response_data = []
 	for customer in tuples:
 		response_data.append({
-			# ''
 			'name': customer.user.first_name + ' ' + customer.user.last_name,
 			'worth': customer.worth()
 		})
 	response_data.reverse()
 	return JsonResponse(response_data, safe=False)
-	# customer_serialized = serializers.serialize('json', tuples)
-	# return HttpResponse(customer_serialized, content_type="application/json")
 
 @ratelimit(key='ip', rate = '10/m')
 @api_view(["GET"])
@@ -53,38 +50,17 @@ def customerDetail(request, format = None):
 	response_data['portfolio'] = []
 	companies = Company.objects.all()
 	for company in companies:
-		if StockHolding.objects.get(company=company, customer=customer).quantity > 0 or StockShorted.objects.get(company=company, customer=customer).quantity > 0:
+		sh_quantity = StockHolding.objects.get(company=company, customer=customer).quantity
+		ss_quantity = StockShorted.objects.get(company=company, customer=customer).quantity
+		if sh_quantity > 0 or ss_quantity > 0:
 			response_data['portfolio'].append({
 				'company_id': company.id,
 				'company_symbol': company.symbol,
-				'stockholding': StockHolding.objects.get(company=company, customer=customer).quantity,
-				'stockshorted': StockShorted.objects.get(company=company, customer=customer).quantity,
+				'stockholding': sh_quantity,
+				'stockshorted': ss_quantity,
 				'stock_price': company.stock_price,
 			})
 	return JsonResponse(response_data)
-
-@ratelimit(key='ip', rate = '10/m')
-@api_view(["GET"])
-def stockHolding(request, format = None):
-	tuples = StockHolding.objects.filter(customer__user = request.user).all()
-	serialized = serializers.serialize('json', tuples)
-	return HttpResponse(serialized, content_type="application/json")
-
-@ratelimit(key='ip', rate = '10/m')
-@api_view(["GET"])
-def stockShorted(request, format = None):
-	# shorted_quantity=get_object_or_404(StockHolding, user=request.user, company__pk=request.GET.get('id')).quantity
-	tuples = StockShorted.objects.filter(customer__user = request.user).all()
-	serialized = serializers.serialize('json', tuples)
-	return HttpResponse(serialized, content_type="application/json")
-	# return HttpResponse(str(shorted_quntity))
-
-@ratelimit(key='ip', rate = '10/m')
-@api_view(["GET"])
-def customerActivity(request, format=None):
-	tuples = CustomerActivity.objects.filter(customer__user = request.user).all()
-	serialized = serializers.serialize('json', tuples)
-	return HttpResponse(serialized, content_type="application/json")
 
 @ratelimit(key='ip', rate = '10/m')
 @api_view(["GET"])
@@ -165,7 +141,6 @@ def short(request, format=None):
 		stockShorted = get_object_or_404(StockShorted, company=company, customer=customer)
 		stockShorted.quantity += quantity
 		customer.account_balance += company.stock_price * quantity
-		# company.available_quantity -= quantity
 		customerActivity = CustomerActivity(customer=customer, action='SHORT', timestamp=timezone.now(), quantity=quantity, price=company.stock_price)
 		customerActivity.save()
 		customer.save()
@@ -186,7 +161,6 @@ def cover(request, format=None):
 	if 0 < quantity <= stockShorted.quantity:
 		stockShorted.quantity -= quantity
 		customer.account_balance -= company.stock_price * quantity
-		# company.available_quantity -= quantity
 		customerActivity = CustomerActivity(customer=customer, action='COVER', timestamp=timezone.now(), quantity=quantity, price=company.stock_price)
 		customerActivity.save()
 		customer.save()

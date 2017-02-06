@@ -41,7 +41,7 @@ class NewsImpact(models.Model):
 # All news
 class News(models.Model):
     news_text = models.TextField()
-    media = models.FileField(upload_to=None, max_length=200, null=True, blank=True)
+    youtube_src = models.CharField(max_length=50)
     is_published = models.BooleanField(default = False )
     published_on = models.DateTimeField(blank=True , null=True)    
 

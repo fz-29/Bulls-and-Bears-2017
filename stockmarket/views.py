@@ -72,36 +72,8 @@ def companyDetail(request, format = None):
 
 @ratelimit(key='ip', rate = '10/m')
 @api_view(["GET"])
-def companyHistory(request, format = None):
-	tuples = CompanyHistory.objects.filter(company__pk=request.GET.get('id')).order_by('timestamp').all()
-	company_history_serialized = serializers.serialize('json', tuples)
-	return HttpResponse(company_history_serialized, content_type="application/json")
-
-@ratelimit(key='ip', rate = '10/m')
-@api_view(["GET"])
-def loanDetail(request, format = None):
-	obj = get_object_or_404(Loan, customer__pk=request.GET.get('id'))
-	loan_serialized = serializers.serialize('json', [obj])
-	return HttpResponse(loan_serialized[1:-1], content_type="application/json")
-
-@ratelimit(key='ip', rate = '10/m')
-@api_view(["GET"])
 def newsList(request, format = None):
 	tuples = News.objects.filter(is_published=True).order_by('-published_on').all()
 	news_serialized = serializers.serialize('json', tuples)
 	return HttpResponse(news_serialized, content_type="application/json")
-
-@ratelimit(key='ip', rate = '10/m')
-@api_view(["GET"])
-def newsDetail(request, format=None):
-	obj = get_object_or_404(News, pk=request.GET.get('id'))
-	news_serialized = serializers.serialize('json', [obj])
-	return HttpResponse(news_serialized[1:-1], content_type="application/json")
-
-@ratelimit(key='ip', rate = '10/m')
-@api_view(["GET"])
-def newsLatest(request, format=None):
-	obj = News.objects.filter(is_published=True).order_by('-published_on').all().first()
-	news_serialized = serializers.serialize('json', [obj])
-	return HttpResponse(news_serialized[1:-1], content_type="application/json")
 
