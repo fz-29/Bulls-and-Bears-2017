@@ -6,17 +6,31 @@ angular.module('market')
     var authToken = 'Token ' + $cookies.get('authToken');
 	console.log("authToken : " + authToken);
 
+	$scope.Timer = null;
+
+	$scope.StartTimer();
+
 	$scope.refreshMarket = function() {
        marketService.getCompanyList(authToken).then(function(companyList){
 			$scope.accountBalance = companyList.account_balance;
 			$scope.companies = companyList.companies;
 		});
     }
+
+	$scope.StartTimer = function () {
+		$scope.Timer = $interval($scope.refreshMarket(), 10000);
+	};
+
+	$scope.StopTimer = function () {
+		if (angular.isDefined($scope.Timer)) {
+			$interval.cancel($scope.Timer);
+		}
+	};
+
 	refreshMarket();
-    var promise = $interval($scope.refreshMarket, 10000);
+
     $scope.$on('$destroy',function(){
-        if(promise)
-            $interval.cancel(promise);   
+        $scope.StopTimer();   
     });
 
 	// var refreshingPromise; 
