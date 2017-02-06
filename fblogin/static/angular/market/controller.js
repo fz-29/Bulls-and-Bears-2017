@@ -17,10 +17,11 @@ angular.module('market')
 			marketService.getCompanyList(authToken).then(function(companyList){
 				$scope.accountBalance = companyList.account_balance;
 				$scope.companies = companyList.companies;
-				refreshingPromise = $timeout(refreshEvery,60000)
+				refreshingPromise = $timeout(refreshEvery,60000);
 			});
 		}());
 	} 
+	$scope.startRefreshing();
 	$scope.$on('$destroy',function(){
     if(refreshingPromise)
         $timeout.cancel(refreshingPromise);   
