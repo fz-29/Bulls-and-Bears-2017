@@ -140,7 +140,7 @@ def short(request, format=None):
 	quantity = int(request.POST.get('quantity'))
 	if quantity is None:
 		return JsonResponse({"success":False})
-	if 0 < quantity <= company.available_quantity:
+	if 0 < quantity <= 100:
 		stockShorted = get_object_or_404(StockShorted, company=company, customer=customer)
 		stockShorted.quantity += quantity
 		customer.account_balance += company.stock_price * quantity
