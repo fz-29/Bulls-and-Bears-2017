@@ -37,7 +37,7 @@ def companyList(request, format = None):
 			'symbol': company.symbol,
 			'name': company.name,
 			'stock_price': company.stock_price,
-			'change': history[0].price - history[1].price if len(history) > 1 else 0,
+			'change': history[l-1].price - history[l-2].price if l > 1 else 0,
 			'trend': trend,
 			'available_quantity': company.available_quantity
 		})

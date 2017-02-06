@@ -13,10 +13,10 @@
 							<iframe class="embed-responsive-item" ng-src="{{ news.fields.youtube_src }}"></iframe>
 						</div>
 						<hr>
-						<p>{{ news.fields.news_text }}</p>
+						<p ng-bind-html="news.fields.news_text"></p>
 					</div>
 					<div class="panel-footer">
-						<h4 class="pull-right">{{ news.fields.published_on | date:"MMM d, y h:mm a" }}</h4>
+						{{ news.fields.published_on | date:"MMM d, y h:mm a" }}
 					</div>
 				</div>
 				<!-- END PANEL SCROLLING -->
