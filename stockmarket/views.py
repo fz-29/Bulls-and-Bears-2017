@@ -26,10 +26,9 @@ def companyList(request, format = None):
 	response_data['account_balance'] = Customer.objects.get(user=request.user).account_balance
 	response_data['companies'] = []
 	for company in tuples:
-		history = CompanyHistory.objects.filter(company=company)
-		l = len(history)
+		history = CompanyHistory.objects.filter(company=company).order_by('-timestamp')
 		try:
-			trend = round((history[l-1].price - history[l-2].price) / company.stock_price * 100, 2) if l > 1 else 0
+			trend = round((history[0].price - history[1].price) / company.stock_price * 100, 2) if len(history) else 0
 		except:
 			trend = 0
 		response_data['companies'].append({
