@@ -1,6 +1,6 @@
 'use strict';
 angular.module('profile')
-.controller('profileController', function($scope, $cookies, $http, $interval, profileService) {
+.controller('profileController', function($scope, $cookies, $http, $timeout, profileService) {
     $scope.customerDetail = {};
     var authToken = 'Token ' + $cookies.get('authToken');
 	console.log("authToken : " + authToken);

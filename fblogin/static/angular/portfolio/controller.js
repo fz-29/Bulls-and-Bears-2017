@@ -1,6 +1,6 @@
 'use strict';
 angular.module('portfolio')
-.controller('portfolioController', function($routeParams, $scope, $http, $cookies, $interval, portfolioService) {
+.controller('portfolioController', function($routeParams, $scope, $http, $cookies, $timeout, portfolioService) {
     $scope.company = {};
     var authToken = 'Token ' + $cookies.get('authToken');
 	var chartData = {};
