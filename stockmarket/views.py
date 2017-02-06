@@ -16,6 +16,8 @@ from rest_framework.views import APIView
 from django.core import serializers
 from ratelimit.decorators import ratelimit
 
+from django.views.decorators.cache import cache_page
+
 import json
 
 @cache_page(60*4)
