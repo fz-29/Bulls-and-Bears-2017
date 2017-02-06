@@ -8,8 +8,6 @@ angular.module('market')
 
 	$scope.Timer = null;
 
-	$scope.StartTimer();
-
 	$scope.refreshMarket = function() {
        marketService.getCompanyList(authToken).then(function(companyList){
 			$scope.accountBalance = companyList.account_balance;
@@ -26,6 +24,8 @@ angular.module('market')
 			$interval.cancel($scope.Timer);
 		}
 	};
+	
+	$scope.StartTimer();
 
 	refreshMarket();
 
