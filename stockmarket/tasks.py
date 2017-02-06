@@ -101,8 +101,9 @@ def revise_stock_price_by_stocks():
 				# Stock Price of Supplementary Company
 				# print F1
 				price = price + price * control_update_2 * (F1 + F2 + F3)
-				company.stock_price = price
-				company.save()
+				if price > 0.0:					
+					company.stock_price = price
+					company.save()
 	except:
 		pass
 
