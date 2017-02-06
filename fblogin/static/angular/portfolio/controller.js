@@ -5,34 +5,48 @@ angular.module('portfolio')
     var authToken = 'Token ' + $cookies.get('authToken');
 	var chartData = {};
 	console.log("authToken : " + authToken);
-	$scope.callAtInterval = function(){
-	portfolioService.getCompanyPortfolio(authToken, $routeParams.id).then(function(companyPortfolio){
-		$scope.company = companyPortfolio;
-		console.log(companyPortfolio.price_history);
-		chartData = {
-			type: "area",  // Specify your chart type here.
-			title: {},
-			legend: {}, // Creates an interactive legend
-			series: [  // Insert your series data here.
-				{ 
-					values: companyPortfolio.price_history,
-					text: "Price History"
-				},
-				// {
-				// 	values: $scope.company.stock_history,
-				// 	text: "Stock History"
-				// }
-			]
-			};
-			zingchart.render({ // Render Method[3]
-			id: "chartDiv",
-			data: chartData,
-			width: '100%'
-		});
-	});}
-	$scope.callAtInterval();
-	// $interval( function(){ $scope.callAtInterval(); }, 60000);
-	
+
+	var refreshingPromise = null; 
+	var isRefreshing = false;
+	$scope.startRefreshing = function(){
+		if(isRefreshing) return;
+		isRefreshing = true;
+		(function refreshEvery(){
+			//Do refresh
+			//If async in then in callback do...
+			portfolioService.getCompanyPortfolio(authToken, $routeParams.id).then(function(companyPortfolio){
+				$scope.company = companyPortfolio;
+				console.log(companyPortfolio.price_history);
+				chartData = {
+					type: "area",  // Specify your chart type here.
+					title: {},
+					legend: {}, // Creates an interactive legend
+					series: [  // Insert your series data here.
+						{ 
+							values: companyPortfolio.price_history,
+							text: "Price History"
+						},
+						// {
+						// 	values: $scope.company.stock_history,
+						// 	text: "Stock History"
+						// }
+					]
+					};
+					zingchart.render({ // Render Method[3]
+					id: "chartDiv",
+					data: chartData,
+					width: '100%'
+				});
+				refreshingPromise = $timeout(refreshEvery,60000);
+			});
+		}());
+	} 
+	$scope.startRefreshing();
+	$scope.$on('$destroy',function(){
+    if(refreshingPromise)
+        $timeout.cancel(refreshingPromise);   
+	});
+
 	$scope.buy = function(){
 		console.log("buyQty: " + $scope.buyQty);
 		$scope.data = 'id=' + $routeParams.id +
