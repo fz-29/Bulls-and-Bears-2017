@@ -29,7 +29,7 @@ def companyList(request, format = None):
 		history = CompanyHistory.objects.filter(company=company)
 		l = len(history)
 		try:
-			trend = round((history[l].price - history[l-1].price) / company.stock_price * 100, 2) if l > 1 else 0
+			trend = round((history[l-1].price - history[l-2].price) / company.stock_price * 100, 2) if l > 1 else 0
 		except:
 			trend = 0
 		response_data['companies'].append({
@@ -37,7 +37,7 @@ def companyList(request, format = None):
 			'symbol': company.symbol,
 			'name': company.name,
 			'stock_price': company.stock_price,
-			'change': history[l].price - history[l-1].price if l > 1 else 0,
+			'change': history[l-1].price - history[l-2].price if l > 1 else 0,
 			'trend': trend,
 			'available_quantity': company.available_quantity
 		})
