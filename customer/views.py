@@ -20,9 +20,12 @@ from rest_framework.views import APIView
 from django.core import serializers
 from ratelimit.decorators import ratelimit
 
+from django.views.decorators.cache import cache_page
+
 import json
 import datetime
 
+@cache_page(60*5)
 @ratelimit(key='ip', rate = '10/m')
 @api_view(["GET"])
 def customerList(request, format = None):
