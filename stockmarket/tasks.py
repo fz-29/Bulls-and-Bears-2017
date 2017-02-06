@@ -36,9 +36,9 @@ def revise_stock_price_by_news():
 		
 		sp_t = float(company.stock_price)
 
-		a = (1.0/impact)
+		a = (1.0/abs(impact))
 
-		if impact > 0: #increase stock price
+		if impact > 0.0: #increase stock price
 			if t <= impact_growth_iter:
 				sp_t = sp_t + sp_t * control_update_1 *(impact*increment_factor_1*(exp(a*t)))
 			else:
@@ -122,11 +122,11 @@ def revise_stock_price_random():
 	for company in all_companies:
 		price = float(company.stock_price)
 		price = price * (1 + (control_update_3*uniform(-1.0,1.0)))
-		company.stock_price = price
-		company.save()
-
-		hist = CompanyHistory(company = company, price = price, stocks_available = company.available_quantity)
-		hist.save()
+		if price > 0.0:
+			company.stock_price = price
+			company.save()
+			hist = CompanyHistory(company = company, price = price, stocks_available = company.available_quantity)
+			hist.save()
 
 @shared_task
 def publish_by_exact_time():
