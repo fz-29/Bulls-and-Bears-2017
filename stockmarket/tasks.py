@@ -49,10 +49,14 @@ def revise_stock_price_by_news():
 			else:
 				sp_t = sp_t + sp_t * control_update_1 *(impact*increment_factor_2*(exp(-a*0.5*t)))
 		#updates
-		impact_info.iterations_run = t + 1
-		company.stock_price = sp_t
-		company.save()
-		impact_info.save()
+		if sp_t > 0.0:
+			impact_info.iterations_run = t + 1
+			impact_info.save()
+			company.stock_price = sp_t
+			company.save()
+			hist = CompanyHistory(company = company, price = sp_t, stocks_available = company.available_quantity)
+			hist.save()
+		
 
 	#update history and random noise
 	#revise_stock_price_random()
@@ -101,9 +105,11 @@ def revise_stock_price_by_stocks():
 				# Stock Price of Supplementary Company
 				# print F1
 				price = price + price * control_update_2 * (F1 + F2 + F3)
-				if price > 0.0:					
+				if price > 0.0:
 					company.stock_price = price
 					company.save()
+					hist = CompanyHistory(company = company, price = price, stocks_available = company.available_quantity)
+					hist.save()
 	except:
 		pass
 
@@ -144,10 +150,6 @@ def publish_by_interval():
 	'''
 		This task can be used when we decide to dispatch news ONE BY ONE on REGULAR interval
 	'''
-	to_publish_news = News.objects.filter(is_published=False).earliest('published_on')
-	to_publish_news.is_published = True
-	to_publish_news.save()
-
 	to_publish_news = News.objects.filter(is_published=False).earliest('published_on')
 	to_publish_news.is_published = True
 	to_publish_news.save()

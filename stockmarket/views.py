@@ -25,7 +25,10 @@ import json
 def companyList(request, format = None):
 	tuples = Company.objects.all()
 	response_data = {}
-	response_data['account_balance'] = "NaN"
+	
+	customer = get_object_or_404(Customer, user=request.user)
+
+	response_data['account_balance'] = customer.account_balance
 	response_data['companies'] = []
 	for company in tuples:
 		history = CompanyHistory.objects.filter(company=company)
