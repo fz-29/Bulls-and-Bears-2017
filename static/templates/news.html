@@ -1,0 +1,42 @@
+<!-- MAIN CONTENT -->
+<div class="main-content">
+	<div class="container-fluid">
+		<h1 class="page-title">News</h1>
+		<div class="row">
+			<div class="col-md-12">
+				<!-- PANEL HEADLINE -->
+				<!--<div class="panel panel-headline">
+					<div class="panel-body">
+						<h1>Latest News</h1>
+						<h4>Time</h4>
+							<p>Objectively network visionary methodologies via best-of-breed users. Phosfluorescently initiate go forward leadership skills before an expanded array of infomediaries. Monotonectally incubate web-enabled communities rather than process-centric.</p>
+					</div>
+				</div>-->
+				<!-- END PANEL HEADLINE -->
+			</div>
+
+			<!--angular for loop-->
+
+			<div class="col-md-6" ng-repeat="news in newsList">
+				<!-- PANEL SCROLLING -->
+				<div id="panel-scrolling-demo" class="panel">
+					<div class="panel-body">
+						<h4>{{ news.fields.published_on | date:"MMM d, y h:mm a" }}</h4>
+						<!--<video width=100% controls>-->
+  							<!--<source ng-src="{{ '/media/' + news.fields.media }}" type="video/mp4">-->
+  							<!--<source src="movie.ogg" type="video/ogg">-->
+							  <div class="aspect-ratio">
+							  <iframe width="550" height="275" src=" https://www.youtube.com/embed/kuX64FLbfuo " frameborder="0" allowfullscreen></iframe>
+							  </div>
+							<!--Your browser does not support the video tag.-->
+						<!--</video>-->
+						<p>{{ news.fields.news_text }}</p>
+					</div>
+				</div>
+				<!-- END PANEL SCROLLING -->
+			</div>
+		</div>
+		</div>
+	</div>
+</div>
+<!-- END MAIN CONTENT <--></-->

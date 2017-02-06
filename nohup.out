@@ -2443,3 +2443,242 @@ Traceback (most recent call last):
   File "/home/ieee/bnbserver/local/lib/python2.7/site-packages/django/db/models/query.py", line 385, in get
     self.model._meta.object_name
 DoesNotExist: SocialAccount matching query does not exist.
+[2017-02-05 14:31:54 +0000] [2661] [INFO] Starting gunicorn 19.6.0
+[2017-02-05 14:31:54 +0000] [2661] [INFO] Listening at: http://127.0.0.1:8000 (2661)
+[2017-02-05 14:31:54 +0000] [2661] [INFO] Using worker: sync
+[2017-02-05 14:31:54 +0000] [2666] [INFO] Booting worker with pid: 2666
+[2017-02-05 14:39:03 +0000] [2661] [CRITICAL] WORKER TIMEOUT (pid:2666)
+[2017-02-05 20:09:03 +0000] [2666] [INFO] Worker exiting (pid: 2666)
+[2017-02-05 14:39:03 +0000] [2795] [INFO] Booting worker with pid: 2795
+[2017-02-05 14:44:12 +0000] [2661] [CRITICAL] WORKER TIMEOUT (pid:2795)
+[2017-02-05 20:14:12 +0000] [2795] [INFO] Worker exiting (pid: 2795)
+[2017-02-05 14:44:12 +0000] [2957] [INFO] Booting worker with pid: 2957
+/home/ieee/bnbserver/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-05 20:14:38.243635) while time zone support is active.
+  RuntimeWarning)
+/home/ieee/bnbserver/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-05 20:19:59.240296) while time zone support is active.
+  RuntimeWarning)
+/home/ieee/bnbserver/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-05 20:20:01.469863) while time zone support is active.
+  RuntimeWarning)
+[2017-02-05 15:00:14 +0000] [2661] [CRITICAL] WORKER TIMEOUT (pid:2957)
+[2017-02-05 20:30:14 +0000] [2957] [INFO] Worker exiting (pid: 2957)
+[2017-02-05 15:00:14 +0000] [3282] [INFO] Booting worker with pid: 3282
+[2017-02-05 15:00:56 +0000] [2661] [CRITICAL] WORKER TIMEOUT (pid:3282)
+[2017-02-05 20:30:56 +0000] [3282] [INFO] Worker exiting (pid: 3282)
+[2017-02-05 15:00:56 +0000] [3294] [INFO] Booting worker with pid: 3294
+
+Restarting celery worker (/home/ieee/bnbserver/bin/celery --app=bnb2017.celery worker)
+
+worker: Warm shutdown (MainProcess)
+celery beat v4.0.2 (latentcall) is starting.
+__    -    ... __   -        _
+LocalTime -> 2017-02-05 20:02:11
+Configuration ->
+    . broker -> amqp://guest:**@localhost:5672//
+    . loader -> celery.loaders.app.AppLoader
+    . scheduler -> django_celery_beat.schedulers.DatabaseScheduler
+
+    . logfile -> [stderr]@%WARNING
+    . maxinterval -> 5.00 seconds (5s)
+ 
+ -------------- celery@bnbmachine v4.0.2 (latentcall)
+---- **** ----- 
+--- * ***  * -- Linux-4.4.0-62-generic-x86_64-with-Ubuntu-16.04-xenial 2017-02-05 20:02:24
+-- * - **** --- 
+- ** ---------- [config]
+- ** ---------- .> app:         bnb2017:0x7f7512f67990
+- ** ---------- .> transport:   amqp://guest:**@localhost:5672//
+- ** ---------- .> results:     disabled://
+- *** --- * --- .> concurrency: 2 (prefork)
+-- ******* ---- .> task events: OFF (enable -E to monitor tasks in this worker)
+--- ***** ----- 
+ -------------- [queues]
+                .> celery           exchange=celery(direct) key=celery
+                
+
+[2017-02-05 20:33:11,534: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 2.00 seconds...
+
+[2017-02-05 20:33:13,547: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 4.00 seconds...
+
+[2017-02-05 20:33:17,559: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 6.00 seconds...
+
+[2017-02-05 20:33:23,577: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 8.00 seconds...
+
+[2017-02-05 20:33:31,593: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 10.00 seconds...
+
+[2017-02-05 20:33:41,612: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 12.00 seconds...
+
+[2017-02-05 20:33:53,632: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 14.00 seconds...
+
+[2017-02-05 20:34:07,656: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 16.00 seconds...
+
+[2017-02-05 20:34:23,682: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 18.00 seconds...
+
+[2017-02-05 15:08:23 +0000] [2171] [INFO] Starting gunicorn 19.6.0
+[2017-02-05 15:08:23 +0000] [2171] [INFO] Listening at: http://127.0.0.1:8000 (2171)
+[2017-02-05 15:08:23 +0000] [2171] [INFO] Using worker: sync
+[2017-02-05 15:08:23 +0000] [2176] [INFO] Booting worker with pid: 2176
+celery beat v4.0.2 (latentcall) is starting.
+__    -    ... __   -        _
+LocalTime -> 2017-02-05 20:38:32
+Configuration ->
+    . broker -> amqp://guest:**@localhost:5672//
+    . loader -> celery.loaders.app.AppLoader
+    . scheduler -> django_celery_beat.schedulers.DatabaseScheduler
+
+    . logfile -> [stderr]@%WARNING
+    . maxinterval -> 5.00 seconds (5s)
+
+worker: Warm shutdown (MainProcess)
+ 
+ -------------- celery@bnbmachine v4.0.2 (latentcall)
+---- **** ----- 
+--- * ***  * -- Linux-4.4.0-62-generic-x86_64-with-Ubuntu-16.04-xenial 2017-02-05 20:38:43
+-- * - **** --- 
+- ** ---------- [config]
+- ** ---------- .> app:         bnb2017:0x7fdeb1715990
+- ** ---------- .> transport:   amqp://guest:**@localhost:5672//
+- ** ---------- .> results:     disabled://
+- *** --- * --- .> concurrency: 2 (prefork)
+-- ******* ---- .> task events: OFF (enable -E to monitor tasks in this worker)
+--- ***** ----- 
+ -------------- [queues]
+                .> celery           exchange=celery(direct) key=celery
+                
+
+[2017-02-05 15:20:01 +0000] [2171] [INFO] Handling signal: hup
+[2017-02-05 15:20:01 +0000] [2171] [INFO] Hang up: Master
+[2017-02-05 15:20:01 +0000] [2398] [INFO] Booting worker with pid: 2398
+/home/ieee/bnbserver/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-05 20:55:35.931116) while time zone support is active.
+  RuntimeWarning)
+
+Restarting celery worker (/home/ieee/bnbserver/bin/celery --app=bnb2017.celery worker)
+ 
+ -------------- celery@bnbmachine v4.0.2 (latentcall)
+---- **** ----- 
+--- * ***  * -- Linux-4.4.0-62-generic-x86_64-with-Ubuntu-16.04-xenial 2017-02-05 21:40:31
+-- * - **** --- 
+- ** ---------- [config]
+- ** ---------- .> app:         bnb2017:0x7fbf90325990
+- ** ---------- .> transport:   amqp://guest:**@localhost:5672//
+- ** ---------- .> results:     disabled://
+- *** --- * --- .> concurrency: 2 (prefork)
+-- ******* ---- .> task events: OFF (enable -E to monitor tasks in this worker)
+--- ***** ----- 
+ -------------- [queues]
+                .> celery           exchange=celery(direct) key=celery
+                
+
+[2017-02-05 21:52:01,012: ERROR/MainProcess] Process 'PoolWorker-1' pid:3495 exited with 'signal 15 (SIGTERM)'
+[2017-02-05 21:54:25,013: ERROR/MainProcess] Process 'PoolWorker-3' pid:3649 exited with 'signal 15 (SIGTERM)'
+[2017-02-05 16:25:51 +0000] [2171] [INFO] Handling signal: term
+[2017-02-05 21:55:55 +0000] [2398] [INFO] Worker exiting (pid: 2398)
+[2017-02-05 16:25:55 +0000] [2171] [INFO] Shutting down: Master
+
+Restarting celery worker (/home/ieee/bnbserver/bin/celery --app=bnb2017.celery worker)
+
+worker: Warm shutdown (MainProcess)
+celery beat v4.0.2 (latentcall) is starting.
+__    -    ... __   -        _
+LocalTime -> 2017-02-05 21:40:22
+Configuration ->
+    . broker -> amqp://guest:**@localhost:5672//
+    . loader -> celery.loaders.app.AppLoader
+    . scheduler -> django_celery_beat.schedulers.DatabaseScheduler
+
+    . logfile -> [stderr]@%WARNING
+    . maxinterval -> 5.00 seconds (5s)
+ 
+ -------------- celery@bnbmachine v4.0.2 (latentcall)
+---- **** ----- 
+--- * ***  * -- Linux-4.4.0-62-generic-x86_64-with-Ubuntu-16.04-xenial 2017-02-05 21:48:28
+-- * - **** --- 
+- ** ---------- [config]
+- ** ---------- .> app:         bnb2017:0x7f2da36479d0
+- ** ---------- .> transport:   amqp://guest:**@localhost:5672//
+- ** ---------- .> results:     disabled://
+- *** --- * --- .> concurrency: 2 (prefork)
+-- ******* ---- .> task events: OFF (enable -E to monitor tasks in this worker)
+--- ***** ----- 
+ -------------- [queues]
+                .> celery           exchange=celery(direct) key=celery
+                
+
+[2017-02-05 21:56:45,843: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 2.00 seconds...
+
+[2017-02-05 21:56:47,857: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 4.00 seconds...
+
+[2017-02-05 21:56:51,872: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 6.00 seconds...
+
+[2017-02-05 21:56:57,890: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 8.00 seconds...
+
+[2017-02-05 21:57:05,906: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 10.00 seconds...
+
+[2017-02-05 21:57:15,925: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 12.00 seconds...
+
+[2017-02-05 21:57:27,945: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 14.00 seconds...
+
+[2017-02-05 21:57:41,971: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 16.00 seconds...
+
+[2017-02-05 21:57:57,996: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 18.00 seconds...
+
+[2017-02-05 16:28:48 +0000] [2160] [INFO] Starting gunicorn 19.6.0
+[2017-02-05 16:28:48 +0000] [2160] [INFO] Listening at: http://127.0.0.1:8000 (2160)
+[2017-02-05 16:28:48 +0000] [2160] [INFO] Using worker: sync
+[2017-02-05 16:28:48 +0000] [2165] [INFO] Booting worker with pid: 2165
+/home/ieee/bnbserver/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-05 22:07:28.601531) while time zone support is active.
+  RuntimeWarning)
+[2017-02-05 16:38:29 +0000] [2160] [INFO] Handling signal: hup
+[2017-02-05 16:38:29 +0000] [2160] [INFO] Hang up: Master
+
+Restarting celery worker (/home/ieee/bnbserver/bin/celery --app=bnb2017.celery worker)
+[2017-02-05 16:38:29 +0000] [2340] [INFO] Booting worker with pid: 2340
+ 
+ -------------- celery@bnbmachine v4.0.2 (latentcall)
+---- **** ----- 
+--- * ***  * -- Linux-4.4.0-62-generic-x86_64-with-Ubuntu-16.04-xenial 2017-02-05 21:59:03
+-- * - **** --- 
+- ** ---------- [config]
+- ** ---------- .> app:         bnb2017:0x7f0fff3a4990
+- ** ---------- .> transport:   amqp://guest:**@localhost:5672//
+- ** ---------- .> results:     disabled://
+- *** --- * --- .> concurrency: 2 (prefork)
+-- ******* ---- .> task events: OFF (enable -E to monitor tasks in this worker)
+--- ***** ----- 
+ -------------- [queues]
+                .> celery           exchange=celery(direct) key=celery
+                
+
+[2017-02-05 16:42:02 +0000] [2160] [CRITICAL] WORKER TIMEOUT (pid:2340)
+[2017-02-05 22:12:02 +0000] [2340] [INFO] Worker exiting (pid: 2340)
+[2017-02-05 16:42:02 +0000] [2404] [INFO] Booting worker with pid: 2404
+/home/ieee/bnbserver/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-05 22:16:50.403440) while time zone support is active.
+  RuntimeWarning)
+/home/ieee/bnbserver/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-06 01:19:28.015434) while time zone support is active.
+  RuntimeWarning)
+[2017-02-06 07:30:01 +0000] [2404] [INFO] Worker exiting (pid: 2404)
+[2017-02-06 02:00:01 +0000] [14881] [INFO] Booting worker with pid: 14881
+[2017-02-06 02:25:42 +0000] [2160] [CRITICAL] WORKER TIMEOUT (pid:14881)
+[2017-02-06 07:55:42 +0000] [14881] [INFO] Worker exiting (pid: 14881)
+[2017-02-06 02:25:42 +0000] [15411] [INFO] Booting worker with pid: 15411
+/home/ieee/bnbserver/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-06 07:58:23.752705) while time zone support is active.
+  RuntimeWarning)
+/home/ieee/bnbserver/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-06 07:58:32.969544) while time zone support is active.
+  RuntimeWarning)
