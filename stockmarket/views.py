@@ -37,7 +37,7 @@ def companyList(request, format = None):
 			'symbol': company.symbol,
 			'name': company.name,
 			'stock_price': company.stock_price,
-			'change': history[0].price - history[1].price if len(history) > 1 else 0,
+			'change': history[l-1].price - history[l-2].price if l > 1 else 0,
 			'trend': trend,
 			'available_quantity': company.available_quantity
 		})
@@ -64,7 +64,7 @@ def companyDetail(request, format = None):
 	response_data['price_history'] = []
 	response_data['stock_history'] = []
 	companyhistory = []
-	tuples = CompanyHistory.objects.filter(company__pk=request.GET.get('id')).order_by('timestamp').all()
+	tuples = CompanyHistory.objects.filter(company__pk=request.GET.get('id')).all()
 	tuples = tuples[:60:3] if len(tuples) >= 20 else tuples
 	for history in tuples:
 		response_data['price_history'].append(history.price)
@@ -77,4 +77,3 @@ def newsList(request, format = None):
 	tuples = News.objects.filter(is_published=True).order_by('-published_on').all()
 	news_serialized = serializers.serialize('json', tuples)
 	return HttpResponse(news_serialized, content_type="application/json")
-
