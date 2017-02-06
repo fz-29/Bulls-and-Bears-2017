@@ -20,7 +20,7 @@ from django.views.decorators.cache import cache_page
 
 import json
 
-@cache_page(60*4)
+@cache_page(60)
 @ratelimit(key='ip', rate = '10/m')
 @api_view(["GET"])
 def companyList(request, format = None):
@@ -74,6 +74,7 @@ def companyDetail(request, format = None):
 		response_data['stock_history'].append(history.stocks_available)
 	return JsonResponse(response_data)
 
+@cache_page(60)
 @ratelimit(key='ip', rate = '10/m')
 @api_view(["GET"])
 def newsList(request, format = None):
