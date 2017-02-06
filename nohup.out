@@ -2690,3 +2690,436 @@ Restarting celery worker (/home/ieee/bnbserver/bin/celery --app=bnb2017.celery w
 [2017-02-06 10:51:15 +0000] [28767] [INFO] Listening at: http://127.0.0.1:8000 (28767)
 [2017-02-06 10:51:15 +0000] [28767] [INFO] Using worker: sync
 [2017-02-06 10:51:15 +0000] [28772] [INFO] Booting worker with pid: 28772
+[2017-02-06 12:36:21 +0000] [29804] [INFO] Starting gunicorn 19.6.0
+[2017-02-06 12:36:21 +0000] [29804] [INFO] Listening at: http://127.0.0.1:8000 (29804)
+[2017-02-06 12:36:21 +0000] [29804] [INFO] Using worker: sync
+[2017-02-06 12:36:21 +0000] [29809] [INFO] Booting worker with pid: 29809
+Stale pidfile exists - Removing it.
+[2017-02-06 18:06:50,667: ERROR/MainProcess] beat: Connection error: [Errno 111] Connection refused. Trying again in 2.0 seconds...
+[2017-02-06 18:06:52,682: ERROR/MainProcess] beat: Connection error: [Errno 111] Connection refused. Trying again in 4.0 seconds...
+[2017-02-06 18:06:56,700: ERROR/MainProcess] beat: Connection error: [Errno 111] Connection refused. Trying again in 6.0 seconds...
+/home/venv/local/lib/python2.7/site-packages/celery/platforms.py:793: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the -u option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  uid=uid, euid=euid, gid=gid, egid=egid,
+[2017-02-06 18:07:00,108: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 2.00 seconds...
+
+[2017-02-06 18:07:02,119: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 4.00 seconds...
+
+[2017-02-06 18:07:02,714: ERROR/MainProcess] beat: Connection error: [Errno 111] Connection refused. Trying again in 8.0 seconds...
+[2017-02-06 18:07:06,131: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 6.00 seconds...
+
+[2017-02-06 18:07:10,732: ERROR/MainProcess] beat: Connection error: [Errno 111] Connection refused. Trying again in 10.0 seconds...
+[2017-02-06 18:07:12,147: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 8.00 seconds...
+
+[2017-02-06 18:07:20,165: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 10.00 seconds...
+
+[2017-02-06 18:07:20,752: ERROR/MainProcess] beat: Connection error: [Errno 111] Connection refused. Trying again in 12.0 seconds...
+[2017-02-06 18:07:30,185: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 12.00 seconds...
+
+[2017-02-06 18:07:32,772: ERROR/MainProcess] beat: Connection error: [Errno 111] Connection refused. Trying again in 14.0 seconds...
+[2017-02-06 18:07:42,206: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 14.00 seconds...
+
+[2017-02-06 18:07:46,795: ERROR/MainProcess] beat: Connection error: [Errno 111] Connection refused. Trying again in 16.0 seconds...
+[2017-02-06 18:07:56,230: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 16.00 seconds...
+
+[2017-02-06 18:08:02,820: ERROR/MainProcess] beat: Connection error: [Errno 111] Connection refused. Trying again in 18.0 seconds...
+[2017-02-06 18:08:12,254: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 18.00 seconds...
+
+[2017-02-06 18:08:20,848: ERROR/MainProcess] beat: Connection error: [Errno 111] Connection refused. Trying again in 20.0 seconds...
+[2017-02-06 18:08:30,282: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 20.00 seconds...
+
+[2017-02-06 18:08:40,880: ERROR/MainProcess] beat: Connection error: [Errno 111] Connection refused. Trying again in 22.0 seconds...
+[2017-02-06 18:08:50,312: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 22.00 seconds...
+
+[2017-02-06 18:09:02,913: ERROR/MainProcess] beat: Connection error: [Errno 111] Connection refused. Trying again in 24.0 seconds...
+[2017-02-06 18:09:12,344: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 24.00 seconds...
+
+[2017-02-06 18:09:26,946: ERROR/MainProcess] beat: Connection error: [Errno 111] Connection refused. Trying again in 26.0 seconds...
+[2017-02-06 18:09:36,377: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 26.00 seconds...
+
+[2017-02-06 18:09:52,982: ERROR/MainProcess] beat: Connection error: [Errno 111] Connection refused. Trying again in 28.0 seconds...
+[2017-02-06 18:10:02,413: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 28.00 seconds...
+
+[2017-02-06 18:10:21,022: ERROR/MainProcess] beat: Connection error: [Errno 111] Connection refused. Trying again in 30.0 seconds...
+[2017-02-06 18:10:30,453: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 30.00 seconds...
+
+[2017-02-06 18:10:51,062: ERROR/MainProcess] beat: Connection error: [Errno 111] Connection refused. Trying again in 32.0 seconds...
+[2017-02-06 18:11:00,493: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 32.00 seconds...
+
+[2017-02-06 12:41:20 +0000] [29804] [INFO] Handling signal: hup
+[2017-02-06 12:41:20 +0000] [29804] [INFO] Hang up: Master
+
+Restarting celery worker (/home/venv/bin/celery --app=bnb2017.celery worker)
+
+worker: Warm shutdown (MainProcess)
+[2017-02-06 12:41:21 +0000] [29925] [INFO] Booting worker with pid: 29925
+[2017-02-06 12:41:21 +0000] [29804] [INFO] Handling signal: term
+celery beat v4.0.2 (latentcall) is starting.
+__    -    ... __   -        _
+LocalTime -> 2017-02-06 18:06:50
+Configuration ->
+    . broker -> amqp://guest:**@localhost:5672//
+    . loader -> celery.loaders.app.AppLoader
+    . scheduler -> django_celery_beat.schedulers.DatabaseScheduler
+
+    . logfile -> [stderr]@%WARNING
+    . maxinterval -> 5.00 seconds (5s)
+[2017-02-06 18:11:21 +0000] [29925] [INFO] Worker exiting (pid: 29925)
+[2017-02-06 12:41:21 +0000] [29804] [INFO] Shutting down: Master
+ 
+ -------------- celery@bnb2017 v4.0.2 (latentcall)
+---- **** ----- 
+--- * ***  * -- Linux-4.4.0-57-generic-x86_64-with-Ubuntu-16.04-xenial 2017-02-06 18:06:59
+-- * - **** --- 
+- ** ---------- [config]
+- ** ---------- .> app:         bnb2017:0x7f2c903839d0
+- ** ---------- .> transport:   amqp://guest:**@localhost:5672//
+- ** ---------- .> results:     disabled://
+- *** --- * --- .> concurrency: 2 (prefork)
+-- ******* ---- .> task events: OFF (enable -E to monitor tasks in this worker)
+--- ***** ----- 
+ -------------- [queues]
+                .> celery           exchange=celery(direct) key=celery
+                
+
+/home/venv/local/lib/python2.7/site-packages/celery/platforms.py:793: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the -u option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  uid=uid, euid=euid, gid=gid, egid=egid,
+[2017-02-06 18:11:22,769: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 2.00 seconds...
+
+[2017-02-06 18:11:24,780: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 4.00 seconds...
+
+[2017-02-06 18:11:28,794: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 6.00 seconds...
+
+[2017-02-06 18:11:34,808: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 8.00 seconds...
+
+[2017-02-06 18:11:42,825: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 10.00 seconds...
+
+[2017-02-06 18:11:52,850: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 12.00 seconds...
+
+[2017-02-06 18:12:04,876: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 14.00 seconds...
+
+[2017-02-06 18:12:18,900: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 16.00 seconds...
+
+[2017-02-06 18:12:34,934: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 18.00 seconds...
+
+[2017-02-06 12:45:00 +0000] [1701] [INFO] Starting gunicorn 19.6.0
+[2017-02-06 12:45:00 +0000] [1701] [INFO] Listening at: http://127.0.0.1:8000 (1701)
+[2017-02-06 12:45:00 +0000] [1701] [INFO] Using worker: sync
+[2017-02-06 12:45:00 +0000] [1706] [INFO] Booting worker with pid: 1706
+[2017-02-06 18:15:09,691: ERROR/MainProcess] beat: Connection error: [Errno 111] Connection refused. Trying again in 2.0 seconds...
+[2017-02-06 18:15:11,707: ERROR/MainProcess] beat: Connection error: [Errno 111] Connection refused. Trying again in 4.0 seconds...
+[2017-02-06 18:15:15,721: ERROR/MainProcess] beat: Connection error: [Errno 111] Connection refused. Trying again in 6.0 seconds...
+[2017-02-06 18:15:21,735: ERROR/MainProcess] beat: Connection error: [Errno 111] Connection refused. Trying again in 8.0 seconds...
+[2017-02-06 18:15:29,751: ERROR/MainProcess] beat: Connection error: [Errno 111] Connection refused. Trying again in 10.0 seconds...
+[2017-02-06 18:15:39,769: ERROR/MainProcess] beat: Connection error: [Errno 111] Connection refused. Trying again in 12.0 seconds...
+[2017-02-06 18:15:51,794: ERROR/MainProcess] beat: Connection error: [Errno 111] Connection refused. Trying again in 14.0 seconds...
+[2017-02-06 18:16:05,816: ERROR/MainProcess] beat: Connection error: [Errno 111] Connection refused. Trying again in 16.0 seconds...
+/home/venv/local/lib/python2.7/site-packages/celery/platforms.py:793: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the -u option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  uid=uid, euid=euid, gid=gid, egid=egid,
+[2017-02-06 18:16:11,946: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 2.00 seconds...
+
+[2017-02-06 18:16:13,956: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 4.00 seconds...
+
+[2017-02-06 18:16:17,969: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 6.00 seconds...
+
+[2017-02-06 18:16:21,841: ERROR/MainProcess] beat: Connection error: [Errno 111] Connection refused. Trying again in 18.0 seconds...
+[2017-02-06 18:16:23,983: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 8.00 seconds...
+
+[2017-02-06 18:16:32,000: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 10.00 seconds...
+
+[2017-02-06 18:16:39,868: ERROR/MainProcess] beat: Connection error: [Errno 111] Connection refused. Trying again in 20.0 seconds...
+[2017-02-06 18:16:42,020: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 12.00 seconds...
+
+[2017-02-06 18:16:54,039: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 14.00 seconds...
+
+[2017-02-06 18:16:59,898: ERROR/MainProcess] beat: Connection error: [Errno 111] Connection refused. Trying again in 22.0 seconds...
+[2017-02-06 18:17:08,062: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 16.00 seconds...
+
+[2017-02-06 18:17:21,929: ERROR/MainProcess] beat: Connection error: [Errno 111] Connection refused. Trying again in 24.0 seconds...
+[2017-02-06 18:17:24,087: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 18.00 seconds...
+
+[2017-02-06 18:17:42,121: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 20.00 seconds...
+
+[2017-02-06 18:17:45,965: ERROR/MainProcess] beat: Connection error: [Errno 111] Connection refused. Trying again in 26.0 seconds...
+[2017-02-06 18:18:02,153: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 22.00 seconds...
+
+[2017-02-06 18:18:12,001: ERROR/MainProcess] beat: Connection error: [Errno 111] Connection refused. Trying again in 28.0 seconds...
+[2017-02-06 18:18:24,185: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 24.00 seconds...
+
+[2017-02-06 18:18:40,040: ERROR/MainProcess] beat: Connection error: [Errno 111] Connection refused. Trying again in 30.0 seconds...
+[2017-02-06 18:18:48,220: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 26.00 seconds...
+
+[2017-02-06 18:19:10,081: ERROR/MainProcess] beat: Connection error: [Errno 111] Connection refused. Trying again in 32.0 seconds...
+[2017-02-06 18:19:14,256: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 28.00 seconds...
+
+
+worker: Warm shutdown (MainProcess)
+
+Restarting celery worker (/home/venv/bin/celery --app=bnb2017.celery worker)
+ 
+ -------------- celery@bnb2017 v4.0.2 (latentcall)
+---- **** ----- 
+--- * ***  * -- Linux-4.4.0-62-generic-x86_64-with-Ubuntu-16.04-xenial 2017-02-06 18:16:11
+-- * - **** --- 
+- ** ---------- [config]
+- ** ---------- .> app:         bnb2017:0x7f7135e4f9d0
+- ** ---------- .> transport:   amqp://guest:**@localhost:5672//
+- ** ---------- .> results:     disabled://
+- *** --- * --- .> concurrency: 2 (prefork)
+-- ******* ---- .> task events: OFF (enable -E to monitor tasks in this worker)
+--- ***** ----- 
+ -------------- [queues]
+                .> celery           exchange=celery(direct) key=celery
+                
+
+celery beat v4.0.2 (latentcall) is starting.
+__    -    ... __   -        _
+LocalTime -> 2017-02-06 18:15:09
+Configuration ->
+    . broker -> amqp://guest:**@localhost:5672//
+    . loader -> celery.loaders.app.AppLoader
+    . scheduler -> django_celery_beat.schedulers.DatabaseScheduler
+
+    . logfile -> [stderr]@%WARNING
+    . maxinterval -> 5.00 seconds (5s)
+/home/venv/local/lib/python2.7/site-packages/celery/platforms.py:793: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the -u option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  uid=uid, euid=euid, gid=gid, egid=egid,
+[2017-02-06 18:19:22,016: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 2.00 seconds...
+
+[2017-02-06 18:19:24,026: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 4.00 seconds...
+
+[2017-02-06 18:19:28,038: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 6.00 seconds...
+
+[2017-02-06 18:19:34,058: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 8.00 seconds...
+
+[2017-02-06 18:19:42,074: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 10.00 seconds...
+
+[2017-02-06 18:19:52,092: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 12.00 seconds...
+
+[2017-02-06 18:20:04,113: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 14.00 seconds...
+
+[2017-02-06 18:20:18,137: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 16.00 seconds...
+
+[2017-02-06 18:20:34,162: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 18.00 seconds...
+
+[2017-02-06 12:52:09 +0000] [1655] [INFO] Starting gunicorn 19.6.0
+[2017-02-06 12:52:09 +0000] [1655] [INFO] Listening at: http://127.0.0.1:8000 (1655)
+[2017-02-06 12:52:09 +0000] [1655] [INFO] Using worker: sync
+[2017-02-06 12:52:09 +0000] [1660] [INFO] Booting worker with pid: 1660
+[2017-02-06 18:22:18,835: ERROR/MainProcess] beat: Connection error: [Errno 111] Connection refused. Trying again in 2.0 seconds...
+[2017-02-06 18:22:20,845: ERROR/MainProcess] beat: Connection error: [Errno 111] Connection refused. Trying again in 4.0 seconds...
+[2017-02-06 18:22:24,857: ERROR/MainProcess] beat: Connection error: [Errno 111] Connection refused. Trying again in 6.0 seconds...
+/home/venv/local/lib/python2.7/site-packages/celery/platforms.py:793: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the -u option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  uid=uid, euid=euid, gid=gid, egid=egid,
+[2017-02-06 18:22:26,209: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 2.00 seconds...
+
+[2017-02-06 18:22:28,225: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 4.00 seconds...
+
+[2017-02-06 18:22:30,871: ERROR/MainProcess] beat: Connection error: [Errno 111] Connection refused. Trying again in 8.0 seconds...
+[2017-02-06 18:22:32,243: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 6.00 seconds...
+
+[2017-02-06 18:22:38,258: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 8.00 seconds...
+
+[2017-02-06 18:22:38,887: ERROR/MainProcess] beat: Connection error: [Errno 111] Connection refused. Trying again in 10.0 seconds...
+[2017-02-06 18:22:46,275: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 10.00 seconds...
+
+[2017-02-06 18:22:48,905: ERROR/MainProcess] beat: Connection error: [Errno 111] Connection refused. Trying again in 12.0 seconds...
+[2017-02-06 18:22:56,293: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 12.00 seconds...
+
+[2017-02-06 18:23:00,925: ERROR/MainProcess] beat: Connection error: [Errno 111] Connection refused. Trying again in 14.0 seconds...
+[2017-02-06 18:23:08,313: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 14.00 seconds...
+
+[2017-02-06 18:23:14,947: ERROR/MainProcess] beat: Connection error: [Errno 111] Connection refused. Trying again in 16.0 seconds...
+[2017-02-06 18:23:22,336: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 16.00 seconds...
+
+[2017-02-06 18:23:30,972: ERROR/MainProcess] beat: Connection error: [Errno 111] Connection refused. Trying again in 18.0 seconds...
+[2017-02-06 18:23:38,361: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 18.00 seconds...
+
+[2017-02-06 18:23:48,999: ERROR/MainProcess] beat: Connection error: [Errno 111] Connection refused. Trying again in 20.0 seconds...
+[2017-02-06 18:23:56,389: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 20.00 seconds...
+
+[2017-02-06 18:24:09,028: ERROR/MainProcess] beat: Connection error: [Errno 111] Connection refused. Trying again in 22.0 seconds...
+[2017-02-06 18:24:16,418: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 22.00 seconds...
+
+[2017-02-06 18:24:31,059: ERROR/MainProcess] beat: Connection error: [Errno 111] Connection refused. Trying again in 24.0 seconds...
+[2017-02-06 18:24:38,450: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 24.00 seconds...
+
+[2017-02-06 18:24:55,091: ERROR/MainProcess] beat: Connection error: [Errno 111] Connection refused. Trying again in 26.0 seconds...
+[2017-02-06 18:25:02,483: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 26.00 seconds...
+
+[2017-02-06 18:25:21,126: ERROR/MainProcess] beat: Connection error: [Errno 111] Connection refused. Trying again in 28.0 seconds...
+[2017-02-06 18:25:28,521: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 28.00 seconds...
+
+[2017-02-06 18:25:49,165: ERROR/MainProcess] beat: Connection error: [Errno 111] Connection refused. Trying again in 30.0 seconds...
+[2017-02-06 18:25:56,567: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 30.00 seconds...
+
+celery beat v4.0.2 (latentcall) is starting.
+__    -    ... __   -        _
+LocalTime -> 2017-02-06 18:22:18
+Configuration ->
+    . broker -> amqp://guest:**@localhost:5672//
+    . loader -> celery.loaders.app.AppLoader
+    . scheduler -> django_celery_beat.schedulers.DatabaseScheduler
+
+    . logfile -> [stderr]@%WARNING
+    . maxinterval -> 5.00 seconds (5s)
+[2017-02-06 18:26:26,608: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 32.00 seconds...
+
+[2017-02-06 18:26:58,649: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 32.00 seconds...
+
+
+Restarting celery worker (/home/venv/bin/celery --app=bnb2017.celery worker)
+
+worker: Warm shutdown (MainProcess)
+[2017-02-06 12:57:16 +0000] [1655] [INFO] Handling signal: hup
+[2017-02-06 12:57:16 +0000] [1655] [INFO] Hang up: Master
+[2017-02-06 12:57:16 +0000] [2191] [INFO] Booting worker with pid: 2191
+[2017-02-06 12:57:16 +0000] [1655] [INFO] Handling signal: term
+[2017-02-06 12:57:16 +0000] [2192] [INFO] Booting worker with pid: 2192
+[2017-02-06 18:27:17 +0000] [2191] [INFO] Worker exiting (pid: 2191)
+ 
+ -------------- celery@bnb2017 v4.0.2 (latentcall)
+---- **** ----- 
+--- * ***  * -- Linux-4.4.0-62-generic-x86_64-with-Ubuntu-16.04-xenial 2017-02-06 18:22:26
+-- * - **** --- 
+- ** ---------- [config]
+- ** ---------- .> app:         bnb2017:0x7f8ff1fbd9d0
+- ** ---------- .> transport:   amqp://guest:**@localhost:5672//
+- ** ---------- .> results:     disabled://
+- *** --- * --- .> concurrency: 2 (prefork)
+-- ******* ---- .> task events: OFF (enable -E to monitor tasks in this worker)
+--- ***** ----- 
+ -------------- [queues]
+                .> celery           exchange=celery(direct) key=celery
+                
+
+/home/venv/local/lib/python2.7/site-packages/celery/platforms.py:793: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the -u option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  uid=uid, euid=euid, gid=gid, egid=egid,
+[2017-02-06 18:27:18,411: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 2.00 seconds...
+
+[2017-02-06 18:27:20,422: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 4.00 seconds...
+
+[2017-02-06 18:27:24,434: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 6.00 seconds...
+
+[2017-02-06 18:27:30,449: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 8.00 seconds...
+
+[2017-02-06 18:27:38,465: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 10.00 seconds...
+
+[2017-02-06 12:57:46 +0000] [1655] [INFO] Shutting down: Master
+[2017-02-06 18:27:48,484: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 12.00 seconds...
+
+[2017-02-06 18:28:00,505: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 14.00 seconds...
+
+[2017-02-06 18:28:14,528: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 16.00 seconds...
+
+[2017-02-06 18:28:30,553: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 18.00 seconds...
+
