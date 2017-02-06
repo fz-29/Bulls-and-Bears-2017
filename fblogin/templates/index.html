@@ -1,142 +1,144 @@
-<!doctype html>
-{% load static %}
+<!doctype html> {% load static %}
 <html lang="en" ng-app='bnb'>
 
 <head>
-	<base href="/">
-	<title>Bulls 'n' Bears</title>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-	<!-- CSS -->
-	<link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
-	<link rel="stylesheet" href="{% static 'assets/css/vendor/icon-sets.css' %}">
-	<link rel="stylesheet" href="{% static 'assets/css/main.min.css' %}">
-	<!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
-	<link rel="stylesheet" href="{% static 'assets/css/demo.css'%}">
-	<!-- GOOGLE FONTS -->
-	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
-	<!-- <script src='./js/angular.min.js' ></script> -->
+    <base href="/">
+    <title>Bulls 'n' Bears</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/vendor/icon-sets.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/main.min.css' %}">
+    <!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
+    <link rel="stylesheet" href="{% static 'assets/css/demo.css'%}">
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
+    <!-- <script src='./js/angular.min.js' ></script> -->
     <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js'></script>
     <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-resource.js'></script>
     <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.js'></script>
-	<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-cookies.js'></script>
-	<script src="https://cdn.zingchart.com/zingchart.min.js"></script>
-	<script src='{% static "angular/app/module.js" %}'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-cookies.js'></script>
+    <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+    <script src='{% static "angular/app/module.js" %}'></script>
     <script src='{% static "angular/app/config.js" %}'></script>
-	<script src='{% static "angular/market/module.js" %}'></script>
-	<script src='{% static "angular/market/factory.js" %}'></script>
-	<script src='{% static "angular/market/controller.js" %}'></script>
-	<script src='{% static "angular/news/module.js" %}'></script>
-	<script src='{% static "angular/news/factory.js" %}'></script>
-	<script src='{% static "angular/news/controller.js" %}'></script>
-	<script src='{% static "angular/profile/module.js" %}'></script>
-	<script src='{% static "angular/profile/factory.js" %}'></script>
-	<script src='{% static "angular/profile/controller.js" %}'></script>
-	<script src='{% static "angular/leaderboard/module.js" %}'></script>
-	<script src='{% static "angular/leaderboard/factory.js" %}'></script>
-	<script src='{% static "angular/leaderboard/controller.js" %}'></script>
-	<script src='{% static "angular/portfolio/module.js" %}'></script>
-	<script src='{% static "angular/portfolio/factory.js" %}'></script>
-	<script src='{% static "angular/portfolio/controller.js" %}'></script>
-	<link rel="shortcut icon" href="{% static 'favicon' %}" type="image/x-icon">
+    <script src='{% static "angular/market/module.js" %}'></script>
+    <script src='{% static "angular/market/factory.js" %}'></script>
+    <script src='{% static "angular/market/controller.js" %}'></script>
+    <script src='{% static "angular/news/module.js" %}'></script>
+    <script src='{% static "angular/news/factory.js" %}'></script>
+    <script src='{% static "angular/news/controller.js" %}'></script>
+    <script src='{% static "angular/profile/module.js" %}'></script>
+    <script src='{% static "angular/profile/factory.js" %}'></script>
+    <script src='{% static "angular/profile/controller.js" %}'></script>
+    <script src='{% static "angular/leaderboard/module.js" %}'></script>
+    <script src='{% static "angular/leaderboard/factory.js" %}'></script>
+    <script src='{% static "angular/leaderboard/controller.js" %}'></script>
+    <script src='{% static "angular/portfolio/module.js" %}'></script>
+    <script src='{% static "angular/portfolio/factory.js" %}'></script>
+    <script src='{% static "angular/portfolio/controller.js" %}'></script>
+    <link rel="shortcut icon" href="{% static 'favicon' %}" type="image/x-icon">
     <link rel="icon" href="{% static 'favicon' %}" type="image/x-icon">
-	<!--<script type="text/javascript">
+    <!--<script type="text/javascript">
 	setTimeout(function(){
 		window.location.href = window.location.href;
 	},60000)
 	</script>-->
-	<style>
-    @media screen and (max-width: 767px)
-    {.table-responsive {
-        display: block;
-        overflow-x: scroll;
-	}}
-	/* This element defines the size the iframe will take.
+    <style>
+        @media screen and (max-width: 767px) {
+            .table-responsive {
+                display: block;
+                overflow-x: scroll;
+            }
+        }
+        /* This element defines the size the iframe will take.
 	In this example we want to have a ratio of 25:14 */
-	.aspect-ratio {
-	position: relative;
-	width: 100%;
-	height: 0;
-	padding-bottom: 56%; /* The height of the item will now be 56% of the width. */
-	}
-
-	/* Adjust the iframe so it's rendered in the outer-width and outer-height of it's parent */
-	.aspect-ratio iframe {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	left: 0;
-	top: 0;
-	}
-	</style>
+        
+        .aspect-ratio {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56%;
+            /* The height of the item will now be 56% of the width. */
+        }
+        /* Adjust the iframe so it's rendered in the outer-width and outer-height of it's parent */
+        
+        .aspect-ratio iframe {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+        }
+    </style>
 </head>
 
 <body>
-	<!-- WRAPPER -->
-	<div id="wrapper">
-		<!-- SIDEBAR -->
-		<div class="sidebar">
-			<div class="brand">
-				<img src='{% static "assets/img/bnb.png" %}' width="100%">
-			</div>
-			<div class="sidebar-scroll">
-				<nav>
-					<ul class="nav">
-						<li><a href="/market" ngClass="{active: isActive('/market')}"><i class="lnr lnr-home"></i> <span>Market</span></a></li>
-						<li><a href="/news" ngClass="{active: isActive('/news')}"><i class="lnr lnr-code"></i> <span>News</span></a></li>
-						<!--<li><a href="/companyportfolio" ngClass="{active: isActive('/companyportfolio')}"><i class="lnr lnr-chart-bars"></i> <span>Leaderboard</span></a></li>-->
-						<li><a href="/leaderboard" ngClass="{active: isActive('/leaderboard')}"><i class="lnr lnr-chart-bars"></i> <span>Leaderboard</span></a></li>
-						
-					</ul>
-				</nav>
-			</div>
-		</div>
-		<!-- END SIDEBAR -->
-		<!-- MAIN -->
-		<div class="main">
-			<!-- NAVBAR -->
-			<nav class="navbar navbar-default">
-				<div class="container-fluid">
-					<div class="navbar-btn">
-						<button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-arrow-left-circle"></i></button>
-						<span class="lead">Bulls 'n' Bears</span>
-					</div>
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-menu">
-							<span class="sr-only">Toggle Navigation</span>
-							<i class="fa fa-bars icon-nav"></i>
-						</button>
-					</div>
-					<div id="navbar-menu" class="navbar-collapse collapse">
-						
-						<ul class="nav navbar-nav navbar-right">
-							
-							<li class="">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="lnr lnr-question-circle"></i> <span>Help</span> </a>
-							</li>
-							<li class="">
-								<a href="/profile" class="dropdown-toggle" data-toggle="dropdown"><img src="https://graph.facebook.com/{{fbid}}/picture?height=20" class="img-circle" alt="Avatar"> <span>{{ name }}</span> </a>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</nav>
-			
-			<!-- END NAVBAR -->
-			<!-- MAIN CONTENT -->
-			<div ng-view> </div>
-			<!-- END MAIN CONTENT -->
-			
-		</div>
-		<!-- END MAIN -->
-	</div>
-	<!-- END WRAPPER -->
-	<!-- Javascript -->
-	<script src="{% static 'assets/js/jquery/jquery-2.1.0.min.js'%}"></script>
-	<script src="{% static 'assets/js/bootstrap/bootstrap.min.js'%}"></script>
-	<script src="{% static 'assets/js/plugins/jquery-slimscroll/jquery.slimscroll.min.js'%}"></script>
-	<script src="{% static 'assets/js/klorofil.min.js'%}"></script>
+    <!-- WRAPPER -->
+    <div id="wrapper">
+        <!-- SIDEBAR -->
+        <div class="sidebar">
+            <div class="brand"> <img src='{% static "assets/img/bnb.png" %}' width="100%"> </div>
+            <div class="sidebar-scroll">
+                <nav>
+                    <ul class="nav">
+                        <li><a href="/market" ngClass="{active: isActive('/market')}"><i class="lnr lnr-home"></i> <span>Market</span></a></li>
+                        <li><a href="/news" ngClass="{active: isActive('/news')}"><i class="lnr lnr-code"></i> <span>News</span></a></li>
+                        <!--<li><a href="/companyportfolio" ngClass="{active: isActive('/companyportfolio')}"><i class="lnr lnr-chart-bars"></i> <span>Leaderboard</span></a></li>-->
+                        <li><a href="/leaderboard" ngClass="{active: isActive('/leaderboard')}"><i class="lnr lnr-chart-bars"></i> <span>Leaderboard</span></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <!-- END SIDEBAR -->
+        <!-- MAIN -->
+        <div class="main">
+            <!-- NAVBAR -->
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-btn">
+                        <button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-arrow-left-circle"></i></button> <span class="lead">Bulls 'n' Bears</span> </div>
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-menu"> <span class="sr-only">Toggle Navigation</span> <i class="fa fa-bars icon-nav"></i> </button>
+                    </div>
+                    <div id="navbar-menu" class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class=""> <a target="_blank" href="https://drive.google.com/open?id=0B0d2sAXm8in1NVFWbkNGZzh3WHNWWVZRUXVXS1NlQ3VUUjQw" class="dropdown-toggle" data-toggle="dropdown"><i class="lnr lnr-question-circle"></i> <span>Help</span> </a> </li>
+                            <li class="">
+                                <a href="/profile" class="dropdown-toggle" data-toggle="dropdown"><img src="https://graph.facebook.com/{{fbid}}/picture?height=20" class="img-circle" alt="Avatar"> <span>{{ name }}</span> </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- END NAVBAR -->
+            <!-- MAIN CONTENT -->
+            <div ng-view> </div>
+            <!-- END MAIN CONTENT -->
+        </div>
+        <!-- END MAIN -->
+    </div>
+    <!-- END WRAPPER -->
+    <!-- Javascript -->
+    <script src="{% static 'assets/js/jquery/jquery-2.1.0.min.js'%}"></script>
+    <script src="{% static 'assets/js/bootstrap/bootstrap.min.js'%}"></script>
+    <script src="{% static 'assets/js/plugins/jquery-slimscroll/jquery.slimscroll.min.js'%}"></script>
+    <script src="{% static 'assets/js/klorofil.min.js'%}"></script>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-91027958-2', 'auto');
+        ga('send', 'pageview');
+    </script>
 </body>
 
 </html>
