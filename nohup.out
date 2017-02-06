@@ -2686,3 +2686,7 @@ Restarting celery worker (/home/ieee/bnbserver/bin/celery --app=bnb2017.celery w
 [2017-02-06 10:41:53 +0000] [28528] [INFO] Listening at: http://127.0.0.1:8000 (28528)
 [2017-02-06 10:41:53 +0000] [28528] [INFO] Using worker: sync
 [2017-02-06 10:41:53 +0000] [28533] [INFO] Booting worker with pid: 28533
+[2017-02-06 10:51:15 +0000] [28767] [INFO] Starting gunicorn 19.6.0
+[2017-02-06 10:51:15 +0000] [28767] [INFO] Listening at: http://127.0.0.1:8000 (28767)
+[2017-02-06 10:51:15 +0000] [28767] [INFO] Using worker: sync
+[2017-02-06 10:51:15 +0000] [28772] [INFO] Booting worker with pid: 28772
