@@ -21,6 +21,7 @@ angular.module('market')
 			});
 		}());
 	} 
+	$scope.startRefreshing();
 	$scope.$on('$destroy',function(){
     if(refreshingPromise)
         $timeout.cancel(refreshingPromise);   
