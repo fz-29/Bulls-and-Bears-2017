@@ -43,11 +43,11 @@ def revise_stock_price_by_news():
 				sp_t = sp_t + sp_t * control_update_1 *(impact*increment_factor_1*(exp(a*t)))
 			else:
 				sp_t = sp_t + sp_t * control_update_1 *(impact*increment_factor_2*(exp(-a*0.5*t)))
-		elif impact < 0: #decrease stock price
+		elif impact < 0.0: #decrease stock price
 			if t <= impact_growth_iter:
-				sp_t = sp_t - sp_t * control_update_1 *(impact*increment_factor_1*(exp(a*t)))
+				sp_t = sp_t + sp_t * control_update_1 *(impact*increment_factor_1*(exp(a*t)))
 			else:
-				sp_t = sp_t - sp_t * control_update_1 *(impact*increment_factor_2*(exp(-a*0.5*t)))
+				sp_t = sp_t + sp_t * control_update_1 *(impact*increment_factor_2*(exp(-a*0.5*t)))
 		#updates
 		impact_info.iterations_run = t + 1
 		company.stock_price = sp_t
