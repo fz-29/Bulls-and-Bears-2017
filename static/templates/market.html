@@ -1,0 +1,43 @@
+<!-- MAIN CONTENT -->
+<div class="main-content">
+	<div class="container-fluid">
+		<h1 class="page-title">Market</h1>
+		<div class="row">
+			<div class="col-md-12">
+				<!-- BORDERED TABLE -->
+				<div class="panel">
+					<div class="panel-heading">
+						<h3 class="panel-title" style="color:#000;" >Available Balance : {{ accountBalance }}</h3>
+					</div>
+					<div class="panel-body">
+						<table class="table table-bordered table-responsive">
+							<thead>
+								<tr style="background-color:#eee;">
+									<th>Symbol</th>
+									<th>Name</th>
+									<th>Price</th>
+									<th>Change</th>
+									<th>Trend %</th>
+									<th>Volume</th>
+								</tr>
+							</thead>
+
+							<tbody>
+								<tr ng-repeat="company in companies">
+									<td><a type="button" ng-href="{{ '/portfolio/' + company.id }}" class="btn btn-default"><b>{{ company.symbol }}</b></a></td>
+									<td>{{ company.name }}</td>
+									<td>{{ company.stock_price }}</td>
+									<td>{{ company.change }}</td>
+									<td>{{ company.trend }}</td>
+									<td>{{ company.available_quantity }}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<!-- END BORDERED TABLE -->
+			</div>
+		</div>
+	</div>
+</div>
+<!-- END MAIN CONTENT -->

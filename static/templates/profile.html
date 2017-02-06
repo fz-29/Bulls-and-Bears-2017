@@ -1,0 +1,63 @@
+<!-- MAIN CONTENT -->
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="panel panel-profile">
+            <div class="clearfix">
+                <div class="row">
+                    <!-- LEFT COLUMN -->
+                    <div class="col-md-4">
+                        <!-- PROFILE HEADER -->
+                        <div class="profile-header">
+                            <div class="overlay"></div>
+                            <div class="profile-main"> <img ng-src="{{ 'https://graph.facebook.com/' + customerDetail.fbid + '/picture?height=100' }}" class="img-circle" alt="Avatar">
+                                <h3 class="name">{{ customerDetail.name }}</h3> </div>
+                        </div>
+                        <!-- END PROFILE HEADER -->
+                        <!-- PROFILE DETAIL -->
+                        <div class="profile-detail">
+                            <div class="profile-info">
+                                <h4 class="heading">Basic Info</h4>
+                                <ul class="list-unstyled list-justify">
+                                    <li>Current Blance <span>{{ customerDetail.account_balance }}</span></li>
+                                    <li>Networth <span>{{ customerDetail.worth }}</span></li>
+                                    <li>Loan Pending<span>{{ customerDetail.loan_balance }}</span></li>
+                                </ul>
+                            </div>
+                            <p align="center">
+                                <button type="button" ng-click="takeLoan()" class="btn btn-default"><i class="fa fa-database">&ensp;</i> Take Loan</button>
+                                <button type="button" ng-click="repayLoan()" class="btn btn-default"><i class="fa fa-credit-card">&ensp;</i> Repay</button>
+                            </p>
+                        </div>
+                        <!-- END PROFILE DETAIL -->
+                    </div>
+                    <!-- END LEFT COLUMN -->
+                    <!-- RIGHT COLUMN -->
+                    <div class="col-md-7">
+                        <h3>Portfolio</h3>
+                        <table class="table table-responsive">
+                            <thead>
+                                <tr>
+                                    <th>Company</th>
+                                    <th>Stock Qty</th>
+                                    <th>Shorted Stock</th>
+                                    <th>Current Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="profile in customerDetail.portfolio">
+                                    <td><a type="button" ng-href="{{ '/portfolio/' + profile.company_id }}" class="btn btn-default"><b>{{ profile.company_symbol }}</b></a></td>
+                                    <td>{{ profile.stockholding }}</td>
+                                    <td>{{ profile.stockshorted }}</td>
+                                    <td>{{ profile.stock_price }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-md-1"></div>
+                    <!-- END RIGHT COLUMN -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END MAIN CONTENT -->

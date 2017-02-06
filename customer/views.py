@@ -18,10 +18,12 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from django.core import serializers
+from ratelimit.decorators import ratelimit
 
 import json
 import datetime
 
+@ratelimit(key='ip', rate = '10/m')
 @api_view(["GET"])
 def customerList(request, format = None):
 	unsorted_tuples = Customer.objects.all()
@@ -38,6 +40,7 @@ def customerList(request, format = None):
 	# customer_serialized = serializers.serialize('json', tuples)
 	# return HttpResponse(customer_serialized, content_type="application/json")
 
+@ratelimit(key='ip', rate = '10/m')
 @api_view(["GET"])
 def customerDetail(request, format = None):
 	customer = get_object_or_404(Customer, user=request.user)
@@ -60,12 +63,14 @@ def customerDetail(request, format = None):
 			})
 	return JsonResponse(response_data)
 
+@ratelimit(key='ip', rate = '10/m')
 @api_view(["GET"])
 def stockHolding(request, format = None):
 	tuples = StockHolding.objects.filter(customer__user = request.user).all()
 	serialized = serializers.serialize('json', tuples)
 	return HttpResponse(serialized, content_type="application/json")
 
+@ratelimit(key='ip', rate = '10/m')
 @api_view(["GET"])
 def stockShorted(request, format = None):
 	# shorted_quantity=get_object_or_404(StockHolding, user=request.user, company__pk=request.GET.get('id')).quantity
@@ -74,12 +79,14 @@ def stockShorted(request, format = None):
 	return HttpResponse(serialized, content_type="application/json")
 	# return HttpResponse(str(shorted_quntity))
 
+@ratelimit(key='ip', rate = '10/m')
 @api_view(["GET"])
 def customerActivity(request, format=None):
 	tuples = CustomerActivity.objects.filter(customer__user = request.user).all()
 	serialized = serializers.serialize('json', tuples)
 	return HttpResponse(serialized, content_type="application/json")
 
+@ratelimit(key='ip', rate = '10/m')
 @api_view(["GET"])
 def buyinfo(request, format=None):
 	availabe_balance = get_object_or_404(Customer, user=request.user).account_balance
@@ -88,20 +95,24 @@ def buyinfo(request, format=None):
 	max_quant = availabe_balance//price
 	return JsonResponse({'quantity': min(max_quant,quantity)})
 
+@ratelimit(key='ip', rate = '10/m')
 @api_view(["GET"])
 def shortinfo(request, format=None):
 	return JsonResponse({'quantity': 100})
 
+@ratelimit(key='ip', rate = '10/m')
 @api_view(["GET"])
 def coverinfo(request, format=None):
 	quantity = get_object_or_404 (StockShorted , company__pk=request.GET.get('id'), customer__user=request.user).quantity
 	return JsonResponse({'quantity': quantity})
 
+@ratelimit(key='ip', rate = '10/m')
 @api_view(["GET"])
 def sellinfo(request, format=None):
 	quantity = get_object_or_404 (StockHolding , company__pk=request.GET.get('id'), customer__user=request.user).quantity
 	return JsonResponse({'quantity': quantity})
 
+@ratelimit(key='ip', rate = '10/m')
 @api_view(["POST"])
 def buy(request, format=None):
 	customer = get_object_or_404(Customer, user=request.user)
@@ -122,6 +133,7 @@ def buy(request, format=None):
 		return JsonResponse({"success":True})
 	return JsonResponse({"success":False})
 
+@ratelimit(key='ip', rate = '10/m')
 @api_view(["POST"])
 def sell(request, format=None):
 	customer = get_object_or_404(Customer, user=request.user)
@@ -162,6 +174,7 @@ def short(request, format=None):
 		return JsonResponse({"success":True})
 	return JsonResponse({"success":False})
 
+@ratelimit(key='ip', rate = '10/m')
 @api_view(["POST"])
 def cover(request, format=None):
 	customer = get_object_or_404(Customer, user=request.user)
@@ -182,6 +195,7 @@ def cover(request, format=None):
 		return JsonResponse({"success":True})
 	return JsonResponse({"success":False})
 
+@ratelimit(key='ip', rate = '10/m')
 @api_view(["POST"])
 def takeloan(request, format=None):
 	customer = get_object_or_404(Customer, user=request.user)
@@ -194,6 +208,7 @@ def takeloan(request, format=None):
 		return JsonResponse({"success":True})
 	return JsonResponse({"success":False})
 
+@ratelimit(key='ip', rate = '10/m')
 @api_view(["POST"])
 def repayloan(request, format=None):
 	loan= get_object_or_404(Loan, customer__user=request.user)
@@ -207,6 +222,7 @@ def repayloan(request, format=None):
 		return JsonResponse({"success":True})
 	return JsonResponse({"success":False})
 
+@ratelimit(key='ip', rate = '10/m')
 def createCustomer(request, format = None):	
 	if not request.user.is_authenticated:	
 		user = SocialAccount.objects.get(uid = request.GET.get("fbid")).user

@@ -9,5 +9,5 @@ angular.module('news')
 		$scope.newsList = newsList;
 	});}
 	$scope.callAtInterval();
-	$interval( function(){ $scope.callAtInterval(); }, 60000);
+	// $interval( function(){ $scope.callAtInterval(); }, 60000);
 });

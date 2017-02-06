@@ -9,7 +9,7 @@ angular.module('profile')
 		$scope.customerDetail = customerDetail;
 	});}
 	$scope.callAtInterval();
-	$interval( function(){ $scope.callAtInterval(); }, 60000);
+	// $interval( function(){ $scope.callAtInterval(); }, 60000);
 	
 	$scope.takeLoan = function(){
 		$http({

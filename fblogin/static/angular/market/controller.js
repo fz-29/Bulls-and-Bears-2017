@@ -9,7 +9,8 @@ angular.module('market')
 		marketService.getCompanyList(authToken).then(function(companyList){
 		$scope.accountBalance = companyList.account_balance;
 		$scope.companies = companyList.companies;
-	});}
+	});
+}
 	$scope.callAtInterval();
-	$interval( function(){ $scope.callAtInterval(); }, 60000);
+	// $interval( function(){ $scope.callAtInterval(); }, 60000);
 });
