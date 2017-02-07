@@ -76,10 +76,10 @@ def companyDetail(request, format = None):
 		response_data['stock_history'].append(history.stocks_available)
 	return JsonResponse(response_data)
 
-@cache_page(60)
+@cache_page(30)
 @ratelimit(key='ip', rate = '10/m')
 @api_view(["GET"])
 def newsList(request, format = None):
-	tuples = News.objects.filter(is_published=True).order_by('-published_on').all()
+	tuples = News.objects.filter(is_published=True).all()
 	news_serialized = serializers.serialize('json', tuples)
 	return HttpResponse(news_serialized, content_type="application/json")
