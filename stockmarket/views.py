@@ -20,13 +20,15 @@ from django.views.decorators.cache import cache_page
 
 import json
 
-@cache_page(60)
 @ratelimit(key='ip', rate = '10/m')
 @api_view(["GET"])
 def companyList(request, format = None):
 	tuples = Company.objects.all()
 	response_data = {}
-	response_data['account_balance'] = Customer.objects.get(user=request.user).account_balance
+	
+	customer = get_object_or_404(Customer, user=request.user)
+
+	response_data['account_balance'] = customer.account_balance
 	response_data['companies'] = []
 	for company in tuples:
 		history = CompanyHistory.objects.filter(company=company)
@@ -74,10 +76,10 @@ def companyDetail(request, format = None):
 		response_data['stock_history'].append(history.stocks_available)
 	return JsonResponse(response_data)
 
-@cache_page(60)
+@cache_page(30)
 @ratelimit(key='ip', rate = '10/m')
 @api_view(["GET"])
 def newsList(request, format = None):
-	tuples = News.objects.filter(is_published=True).order_by('-published_on').all()
+	tuples = News.objects.filter(is_published=True).all()
 	news_serialized = serializers.serialize('json', tuples)
 	return HttpResponse(news_serialized, content_type="application/json")

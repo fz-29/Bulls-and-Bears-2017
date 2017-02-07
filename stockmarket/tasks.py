@@ -5,7 +5,7 @@ from django.utils import timezone
 from math import exp
 from .models import *
 from random import uniform
-
+from customer.models import *
 import datetime
 
 
@@ -36,23 +36,27 @@ def revise_stock_price_by_news():
 		
 		sp_t = float(company.stock_price)
 
-		a = (1.0/impact)
+		a = (1.0/abs(impact))
 
-		if impact > 0: #increase stock price
+		if impact > 0.0: #increase stock price
 			if t <= impact_growth_iter:
 				sp_t = sp_t + sp_t * control_update_1 *(impact*increment_factor_1*(exp(a*t)))
 			else:
 				sp_t = sp_t + sp_t * control_update_1 *(impact*increment_factor_2*(exp(-a*0.5*t)))
-		elif impact < 0: #decrease stock price
+		elif impact < 0.0: #decrease stock price
 			if t <= impact_growth_iter:
-				sp_t = sp_t - sp_t * control_update_1 *(impact*increment_factor_1*(exp(a*t)))
+				sp_t = sp_t + sp_t * control_update_1 *(impact*increment_factor_1*(exp(a*t)))
 			else:
-				sp_t = sp_t - sp_t * control_update_1 *(impact*increment_factor_2*(exp(-a*0.5*t)))
+				sp_t = sp_t + sp_t * control_update_1 *(impact*increment_factor_2*(exp(-a*0.5*t)))
 		#updates
-		impact_info.iterations_run = t + 1
-		company.stock_price = sp_t
-		company.save()
-		impact_info.save()
+		if sp_t > 0.0:
+			impact_info.iterations_run = t + 1
+			impact_info.save()
+			company.stock_price = sp_t
+			company.save()
+			hist = CompanyHistory(company = company, price = sp_t, stocks_available = company.available_quantity)
+			hist.save()
+		
 
 	#update history and random noise
 	#revise_stock_price_random()
@@ -101,8 +105,11 @@ def revise_stock_price_by_stocks():
 				# Stock Price of Supplementary Company
 				# print F1
 				price = price + price * control_update_2 * (F1 + F2 + F3)
-				company.stock_price = price
-				company.save()
+				if price > 0.0:
+					company.stock_price = price
+					company.save()
+					hist = CompanyHistory(company = company, price = price, stocks_available = company.available_quantity)
+					hist.save()
 	except:
 		pass
 
@@ -122,11 +129,11 @@ def revise_stock_price_random():
 	for company in all_companies:
 		price = float(company.stock_price)
 		price = price * (1 + (control_update_3*uniform(-1.0,1.0)))
-		company.stock_price = price
-		company.save()
-
-		hist = CompanyHistory(company = company, price = price, stocks_available = company.available_quantity)
-		hist.save()
+		if price > 0.0:
+			company.stock_price = price
+			company.save()
+			hist = CompanyHistory(company = company, price = price, stocks_available = company.available_quantity)
+			hist.save()
 
 @shared_task
 def publish_by_exact_time():
@@ -147,10 +154,6 @@ def publish_by_interval():
 	to_publish_news.is_published = True
 	to_publish_news.save()
 
-	to_publish_news = News.objects.filter(is_published=False).earliest('published_on')
-	to_publish_news.is_published = True
-	to_publish_news.save()
-
 @shared_task
 def update_loan_interest():
 	'''
@@ -167,3 +170,37 @@ def update_loan_interest():
 		new_amount = float(entry.amount) * (1.0 + interest_rate)
 		entry.amount = new_amount
 		entry.save()
+
+@shared_task
+def taxation():
+	'''
+		Taxation Stuff
+	'''
+	customers = Customer.objects.all()
+	for customer in customers:
+		worth = customer.worth()
+		if worth > 1000000.0:
+			l = str(worth) - 5 
+			percent = l/10
+			new_balance = customer.account_balance * ( 1 - percent)
+			if new_balance > 1000000.0:
+				customer.account_balance = new_balance
+				customer.save()
+
+def regulate_history():
+	all_companies = Company.objects.all()
+	for company in all_companies:
+		histories = CompanyHistory().objects.all()
+		for history in histories:
+			if history.price > 10000:
+				history.price = float(history.price) +  uniform(-500.0, 500.0)
+				history.save()
+	
+
+def regulate_price():
+	all_companies = Company.objects.all()
+	for company in all_companies:
+		company.stock_price = 1000.0 + uniform(-100.0, 100.0)
+		hist = CompanyHistory(company = company, price = price, stocks_available = company.available_quantity)
+		hist.save()
+		company.save()
