@@ -173,19 +173,19 @@ def update_loan_interest():
 
 @shared_task
 def taxation():
-	'''
+	''' 
 		Taxation Stuff
 	'''
 	customers = Customer.objects.all()
 	for customer in customers:
-		worth = customer.worth()
-		if worth > 1000000.0:
-			l = len(str(int(worth)) - 5 
-			percent = l/10
-			new_balance = customer.account_balance * ( 1 - percent)
+		worth = int(customer.worth())
+		if worth > 1000000:
+			rate_len = len(str(worth))
+			tax_percent = rate_len * 0.1
+			new_balance = float(customer.account_balance) * (1 - tax_percent)
 			if new_balance > 1000000.0:
 				customer.account_balance = new_balance
-				customer.save()
+				customer.save()			
 
 def regulate_history():
 	all_companies = Company.objects.all()
