@@ -70,6 +70,7 @@ angular.module('portfolio')
 					$scope.buyQty = 0;
 					$scope.sellQty = 0;
 				});
+				alert("Stocks bought successfully.");
 			}
 		});
 	}
@@ -91,6 +92,7 @@ angular.module('portfolio')
 					$scope.buyQty = 0;
 					$scope.sellQty = 0;
 				});
+				alert("Stocks sold successfully.")
 			}
 		});
 	}
@@ -112,6 +114,7 @@ angular.module('portfolio')
 					$scope.shortQty = 0;
 					$scope.coverQty = 0;
 				});
+				alert("Stocks shorted successfully.")
 			}
 		});
 	}
@@ -133,6 +136,7 @@ angular.module('portfolio')
 					$scope.shortQty = 0;
 					$scope.coverQty = 0;
 				});
+				alert("Stocks covered successfully.")
 			}
 		});
 	}

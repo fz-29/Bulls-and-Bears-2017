@@ -80,6 +80,6 @@ def companyDetail(request, format = None):
 @ratelimit(key='ip', rate = '10/m')
 @api_view(["GET"])
 def newsList(request, format = None):
-	tuples = News.objects.filter(is_published=True).all()
+	tuples = News.objects.filter(is_published=True).order_by('-published_on').all()
 	news_serialized = serializers.serialize('json', tuples)
 	return HttpResponse(news_serialized, content_type="application/json")
