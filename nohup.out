@@ -3123,3 +3123,716 @@ Trying again in 16.00 seconds...
 [2017-02-06 18:28:30,553: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
 Trying again in 18.00 seconds...
 
+[2017-02-06 14:24:59 +0000] [1957] [INFO] Starting gunicorn 19.6.0
+[2017-02-06 14:24:59 +0000] [1957] [INFO] Listening at: http://127.0.0.1:8000 (1957)
+[2017-02-06 14:24:59 +0000] [1957] [INFO] Using worker: sync
+[2017-02-06 14:24:59 +0000] [1962] [INFO] Booting worker with pid: 1962
+/home/venv/local/lib/python2.7/site-packages/celery/platforms.py:793: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the -u option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  uid=uid, euid=euid, gid=gid, egid=egid,
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-06 20:13:18.401860) while time zone support is active.
+  RuntimeWarning)
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-06 20:18:25.864197) while time zone support is active.
+  RuntimeWarning)
+
+Restarting celery worker (/home/venv/bin/celery --app=bnb2017.celery worker)
+[2017-02-06 14:49:16 +0000] [1957] [INFO] Handling signal: hup
+[2017-02-06 14:49:16 +0000] [1957] [INFO] Hang up: Master
+[2017-02-06 14:49:16 +0000] [2705] [INFO] Booting worker with pid: 2705
+ 
+ -------------- celery@bnb2017 v4.0.2 (latentcall)
+---- **** ----- 
+--- * ***  * -- Linux-4.4.0-62-generic-x86_64-with-Ubuntu-16.04-xenial 2017-02-06 19:55:23
+-- * - **** --- 
+- ** ---------- [config]
+- ** ---------- .> app:         bnb2017:0x7fa5e8fcd9d0
+- ** ---------- .> transport:   amqp://guest:**@localhost:5672//
+- ** ---------- .> results:     disabled://
+- *** --- * --- .> concurrency: 2 (prefork)
+-- ******* ---- .> task events: OFF (enable -E to monitor tasks in this worker)
+--- ***** ----- 
+ -------------- [queues]
+                .> celery           exchange=celery(direct) key=celery
+                
+
+/home/venv/local/lib/python2.7/site-packages/celery/platforms.py:793: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the -u option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  uid=uid, euid=euid, gid=gid, egid=egid,
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-06 20:21:05.811619) while time zone support is active.
+  RuntimeWarning)
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-06 20:24:31.302057) while time zone support is active.
+  RuntimeWarning)
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-06 20:26:58.571421) while time zone support is active.
+  RuntimeWarning)
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-06 20:29:30.024702) while time zone support is active.
+  RuntimeWarning)
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-06 20:32:05.745634) while time zone support is active.
+  RuntimeWarning)
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-06 20:34:36.859226) while time zone support is active.
+  RuntimeWarning)
+
+Restarting celery worker (/home/venv/bin/celery --app=bnb2017.celery worker)
+
+worker: Warm shutdown (MainProcess)
+[2017-02-06 15:05:28 +0000] [1957] [INFO] Handling signal: hup
+[2017-02-06 15:05:28 +0000] [1957] [INFO] Hang up: Master
+[2017-02-06 15:05:28 +0000] [3236] [INFO] Booting worker with pid: 3236
+celery beat v4.0.2 (latentcall) is starting.
+__    -    ... __   -        _
+LocalTime -> 2017-02-06 19:55:12
+Configuration ->
+    . broker -> amqp://guest:**@localhost:5672//
+    . loader -> celery.loaders.app.AppLoader
+    . scheduler -> django_celery_beat.schedulers.DatabaseScheduler
+
+    . logfile -> [stderr]@%WARNING
+    . maxinterval -> 5.00 seconds (5s)
+[2017-02-06 15:05:28 +0000] [1957] [INFO] Handling signal: term
+[2017-02-06 15:05:28 +0000] [3263] [INFO] Booting worker with pid: 3263
+[2017-02-06 20:35:29 +0000] [3236] [INFO] Worker exiting (pid: 3236)
+[2017-02-06 20:35:29 +0000] [3263] [INFO] Worker exiting (pid: 3263)
+[2017-02-06 15:05:29 +0000] [1957] [INFO] Shutting down: Master
+ 
+ -------------- celery@bnb2017 v4.0.2 (latentcall)
+---- **** ----- 
+--- * ***  * -- Linux-4.4.0-62-generic-x86_64-with-Ubuntu-16.04-xenial 2017-02-06 20:19:17
+-- * - **** --- 
+- ** ---------- [config]
+- ** ---------- .> app:         bnb2017:0x7f657458fa10
+- ** ---------- .> transport:   amqp://guest:**@localhost:5672//
+- ** ---------- .> results:     disabled://
+- *** --- * --- .> concurrency: 2 (prefork)
+-- ******* ---- .> task events: OFF (enable -E to monitor tasks in this worker)
+--- ***** ----- 
+ -------------- [queues]
+                .> celery           exchange=celery(direct) key=celery
+                
+
+/home/venv/local/lib/python2.7/site-packages/celery/platforms.py:793: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the -u option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  uid=uid, euid=euid, gid=gid, egid=egid,
+[2017-02-06 20:35:30,247: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 2.00 seconds...
+
+[2017-02-06 20:35:32,257: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 4.00 seconds...
+
+[2017-02-06 20:35:36,269: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 6.00 seconds...
+
+[2017-02-06 20:35:42,283: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 8.00 seconds...
+
+[2017-02-06 20:35:50,299: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 10.00 seconds...
+
+[2017-02-06 20:36:00,318: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 12.00 seconds...
+
+[2017-02-06 20:36:12,338: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 14.00 seconds...
+
+[2017-02-06 20:36:26,361: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 16.00 seconds...
+
+[2017-02-06 20:36:42,386: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 18.00 seconds...
+
+[2017-02-06 15:08:22 +0000] [1948] [INFO] Starting gunicorn 19.6.0
+[2017-02-06 15:08:23 +0000] [1948] [INFO] Listening at: http://127.0.0.1:8000 (1948)
+[2017-02-06 15:08:23 +0000] [1948] [INFO] Using worker: sync
+[2017-02-06 15:08:23 +0000] [1953] [INFO] Booting worker with pid: 1953
+/home/venv/local/lib/python2.7/site-packages/celery/platforms.py:793: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the -u option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  uid=uid, euid=euid, gid=gid, egid=egid,
+
+Restarting celery worker (/home/venv/bin/celery --app=bnb2017.celery worker)
+
+worker: Warm shutdown (MainProcess)
+
+Restarting celery worker (/home/venv/bin/celery --app=bnb2017.celery worker)
+[2017-02-06 15:16:49 +0000] [1948] [INFO] Handling signal: hup
+[2017-02-06 15:16:49 +0000] [1948] [INFO] Hang up: Master
+celery beat v4.0.2 (latentcall) is starting.
+__    -    ... __   -        _
+LocalTime -> 2017-02-06 20:38:30
+Configuration ->
+    . broker -> amqp://guest:**@localhost:5672//
+    . loader -> celery.loaders.app.AppLoader
+    . scheduler -> django_celery_beat.schedulers.DatabaseScheduler
+
+    . logfile -> [stderr]@%WARNING
+    . maxinterval -> 5.00 seconds (5s)
+[2017-02-06 15:16:49 +0000] [1948] [INFO] Handling signal: term
+[2017-02-06 15:16:49 +0000] [2330] [INFO] Booting worker with pid: 2330
+ 
+ -------------- celery@bnb2017 v4.0.2 (latentcall)
+---- **** ----- 
+--- * ***  * -- Linux-4.4.0-62-generic-x86_64-with-Ubuntu-16.04-xenial 2017-02-06 20:38:39
+-- * - **** --- 
+- ** ---------- [config]
+- ** ---------- .> app:         bnb2017:0x7f32bfc959d0
+- ** ---------- .> transport:   amqp://guest:**@localhost:5672//
+- ** ---------- .> results:     disabled://
+- *** --- * --- .> concurrency: 2 (prefork)
+-- ******* ---- .> task events: OFF (enable -E to monitor tasks in this worker)
+--- ***** ----- 
+ -------------- [queues]
+                .> celery           exchange=celery(direct) key=celery
+                
+
+/home/venv/local/lib/python2.7/site-packages/celery/platforms.py:793: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the -u option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  uid=uid, euid=euid, gid=gid, egid=egid,
+[2017-02-06 20:46:50,475: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 2.00 seconds...
+
+[2017-02-06 20:46:52,485: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 4.00 seconds...
+
+[2017-02-06 20:46:56,498: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 6.00 seconds...
+
+[2017-02-06 20:47:02,519: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 8.00 seconds...
+
+[2017-02-06 20:47:10,536: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 10.00 seconds...
+
+[2017-02-06 15:17:19 +0000] [1948] [INFO] Shutting down: Master
+[2017-02-06 20:47:20,555: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 12.00 seconds...
+
+[2017-02-06 20:47:32,576: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 14.00 seconds...
+
+[2017-02-06 20:47:46,599: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 16.00 seconds...
+
+[2017-02-06 20:48:02,628: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 18.00 seconds...
+
+[2017-02-06 15:25:51 +0000] [2067] [INFO] Starting gunicorn 19.6.0
+[2017-02-06 15:25:51 +0000] [2067] [INFO] Listening at: http://127.0.0.1:8000 (2067)
+[2017-02-06 15:25:51 +0000] [2067] [INFO] Using worker: sync
+[2017-02-06 15:25:51 +0000] [2072] [INFO] Booting worker with pid: 2072
+/home/venv/local/lib/python2.7/site-packages/celery/platforms.py:793: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the -u option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  uid=uid, euid=euid, gid=gid, egid=egid,
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-06 20:59:15.272489) while time zone support is active.
+  RuntimeWarning)
+[2017-02-06 15:29:51 +0000] [2067] [INFO] Handling signal: term
+[2017-02-06 20:59:51 +0000] [2072] [INFO] Worker exiting (pid: 2072)
+[2017-02-06 15:29:51 +0000] [2067] [INFO] Shutting down: Master
+[2017-02-06 15:30:35 +0000] [2165] [INFO] Starting gunicorn 19.6.0
+[2017-02-06 15:30:35 +0000] [2165] [INFO] Listening at: http://127.0.0.1:8000 (2165)
+[2017-02-06 15:30:35 +0000] [2165] [INFO] Using worker: sync
+[2017-02-06 15:30:35 +0000] [2170] [INFO] Booting worker with pid: 2170
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-06 21:03:06.723584) while time zone support is active.
+  RuntimeWarning)
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-06 21:10:00.320452) while time zone support is active.
+  RuntimeWarning)
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-06 21:10:04.783141) while time zone support is active.
+  RuntimeWarning)
+[2017-02-06 21:10:30,048: ERROR/MainProcess] Database error while sync: OperationalError('database is locked',)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/django_celery_beat/schedulers.py", line 238, in sync
+    self.schedule[name].save()
+  File "/home/venv/local/lib/python2.7/site-packages/django_celery_beat/schedulers.py", line 118, in save
+    obj.save()
+  File "/home/venv/local/lib/python2.7/site-packages/django_celery_beat/models.py", line 240, in save
+    super(PeriodicTask, self).save(*args, **kwargs)
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/base.py", line 796, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/base.py", line 824, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/base.py", line 889, in _save_table
+    forced_update)
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/base.py", line 939, in _do_update
+    return filtered._update(values) > 0
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 654, in _update
+    return query.get_compiler(self.db).execute_sql(CURSOR)
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 1148, in execute_sql
+    cursor = super(SQLUpdateCompiler, self).execute_sql(result_type)
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 835, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/backends/sqlite3/base.py", line 337, in execute
+    return Database.Cursor.execute(self, query, params)
+OperationalError: database is locked
+[2017-02-06 21:11:11 +0000] [2170] [INFO] Worker exiting (pid: 2170)
+[2017-02-06 15:41:11 +0000] [2395] [INFO] Booting worker with pid: 2395
+[2017-02-06 15:41:30 +0000] [2165] [INFO] Handling signal: term
+[2017-02-06 21:11:30 +0000] [2395] [INFO] Worker exiting (pid: 2395)
+[2017-02-06 15:41:30 +0000] [2165] [INFO] Shutting down: Master
+[2017-02-06 21:18:43,372: ERROR/MainProcess] Process 'PoolWorker-2' pid:2124 exited with 'signal 15 (SIGTERM)'
+[2017-02-06 21:18:55,267: ERROR/MainProcess] Process 'PoolWorker-3' pid:2699 exited with 'signal 15 (SIGTERM)'
+celery beat v4.0.2 (latentcall) is starting.
+__    -    ... __   -        _
+LocalTime -> 2017-02-06 20:58:13
+Configuration ->
+    . broker -> amqp://guest:**@localhost:5672//
+    . loader -> celery.loaders.app.AppLoader
+    . scheduler -> django_celery_beat.schedulers.DatabaseScheduler
+
+    . logfile -> [stderr]@%WARNING
+    . maxinterval -> 5.00 seconds (5s)
+
+worker: Warm shutdown (MainProcess)
+ 
+ -------------- celery@bnb2017 v4.0.2 (latentcall)
+---- **** ----- 
+--- * ***  * -- Linux-4.4.0-62-generic-x86_64-with-Ubuntu-16.04-xenial 2017-02-06 20:58:19
+-- * - **** --- 
+- ** ---------- [config]
+- ** ---------- .> app:         bnb2017:0x7f8c3f0e89d0
+- ** ---------- .> transport:   amqp://guest:**@localhost:5672//
+- ** ---------- .> results:     disabled://
+- *** --- * --- .> concurrency: 2 (prefork)
+-- ******* ---- .> task events: OFF (enable -E to monitor tasks in this worker)
+--- ***** ----- 
+ -------------- [queues]
+                .> celery           exchange=celery(direct) key=celery
+                
+
+[2017-02-06 15:51:07 +0000] [1951] [INFO] Starting gunicorn 19.6.0
+[2017-02-06 15:51:07 +0000] [1951] [INFO] Listening at: http://127.0.0.1:8000 (1951)
+[2017-02-06 15:51:07 +0000] [1951] [INFO] Using worker: sync
+[2017-02-06 15:51:07 +0000] [1956] [INFO] Booting worker with pid: 1956
+/home/venv/local/lib/python2.7/site-packages/celery/platforms.py:793: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the -u option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  uid=uid, euid=euid, gid=gid, egid=egid,
+
+Restarting celery worker (/home/venv/bin/celery --app=bnb2017.celery worker)
+[2017-02-06 15:51:47 +0000] [1951] [INFO] Handling signal: hup
+[2017-02-06 15:51:47 +0000] [1951] [INFO] Hang up: Master
+ 
+ -------------- celery@bnb2017 v4.0.2 (latentcall)
+---- **** ----- 
+--- * ***  * -- Linux-4.4.0-62-generic-x86_64-with-Ubuntu-16.04-xenial 2017-02-06 21:21:28
+-- * - **** --- 
+- ** ---------- [config]
+- ** ---------- .> app:         bnb2017:0x7f46b74329d0
+- ** ---------- .> transport:   amqp://guest:**@localhost:5672//
+- ** ---------- .> results:     disabled://
+- *** --- * --- .> concurrency: 2 (prefork)
+-- ******* ---- .> task events: OFF (enable -E to monitor tasks in this worker)
+--- ***** ----- 
+ -------------- [queues]
+                .> celery           exchange=celery(direct) key=celery
+                
+
+[2017-02-06 15:51:47 +0000] [1990] [INFO] Booting worker with pid: 1990
+/home/venv/local/lib/python2.7/site-packages/celery/platforms.py:793: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the -u option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  uid=uid, euid=euid, gid=gid, egid=egid,
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-06 21:26:26.055471) while time zone support is active.
+  RuntimeWarning)
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-06 21:28:48.568019) while time zone support is active.
+  RuntimeWarning)
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-06 21:31:00.970860) while time zone support is active.
+  RuntimeWarning)
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-06 21:35:38.686508) while time zone support is active.
+  RuntimeWarning)
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-06 21:36:23.949923) while time zone support is active.
+  RuntimeWarning)
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-06 21:38:16.782292) while time zone support is active.
+  RuntimeWarning)
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-06 21:40:22.582159) while time zone support is active.
+  RuntimeWarning)
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-06 21:41:39.134851) while time zone support is active.
+  RuntimeWarning)
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-06 21:44:50.956150) while time zone support is active.
+  RuntimeWarning)
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-06 21:48:44.302163) while time zone support is active.
+  RuntimeWarning)
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-06 21:55:43.913622) while time zone support is active.
+  RuntimeWarning)
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-06 21:55:47.291632) while time zone support is active.
+  RuntimeWarning)
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-06 21:57:27.378237) while time zone support is active.
+  RuntimeWarning)
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-06 22:01:06.172625) while time zone support is active.
+  RuntimeWarning)
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-06 22:01:10.300538) while time zone support is active.
+  RuntimeWarning)
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-06 22:01:23.458041) while time zone support is active.
+  RuntimeWarning)
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-06 22:02:38.958083) while time zone support is active.
+  RuntimeWarning)
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-06 22:03:48.542786) while time zone support is active.
+  RuntimeWarning)
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-06 22:05:33.512098) while time zone support is active.
+  RuntimeWarning)
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-06 22:11:40.431193) while time zone support is active.
+  RuntimeWarning)
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-06 22:12:42.404197) while time zone support is active.
+  RuntimeWarning)
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-06 22:14:40.476065) while time zone support is active.
+  RuntimeWarning)
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-06 22:17:18.124283) while time zone support is active.
+  RuntimeWarning)
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-06 22:18:30.401953) while time zone support is active.
+  RuntimeWarning)
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-06 22:19:41.021003) while time zone support is active.
+  RuntimeWarning)
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-06 22:19:48.658757) while time zone support is active.
+  RuntimeWarning)
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-06 22:21:34.449209) while time zone support is active.
+  RuntimeWarning)
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-06 22:22:33.210158) while time zone support is active.
+  RuntimeWarning)
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-06 22:28:58.868598) while time zone support is active.
+  RuntimeWarning)
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-06 22:30:40.523481) while time zone support is active.
+  RuntimeWarning)
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-06 22:31:30.306584) while time zone support is active.
+  RuntimeWarning)
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-06 22:39:19.896849) while time zone support is active.
+  RuntimeWarning)
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-06 22:52:15.813107) while time zone support is active.
+  RuntimeWarning)
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-06 22:52:26.308041) while time zone support is active.
+  RuntimeWarning)
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-06 22:56:38.651675) while time zone support is active.
+  RuntimeWarning)
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-06 22:57:00.277726) while time zone support is active.
+  RuntimeWarning)
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-06 23:17:08.910611) while time zone support is active.
+  RuntimeWarning)
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-06 23:21:45.215629) while time zone support is active.
+  RuntimeWarning)
+[2017-02-06 17:55:12 +0000] [1951] [INFO] Handling signal: term
+
+Restarting celery worker (/home/venv/bin/celery --app=bnb2017.celery worker)
+
+worker: Warm shutdown (MainProcess)
+[2017-02-06 17:55:12 +0000] [1951] [INFO] Shutting down: Master
+celery beat v4.0.2 (latentcall) is starting.
+__    -    ... __   -        _
+LocalTime -> 2017-02-06 21:21:19
+Configuration ->
+    . broker -> amqp://guest:**@localhost:5672//
+    . loader -> celery.loaders.app.AppLoader
+    . scheduler -> django_celery_beat.schedulers.DatabaseScheduler
+
+    . logfile -> [stderr]@%WARNING
+    . maxinterval -> 5.00 seconds (5s)
+ 
+ -------------- celery@bnb2017 v4.0.2 (latentcall)
+---- **** ----- 
+--- * ***  * -- Linux-4.4.0-62-generic-x86_64-with-Ubuntu-16.04-xenial 2017-02-06 21:21:48
+-- * - **** --- 
+- ** ---------- [config]
+- ** ---------- .> app:         bnb2017:0x7f387bfc2a10
+- ** ---------- .> transport:   amqp://guest:**@localhost:5672//
+- ** ---------- .> results:     disabled://
+- *** --- * --- .> concurrency: 2 (prefork)
+-- ******* ---- .> task events: OFF (enable -E to monitor tasks in this worker)
+--- ***** ----- 
+ -------------- [queues]
+                .> celery           exchange=celery(direct) key=celery
+                
+
+/home/venv/local/lib/python2.7/site-packages/celery/platforms.py:793: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the -u option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  uid=uid, euid=euid, gid=gid, egid=egid,
+[2017-02-06 23:25:14,524: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 2.00 seconds...
+
+[2017-02-06 23:25:16,534: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 4.00 seconds...
+
+[2017-02-06 23:25:20,546: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 6.00 seconds...
+
+[2017-02-06 23:25:26,560: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 8.00 seconds...
+
+[2017-02-06 23:25:34,580: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 10.00 seconds...
+
+[2017-02-06 23:25:44,599: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 12.00 seconds...
+
+[2017-02-06 23:25:56,620: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 14.00 seconds...
+
+[2017-02-06 23:26:10,643: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 16.00 seconds...
+
+[2017-02-06 23:26:26,668: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 18.00 seconds...
+
+[2017-02-06 17:59:05 +0000] [1949] [INFO] Starting gunicorn 19.6.0
+[2017-02-06 17:59:05 +0000] [1949] [INFO] Listening at: http://127.0.0.1:8000 (1949)
+[2017-02-06 17:59:05 +0000] [1949] [INFO] Using worker: sync
+[2017-02-06 17:59:05 +0000] [1954] [INFO] Booting worker with pid: 1954
+/home/venv/local/lib/python2.7/site-packages/celery/platforms.py:793: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the -u option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  uid=uid, euid=euid, gid=gid, egid=egid,
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-06 23:31:42.979791) while time zone support is active.
+  RuntimeWarning)
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-06 23:34:02.092417) while time zone support is active.
+  RuntimeWarning)
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-06 23:43:54.509299) while time zone support is active.
+  RuntimeWarning)
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-06 23:44:14.716806) while time zone support is active.
+  RuntimeWarning)
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-06 23:44:43.038672) while time zone support is active.
+  RuntimeWarning)
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-06 23:44:48.680129) while time zone support is active.
+  RuntimeWarning)
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-06 23:50:59.350930) while time zone support is active.
+  RuntimeWarning)
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-06 23:52:29.882977) while time zone support is active.
+  RuntimeWarning)
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-06 23:55:50.510619) while time zone support is active.
+  RuntimeWarning)
+[2017-02-07 00:00:00,025: ERROR/PoolWorker-2] Task stockmarket.tasks.publish_by_interval[ce10868b-8305-4a8e-a43e-0275627fbe56] raised unexpected: DoesNotExist('News matching query does not exist.',)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/app/trace.py", line 367, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/venv/local/lib/python2.7/site-packages/celery/app/trace.py", line 622, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/bnb/bnb2017/stockmarket/tasks.py", line 153, in publish_by_interval
+    to_publish_news = News.objects.filter(is_published=False).earliest('published_on')
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 547, in earliest
+    return self._earliest_or_latest(field_name=field_name, direction="")
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 544, in _earliest_or_latest
+    return obj.get()
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 385, in get
+    self.model._meta.object_name
+Exception: News matching query does not exist.
+
+Restarting celery worker (/home/venv/bin/celery --app=bnb2017.celery worker)
+
+worker: Warm shutdown (MainProcess)
+[2017-02-06 18:31:01 +0000] [1949] [INFO] Handling signal: hup
+[2017-02-06 18:31:01 +0000] [1949] [INFO] Hang up: Master
+celery beat v4.0.2 (latentcall) is starting.
+__    -    ... __   -        _
+LocalTime -> 2017-02-06 23:29:14
+Configuration ->
+    . broker -> amqp://guest:**@localhost:5672//
+    . loader -> celery.loaders.app.AppLoader
+    . scheduler -> django_celery_beat.schedulers.DatabaseScheduler
+
+    . logfile -> [stderr]@%WARNING
+    . maxinterval -> 5.00 seconds (5s)
+[2017-02-06 18:31:01 +0000] [1949] [INFO] Handling signal: term
+[2017-02-06 18:31:01 +0000] [2640] [INFO] Booting worker with pid: 2640
+ 
+ -------------- celery@bnb2017 v4.0.2 (latentcall)
+---- **** ----- 
+--- * ***  * -- Linux-4.4.0-62-generic-x86_64-with-Ubuntu-16.04-xenial 2017-02-06 23:29:21
+-- * - **** --- 
+- ** ---------- [config]
+- ** ---------- .> app:         bnb2017:0x7fa40f88c9d0
+- ** ---------- .> transport:   amqp://guest:**@localhost:5672//
+- ** ---------- .> results:     disabled://
+- *** --- * --- .> concurrency: 2 (prefork)
+-- ******* ---- .> task events: OFF (enable -E to monitor tasks in this worker)
+--- ***** ----- 
+ -------------- [queues]
+                .> celery           exchange=celery(direct) key=celery
+                
+
+/home/venv/local/lib/python2.7/site-packages/celery/platforms.py:793: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the -u option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  uid=uid, euid=euid, gid=gid, egid=egid,
+[2017-02-07 00:01:03,371: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 2.00 seconds...
+
+[2017-02-07 00:01:05,387: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 4.00 seconds...
+
+[2017-02-07 00:01:09,403: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 6.00 seconds...
+
+[2017-02-07 00:01:15,417: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 8.00 seconds...
+
+[2017-02-07 00:01:23,434: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 10.00 seconds...
+
+[2017-02-06 18:31:31 +0000] [1949] [INFO] Shutting down: Master
+[2017-02-07 00:01:33,454: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 12.00 seconds...
+
+[2017-02-07 00:01:45,476: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 14.00 seconds...
+
+[2017-02-07 00:01:59,500: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 16.00 seconds...
+
+[2017-02-07 00:02:15,524: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 18.00 seconds...
+
+[2017-02-06 18:33:46 +0000] [2001] [INFO] Starting gunicorn 19.6.0
+[2017-02-06 18:33:46 +0000] [2001] [INFO] Listening at: http://127.0.0.1:8000 (2001)
+[2017-02-06 18:33:46 +0000] [2001] [INFO] Using worker: sync
+[2017-02-06 18:33:46 +0000] [2006] [INFO] Booting worker with pid: 2006
+/home/venv/local/lib/python2.7/site-packages/celery/platforms.py:793: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the -u option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  uid=uid, euid=euid, gid=gid, egid=egid,
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-07 00:19:50.135001) while time zone support is active.
+  RuntimeWarning)
+[2017-02-07 00:30:00,031: ERROR/PoolWorker-2] Task stockmarket.tasks.publish_by_interval[61188e83-1443-4dbd-8bb3-e5d5caa758c9] raised unexpected: DoesNotExist('News matching query does not exist.',)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/app/trace.py", line 367, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/venv/local/lib/python2.7/site-packages/celery/app/trace.py", line 622, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/bnb/bnb2017/stockmarket/tasks.py", line 153, in publish_by_interval
+    to_publish_news = News.objects.filter(is_published=False).earliest('published_on')
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 547, in earliest
+    return self._earliest_or_latest(field_name=field_name, direction="")
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 544, in _earliest_or_latest
+    return obj.get()
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 385, in get
+    self.model._meta.object_name
+Exception: News matching query does not exist.
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-07 00:31:27.793515) while time zone support is active.
+  RuntimeWarning)
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-07 00:41:56.459156) while time zone support is active.
+  RuntimeWarning)
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-07 00:47:18.198292) while time zone support is active.
+  RuntimeWarning)
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-07 01:27:25.496024) while time zone support is active.
+  RuntimeWarning)
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-07 01:28:14.370878) while time zone support is active.
+  RuntimeWarning)
+[2017-02-06 21:00:01 +0000] [2001] [INFO] Handling signal: term
+[2017-02-07 02:30:01 +0000] [2006] [INFO] Worker exiting (pid: 2006)
+celery beat v4.0.2 (latentcall) is starting.
+__    -    ... __   -        _
+LocalTime -> 2017-02-07 00:03:54
+Configuration ->
+    . broker -> amqp://guest:**@localhost:5672//
+    . loader -> celery.loaders.app.AppLoader
+    . scheduler -> django_celery_beat.schedulers.DatabaseScheduler
+
+    . logfile -> [stderr]@%WARNING
+    . maxinterval -> 5.00 seconds (5s)
+
+Restarting celery worker (/home/venv/bin/celery --app=bnb2017.celery worker)
+
+worker: Warm shutdown (MainProcess)
+[2017-02-06 21:00:01 +0000] [2001] [INFO] Shutting down: Master
+ 
+ -------------- celery@bnb2017 v4.0.2 (latentcall)
+---- **** ----- 
+--- * ***  * -- Linux-4.4.0-62-generic-x86_64-with-Ubuntu-16.04-xenial 2017-02-07 00:04:04
+-- * - **** --- 
+- ** ---------- [config]
+- ** ---------- .> app:         bnb2017:0x7fb9411989d0
+- ** ---------- .> transport:   amqp://guest:**@localhost:5672//
+- ** ---------- .> results:     disabled://
+- *** --- * --- .> concurrency: 2 (prefork)
+-- ******* ---- .> task events: OFF (enable -E to monitor tasks in this worker)
+--- ***** ----- 
+ -------------- [queues]
+                .> celery           exchange=celery(direct) key=celery
+                
+
+/home/venv/local/lib/python2.7/site-packages/celery/platforms.py:793: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the -u option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  uid=uid, euid=euid, gid=gid, egid=egid,
+[2017-02-07 02:30:03,383: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 2.00 seconds...
+
+[2017-02-07 02:30:05,394: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 4.00 seconds...
+
+[2017-02-07 02:30:09,406: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 6.00 seconds...
+
+[2017-02-07 02:30:15,420: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 8.00 seconds...
+
+[2017-02-07 02:30:23,439: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 10.00 seconds...
+
+[2017-02-07 02:30:33,458: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 12.00 seconds...
+
+[2017-02-07 02:30:45,479: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 14.00 seconds...
+
+[2017-02-07 02:30:59,498: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 16.00 seconds...
+
+[2017-02-07 02:31:15,523: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 18.00 seconds...
+
