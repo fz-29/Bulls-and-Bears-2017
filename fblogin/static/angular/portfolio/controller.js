@@ -16,18 +16,23 @@ angular.module('portfolio')
 			//If async in then in callback do...
 			portfolioService.getCompanyPortfolio(authToken, $routeParams.id).then(function(companyPortfolio){
 				$scope.company = companyPortfolio;
-				console.log(companyPortfolio.price_history);
+				// console.log(companyPortfolio.price_history);
+				var price_history = []
+				for (var price in companyPortfolio.price_history) {
+					price_history.push(parseFloat(companyPortfolio.price_history[price]));
+				} 
+				console.log(price_history);
 				chartData = {
-					type: "area",  // Specify your chart type here.
+					type: "line",  // Specify your chart type here.
 					title: {},
 					legend: {}, // Creates an interactive legend
 					series: [  // Insert your series data here.
 						{ 
-							values: companyPortfolio.price_history,
+							values: price_history,
 							text: "Price History"
 						},
 						// {
-						// 	values: $scope.company.stock_history,
+						// 	values: [1, 5, 3, 2, 4, 7, 6, 8],
 						// 	text: "Stock History"
 						// }
 					]

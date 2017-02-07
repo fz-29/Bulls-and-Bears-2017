@@ -5,7 +5,7 @@ from django.utils import timezone
 from math import exp
 from .models import *
 from random import uniform
-
+from customer.models import *
 import datetime
 
 
@@ -170,3 +170,37 @@ def update_loan_interest():
 		new_amount = float(entry.amount) * (1.0 + interest_rate)
 		entry.amount = new_amount
 		entry.save()
+
+@shared_task
+def taxation():
+	'''
+		Taxation Stuff
+	'''
+	customers = Customer.objects.all()
+	for customer in customers:
+		worth = customer.worth()
+		if worth > 1000000.0:
+			l = str(worth) - 5 
+			percent = l/10
+			new_balance = customer.account_balance * ( 1 - percent)
+			if new_balance > 1000000.0:
+				customer.account_balance = new_balance
+				customer.save()
+
+def regulate_history():
+	all_companies = Company.objects.all()
+	for company in all_companies:
+		histories = CompanyHistory().objects.all()
+		for history in histories:
+			if history.price > 10000:
+				history.price = float(history.price) +  uniform(-500.0, 500.0)
+				history.save()
+	
+
+def regulate_price():
+	all_companies = Company.objects.all()
+	for company in all_companies:
+		company.stock_price = 1000.0 + uniform(-100.0, 100.0)
+		hist = CompanyHistory(company = company, price = price, stocks_available = company.available_quantity)
+		hist.save()
+		company.save()
