@@ -135,16 +135,26 @@ def sell(request, format=None):
 
 @api_view(["POST"])
 def short(request, format=None):
+	### PARAMETER FROM DATABASE:
+	short_limit_amount = Parameter.objects.get(key = 'short_limit_amount').value
+	####
+
 	customer = get_object_or_404(Customer, user=request.user)
 	company = get_object_or_404(Company, pk=request.POST.get('id'))
 	quantity = int(request.POST.get('quantity'))
 	if quantity is None:
 		return JsonResponse({"success":False})
-	if 0 < quantity <= company.available_quantity:
+	#if 0 < quantity <= company.available_quantity:
+	
+	if 0 < quantity and account_balance < short_limit_amount:
 		stockShorted = get_object_or_404(StockShorted, company=company, customer=customer)
 		stockShorted.quantity += quantity
 		customer.account_balance += company.stock_price * quantity
 		customerActivity = CustomerActivity(customer=customer, action='SHORT', timestamp=timezone.now(), quantity=quantity, price=company.stock_price)
+		
+		### increase stocks in Flow:
+		company.total_quantity += quantity
+		####
 		customerActivity.save()
 		customer.save()
 		company.save()
