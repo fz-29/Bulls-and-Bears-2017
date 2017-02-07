@@ -3836,3 +3836,459 @@ Trying again in 16.00 seconds...
 [2017-02-07 02:31:15,523: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
 Trying again in 18.00 seconds...
 
+[2017-02-07 12:12:13 +0000] [22373] [INFO] Starting gunicorn 19.6.0
+[2017-02-07 12:12:13 +0000] [22373] [INFO] Listening at: http://127.0.0.1:8000 (22373)
+[2017-02-07 12:12:13 +0000] [22373] [INFO] Using worker: sync
+[2017-02-07 12:12:13 +0000] [22380] [INFO] Booting worker with pid: 22380
+/home/venv/local/lib/python2.7/site-packages/celery/platforms.py:793: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the -u option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  uid=uid, euid=euid, gid=gid, egid=egid,
+
+Restarting celery worker (/home/venv/bin/celery --app=bnb2017.celery worker)
+ 
+ -------------- celery@bnb2017 v4.0.2 (latentcall)
+---- **** ----- 
+--- * ***  * -- Linux-4.4.0-62-generic-x86_64-with-Ubuntu-16.04-xenial 2017-02-07 18:11:12
+-- * - **** --- 
+- ** ---------- [config]
+- ** ---------- .> app:         bnb2017:0x7f11d51779d0
+- ** ---------- .> transport:   amqp://guest:**@localhost:5672//
+- ** ---------- .> results:     disabled://
+- *** --- * --- .> concurrency: 2 (prefork)
+-- ******* ---- .> task events: OFF (enable -E to monitor tasks in this worker)
+--- ***** ----- 
+ -------------- [queues]
+                .> celery           exchange=celery(direct) key=celery
+                
+
+/home/venv/local/lib/python2.7/site-packages/celery/platforms.py:793: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the -u option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  uid=uid, euid=euid, gid=gid, egid=egid,
+[2017-02-07 18:29:00,038: ERROR/PoolWorker-1] Task stockmarket.tasks.publish_by_interval[426b5f3d-bf32-4394-9190-88eb53c2f511] raised unexpected: DoesNotExist('News matching query does not exist.',)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/app/trace.py", line 367, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/venv/local/lib/python2.7/site-packages/celery/app/trace.py", line 622, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/bnb/bnb2017/stockmarket/tasks.py", line 153, in publish_by_interval
+    to_publish_news = News.objects.filter(is_published=False).earliest('published_on')
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 547, in earliest
+    return self._earliest_or_latest(field_name=field_name, direction="")
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 544, in _earliest_or_latest
+    return obj.get()
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 385, in get
+    self.model._meta.object_name
+Exception: News matching query does not exist.
+[2017-02-07 18:30:00,023: ERROR/PoolWorker-1] Task stockmarket.tasks.publish_by_interval[0d007171-abb9-41e0-94f4-f5b762d04cc0] raised unexpected: DoesNotExist('News matching query does not exist.',)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/app/trace.py", line 367, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/venv/local/lib/python2.7/site-packages/celery/app/trace.py", line 622, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/bnb/bnb2017/stockmarket/tasks.py", line 153, in publish_by_interval
+    to_publish_news = News.objects.filter(is_published=False).earliest('published_on')
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 547, in earliest
+    return self._earliest_or_latest(field_name=field_name, direction="")
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 544, in _earliest_or_latest
+    return obj.get()
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 385, in get
+    self.model._meta.object_name
+Exception: News matching query does not exist.
+
+Restarting celery worker (/home/venv/bin/celery --app=bnb2017.celery worker)
+
+worker: Warm shutdown (MainProcess)
+celery beat v4.0.2 (latentcall) is starting.
+__    -    ... __   -        _
+LocalTime -> 2017-02-07 18:11:01
+Configuration ->
+    . broker -> amqp://guest:**@localhost:5672//
+    . loader -> celery.loaders.app.AppLoader
+    . scheduler -> django_celery_beat.schedulers.DatabaseScheduler
+
+    . logfile -> [stderr]@%WARNING
+    . maxinterval -> 5.00 seconds (5s)
+ 
+ -------------- celery@bnb2017 v4.0.2 (latentcall)
+---- **** ----- 
+--- * ***  * -- Linux-4.4.0-62-generic-x86_64-with-Ubuntu-16.04-xenial 2017-02-07 18:25:40
+-- * - **** --- 
+- ** ---------- [config]
+- ** ---------- .> app:         bnb2017:0x7fc560277a10
+- ** ---------- .> transport:   amqp://guest:**@localhost:5672//
+- ** ---------- .> results:     disabled://
+- *** --- * --- .> concurrency: 2 (prefork)
+-- ******* ---- .> task events: OFF (enable -E to monitor tasks in this worker)
+--- ***** ----- 
+ -------------- [queues]
+                .> celery           exchange=celery(direct) key=celery
+                
+
+/home/venv/local/lib/python2.7/site-packages/celery/platforms.py:793: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the -u option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  uid=uid, euid=euid, gid=gid, egid=egid,
+[2017-02-07 18:37:14,818: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 2.00 seconds...
+
+[2017-02-07 18:37:16,829: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 4.00 seconds...
+
+[2017-02-07 18:37:20,844: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 6.00 seconds...
+
+[2017-02-07 18:37:26,859: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 8.00 seconds...
+
+[2017-02-07 18:37:34,878: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 10.00 seconds...
+
+[2017-02-07 18:37:44,897: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 12.00 seconds...
+
+[2017-02-07 18:37:56,919: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 14.00 seconds...
+
+[2017-02-07 18:38:10,946: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 16.00 seconds...
+
+[2017-02-07 18:38:26,972: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 18.00 seconds...
+
+[2017-02-07 13:10:00 +0000] [2295] [INFO] Starting gunicorn 19.6.0
+[2017-02-07 13:10:00 +0000] [2295] [INFO] Listening at: http://127.0.0.1:8000 (2295)
+[2017-02-07 13:10:00 +0000] [2295] [INFO] Using worker: sync
+[2017-02-07 13:10:00 +0000] [2300] [INFO] Booting worker with pid: 2300
+[2017-02-07 13:11:09 +0000] [2295] [INFO] Handling signal: hup
+[2017-02-07 13:11:09 +0000] [2295] [INFO] Hang up: Master
+[2017-02-07 13:11:09 +0000] [2329] [INFO] Booting worker with pid: 2329
+[2017-02-07 19:36:47 +0000] [2329] [INFO] Worker exiting (pid: 2329)
+[2017-02-07 14:06:47 +0000] [2295] [INFO] Handling signal: term
+[2017-02-07 14:06:47 +0000] [2295] [INFO] Shutting down: Master
+[2017-02-07 14:09:29 +0000] [1985] [INFO] Starting gunicorn 19.6.0
+[2017-02-07 14:09:29 +0000] [1985] [INFO] Listening at: http://127.0.0.1:8000 (1985)
+[2017-02-07 14:09:29 +0000] [1985] [INFO] Using worker: sync
+[2017-02-07 14:09:29 +0000] [1990] [INFO] Booting worker with pid: 1990
+[2017-02-07 14:10:28 +0000] [1985] [INFO] Handling signal: term
+[2017-02-07 19:40:28 +0000] [1990] [INFO] Worker exiting (pid: 1990)
+[2017-02-07 14:10:28 +0000] [1985] [INFO] Shutting down: Master
+[2017-02-07 14:12:18 +0000] [2096] [INFO] Starting gunicorn 19.6.0
+[2017-02-07 14:12:18 +0000] [2096] [INFO] Listening at: http://127.0.0.1:8000 (2096)
+[2017-02-07 14:12:18 +0000] [2096] [INFO] Using worker: sync
+[2017-02-07 14:12:18 +0000] [2101] [INFO] Booting worker with pid: 2101
+/home/venv/local/lib/python2.7/site-packages/celery/platforms.py:793: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the -u option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  uid=uid, euid=euid, gid=gid, egid=egid,
+[2017-02-07 19:42:41,767: ERROR/MainProcess] Received unregistered task of type 'stockmarket.tasks.revise_stock_price_random'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (77b)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 559, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'stockmarket.tasks.revise_stock_price_random'
+[2017-02-07 19:43:00,010: ERROR/MainProcess] Received unregistered task of type 'stockmarket.tasks.revise_stock_price_random'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (77b)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 559, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'stockmarket.tasks.revise_stock_price_random'
+[2017-02-07 19:44:00,006: ERROR/MainProcess] Received unregistered task of type 'stockmarket.tasks.revise_stock_price_random'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (77b)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 559, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'stockmarket.tasks.revise_stock_price_random'
+[2017-02-07 19:44:00,008: ERROR/MainProcess] Received unregistered task of type 'stockmarket.tasks.update_loan_interest'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (77b)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 559, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'stockmarket.tasks.update_loan_interest'
+[2017-02-07 19:44:00,010: ERROR/MainProcess] Received unregistered task of type 'stockmarket.tasks.revise_stock_price_by_news'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (77b)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 559, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'stockmarket.tasks.revise_stock_price_by_news'
+[2017-02-07 19:44:00,011: ERROR/MainProcess] Received unregistered task of type 'stockmarket.tasks.revise_stock_price_by_stocks'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (77b)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 559, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'stockmarket.tasks.revise_stock_price_by_stocks'
+[2017-02-07 19:45:00,009: ERROR/MainProcess] Received unregistered task of type 'stockmarket.tasks.revise_stock_price_by_stocks'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (77b)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 559, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'stockmarket.tasks.revise_stock_price_by_stocks'
+[2017-02-07 19:45:00,011: ERROR/MainProcess] Received unregistered task of type 'stockmarket.tasks.revise_stock_price_by_news'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (77b)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 559, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'stockmarket.tasks.revise_stock_price_by_news'
+[2017-02-07 19:45:00,013: ERROR/MainProcess] Received unregistered task of type 'stockmarket.tasks.update_loan_interest'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (77b)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 559, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'stockmarket.tasks.update_loan_interest'
+[2017-02-07 19:45:00,015: ERROR/MainProcess] Received unregistered task of type 'stockmarket.tasks.revise_stock_price_random'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (77b)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 559, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'stockmarket.tasks.revise_stock_price_random'
+[2017-02-07 19:46:00,006: ERROR/MainProcess] Received unregistered task of type 'stockmarket.tasks.revise_stock_price_random'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (77b)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 559, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'stockmarket.tasks.revise_stock_price_random'
+[2017-02-07 19:47:00,008: ERROR/MainProcess] Received unregistered task of type 'stockmarket.tasks.revise_stock_price_random'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (77b)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 559, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'stockmarket.tasks.revise_stock_price_random'
+[2017-02-07 19:48:00,009: ERROR/MainProcess] Received unregistered task of type 'stockmarket.tasks.revise_stock_price_random'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (77b)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 559, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'stockmarket.tasks.revise_stock_price_random'
+[2017-02-07 19:49:00,004: ERROR/MainProcess] Received unregistered task of type 'stockmarket.tasks.revise_stock_price_random'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (77b)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 559, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'stockmarket.tasks.revise_stock_price_random'
+[2017-02-07 14:19:38 +0000] [2096] [INFO] Handling signal: hup
+[2017-02-07 14:19:38 +0000] [2096] [INFO] Hang up: Master
+
+Restarting celery worker (/home/venv/bin/celery --app=bnb2017.celery worker)
+
+worker: Warm shutdown (MainProcess)
+[2017-02-07 14:19:38 +0000] [2096] [INFO] Handling signal: term
+[2017-02-07 14:19:38 +0000] [2337] [INFO] Booting worker with pid: 2337
+celery beat v4.0.2 (latentcall) is starting.
+__    -    ... __   -        _
+LocalTime -> 2017-02-07 19:42:34
+Configuration ->
+    . broker -> amqp://guest:**@localhost:5672//
+    . loader -> celery.loaders.app.AppLoader
+    . scheduler -> django_celery_beat.schedulers.DatabaseScheduler
+
+    . logfile -> [stderr]@%WARNING
+    . maxinterval -> 5.00 seconds (5s)
+ 
+ -------------- celery@bnb2017 v4.0.2 (latentcall)
+---- **** ----- 
+--- * ***  * -- Linux-4.4.0-62-generic-x86_64-with-Ubuntu-16.04-xenial 2017-02-07 19:42:40
+-- * - **** --- 
+- ** ---------- [config]
+- ** ---------- .> app:         bnb2017:0x7f64de58d9d0
+- ** ---------- .> transport:   amqp://guest:**@localhost:5672//
+- ** ---------- .> results:     disabled://
+- *** --- * --- .> concurrency: 2 (prefork)
+-- ******* ---- .> task events: OFF (enable -E to monitor tasks in this worker)
+--- ***** ----- 
+ -------------- [queues]
+                .> celery           exchange=celery(direct) key=celery
+                
+
+/home/venv/local/lib/python2.7/site-packages/celery/platforms.py:793: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the -u option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  uid=uid, euid=euid, gid=gid, egid=egid,
+[2017-02-07 19:49:40,215: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 2.00 seconds...
+
+[2017-02-07 19:49:42,226: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 4.00 seconds...
+
+[2017-02-07 19:49:46,238: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 6.00 seconds...
+
+[2017-02-07 19:49:52,253: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 8.00 seconds...
+
+[2017-02-07 19:50:00,269: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 10.00 seconds...
+
+[2017-02-07 14:20:08 +0000] [2096] [INFO] Shutting down: Master
+[2017-02-07 19:50:10,288: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 12.00 seconds...
+
+[2017-02-07 19:50:22,308: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 14.00 seconds...
+
+[2017-02-07 19:50:36,332: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 16.00 seconds...
+
+[2017-02-07 19:50:52,357: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 18.00 seconds...
+
