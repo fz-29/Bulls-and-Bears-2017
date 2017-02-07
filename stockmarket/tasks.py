@@ -190,7 +190,7 @@ def taxation():
 def regulate_history():
 	all_companies = Company.objects.all()
 	for company in all_companies:
-		histories = CompanyHistory().objects.all()
+		histories = CompanyHistory.objects.all()
 		for history in histories:
 			if history.price > 10000:
 				history.price = float(history.price) +  uniform(-500.0, 500.0)
