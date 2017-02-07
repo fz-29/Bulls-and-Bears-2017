@@ -203,3 +203,4 @@ def regulate_price():
 		company.stock_price = 1000.0 + uniform(-100.0, 100.0)
 		hist = CompanyHistory(company = company, price = price, stocks_available = company.available_quantity)
 		hist.save()
+		company.save()
