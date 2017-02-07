@@ -180,7 +180,7 @@ def taxation():
 	for customer in customers:
 		worth = customer.worth()
 		if worth > 1000000.0:
-			l = str(worth) - 5 
+			l = len(str(worth)) - 5 
 			percent = l/10
 			new_balance = customer.account_balance * ( 1 - percent)
 			if new_balance > 1000000.0:
