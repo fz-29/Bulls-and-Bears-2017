@@ -77,7 +77,8 @@ def buyinfo(request, format=None):
 @ratelimit(key='ip', rate = '10/m')
 @api_view(["GET"])
 def shortinfo(request, format=None):
-	return JsonResponse({'quantity': 100})
+	quantity = get_object_or_404 (StockShorted , company__pk=request.GET.get('id'), customer__user=request.user).quantity
+	return JsonResponse({'quantity': 100 - quantity})
 
 @ratelimit(key='ip', rate = '10/m')
 @api_view(["GET"])
@@ -138,10 +139,10 @@ def short(request, format=None):
 	customer = get_object_or_404(Customer, user=request.user)
 	company = get_object_or_404(Company, pk=request.POST.get('id'))
 	quantity = int(request.POST.get('quantity'))
+	stockShorted = get_object_or_404(StockShorted, company=company, customer=customer)
 	if quantity is None:
 		return JsonResponse({"success":False})
-	if 0 < quantity <= 100:
-		stockShorted = get_object_or_404(StockShorted, company=company, customer=customer)
+	if 0 < stockShorted.quantity + quantity <= 100:
 		stockShorted.quantity += quantity
 		customer.account_balance += company.stock_price * quantity
 		customerActivity = CustomerActivity(customer=customer, action='SHORT', timestamp=timezone.now(), quantity=quantity, price=company.stock_price)
