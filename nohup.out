@@ -4292,3 +4292,1236 @@ Trying again in 16.00 seconds...
 [2017-02-07 19:50:52,357: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
 Trying again in 18.00 seconds...
 
+[2017-02-07 14:26:14 +0000] [2022] [INFO] Starting gunicorn 19.6.0
+[2017-02-07 14:26:14 +0000] [2022] [INFO] Listening at: http://127.0.0.1:8000 (2022)
+[2017-02-07 14:26:14 +0000] [2022] [INFO] Using worker: sync
+[2017-02-07 14:26:14 +0000] [2027] [INFO] Booting worker with pid: 2027
+/home/venv/local/lib/python2.7/site-packages/celery/platforms.py:793: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the -u option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  uid=uid, euid=euid, gid=gid, egid=egid,
+[2017-02-07 19:56:33,089: ERROR/MainProcess] Received unregistered task of type 'stockmarket.tasks.revise_stock_price_random'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (77b)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 559, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'stockmarket.tasks.revise_stock_price_random'
+[2017-02-07 19:57:00,008: ERROR/MainProcess] Received unregistered task of type 'stockmarket.tasks.revise_stock_price_random'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (77b)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 559, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'stockmarket.tasks.revise_stock_price_random'
+[2017-02-07 19:58:00,008: ERROR/MainProcess] Received unregistered task of type 'stockmarket.tasks.revise_stock_price_random'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (77b)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 559, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'stockmarket.tasks.revise_stock_price_random'
+[2017-02-07 19:59:00,011: ERROR/MainProcess] Received unregistered task of type 'stockmarket.tasks.revise_stock_price_random'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (77b)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 559, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'stockmarket.tasks.revise_stock_price_random'
+[2017-02-07 20:00:00,011: ERROR/MainProcess] Received unregistered task of type 'stockmarket.tasks.update_loan_interest'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (77b)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 559, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'stockmarket.tasks.update_loan_interest'
+[2017-02-07 20:00:00,019: ERROR/MainProcess] Received unregistered task of type 'stockmarket.tasks.revise_stock_price_by_news'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (77b)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 559, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'stockmarket.tasks.revise_stock_price_by_news'
+[2017-02-07 20:00:00,019: ERROR/MainProcess] Received unregistered task of type 'stockmarket.tasks.publish_by_interval'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (77b)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 559, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'stockmarket.tasks.publish_by_interval'
+[2017-02-07 20:00:00,022: ERROR/MainProcess] Received unregistered task of type 'stockmarket.tasks.revise_stock_price_by_stocks'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (77b)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 559, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'stockmarket.tasks.revise_stock_price_by_stocks'
+[2017-02-07 20:00:00,026: ERROR/MainProcess] Received unregistered task of type 'stockmarket.tasks.revise_stock_price_random'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (77b)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 559, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'stockmarket.tasks.revise_stock_price_random'
+[2017-02-07 20:01:00,003: ERROR/MainProcess] Received unregistered task of type 'stockmarket.tasks.revise_stock_price_random'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (77b)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 559, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'stockmarket.tasks.revise_stock_price_random'
+[2017-02-07 20:02:00,009: ERROR/MainProcess] Received unregistered task of type 'stockmarket.tasks.revise_stock_price_random'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (77b)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 559, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'stockmarket.tasks.revise_stock_price_random'
+[2017-02-07 20:03:00,008: ERROR/MainProcess] Received unregistered task of type 'stockmarket.tasks.revise_stock_price_random'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (77b)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 559, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'stockmarket.tasks.revise_stock_price_random'
+[2017-02-07 20:04:00,008: ERROR/MainProcess] Received unregistered task of type 'stockmarket.tasks.revise_stock_price_random'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (77b)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 559, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'stockmarket.tasks.revise_stock_price_random'
+[2017-02-07 20:05:00,009: ERROR/MainProcess] Received unregistered task of type 'stockmarket.tasks.revise_stock_price_by_news'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (77b)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 559, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'stockmarket.tasks.revise_stock_price_by_news'
+[2017-02-07 20:05:00,012: ERROR/MainProcess] Received unregistered task of type 'stockmarket.tasks.revise_stock_price_random'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (77b)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 559, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'stockmarket.tasks.revise_stock_price_random'
+[2017-02-07 20:06:00,005: ERROR/MainProcess] Received unregistered task of type 'stockmarket.tasks.revise_stock_price_random'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (77b)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 559, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'stockmarket.tasks.revise_stock_price_random'
+[2017-02-07 20:07:00,008: ERROR/MainProcess] Received unregistered task of type 'stockmarket.tasks.revise_stock_price_random'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (77b)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 559, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'stockmarket.tasks.revise_stock_price_random'
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-07 20:07:33.609118) while time zone support is active.
+  RuntimeWarning)
+[2017-02-07 20:08:00,009: ERROR/MainProcess] Received unregistered task of type 'stockmarket.tasks.revise_stock_price_random'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (77b)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 559, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'stockmarket.tasks.revise_stock_price_random'
+[2017-02-07 20:09:00,009: ERROR/MainProcess] Received unregistered task of type 'stockmarket.tasks.revise_stock_price_random'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (77b)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 559, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'stockmarket.tasks.revise_stock_price_random'
+[2017-02-07 20:10:00,011: ERROR/MainProcess] Received unregistered task of type 'stockmarket.tasks.revise_stock_price_random'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (77b)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 559, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'stockmarket.tasks.revise_stock_price_random'
+[2017-02-07 20:10:00,015: ERROR/MainProcess] Received unregistered task of type 'stockmarket.tasks.revise_stock_price_by_news'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (77b)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 559, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'stockmarket.tasks.revise_stock_price_by_news'
+[2017-02-07 20:11:00,005: ERROR/MainProcess] Received unregistered task of type 'stockmarket.tasks.revise_stock_price_random'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (77b)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 559, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'stockmarket.tasks.revise_stock_price_random'
+[2017-02-07 20:12:00,005: ERROR/MainProcess] Received unregistered task of type 'stockmarket.tasks.revise_stock_price_random'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (77b)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 559, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'stockmarket.tasks.revise_stock_price_random'
+[2017-02-07 20:13:00,005: ERROR/MainProcess] Received unregistered task of type 'stockmarket.tasks.revise_stock_price_random'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (77b)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 559, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'stockmarket.tasks.revise_stock_price_random'
+[2017-02-07 20:14:00,009: ERROR/MainProcess] Received unregistered task of type 'stockmarket.tasks.revise_stock_price_random'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (77b)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 559, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'stockmarket.tasks.revise_stock_price_random'
+[2017-02-07 20:15:00,009: ERROR/MainProcess] Received unregistered task of type 'stockmarket.tasks.revise_stock_price_by_stocks'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (77b)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 559, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'stockmarket.tasks.revise_stock_price_by_stocks'
+[2017-02-07 20:15:00,012: ERROR/MainProcess] Received unregistered task of type 'stockmarket.tasks.revise_stock_price_by_news'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (77b)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 559, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'stockmarket.tasks.revise_stock_price_by_news'
+[2017-02-07 20:15:00,016: ERROR/MainProcess] Received unregistered task of type 'stockmarket.tasks.revise_stock_price_random'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (77b)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 559, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'stockmarket.tasks.revise_stock_price_random'
+[2017-02-07 20:15:00,019: ERROR/MainProcess] Received unregistered task of type 'stockmarket.tasks.update_loan_interest'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (77b)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 559, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'stockmarket.tasks.update_loan_interest'
+[2017-02-07 20:16:00,008: ERROR/MainProcess] Received unregistered task of type 'stockmarket.tasks.revise_stock_price_random'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (77b)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 559, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'stockmarket.tasks.revise_stock_price_random'
+[2017-02-07 20:17:00,006: ERROR/MainProcess] Received unregistered task of type 'stockmarket.tasks.revise_stock_price_random'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (77b)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 559, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'stockmarket.tasks.revise_stock_price_random'
+[2017-02-07 20:18:00,005: ERROR/MainProcess] Received unregistered task of type 'stockmarket.tasks.revise_stock_price_random'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (77b)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 559, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'stockmarket.tasks.revise_stock_price_random'
+[2017-02-07 20:19:00,008: ERROR/MainProcess] Received unregistered task of type 'stockmarket.tasks.revise_stock_price_random'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (77b)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 559, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'stockmarket.tasks.revise_stock_price_random'
+[2017-02-07 20:20:00,003: ERROR/MainProcess] Received unregistered task of type 'stockmarket.tasks.revise_stock_price_by_news'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (77b)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 559, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'stockmarket.tasks.revise_stock_price_by_news'
+[2017-02-07 20:20:00,008: ERROR/MainProcess] Received unregistered task of type 'stockmarket.tasks.revise_stock_price_random'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (77b)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 559, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'stockmarket.tasks.revise_stock_price_random'
+[2017-02-07 14:50:54 +0000] [2022] [INFO] Handling signal: term
+[2017-02-07 20:20:54 +0000] [2027] [INFO] Worker exiting (pid: 2027)
+
+Restarting celery worker (/home/venv/bin/celery --app=bnb2017.celery worker)
+
+worker: Warm shutdown (MainProcess)
+[2017-02-07 14:50:54 +0000] [2022] [INFO] Shutting down: Master
+celery beat v4.0.2 (latentcall) is starting.
+__    -    ... __   -        _
+LocalTime -> 2017-02-07 19:56:22
+Configuration ->
+    . broker -> amqp://guest:**@localhost:5672//
+    . loader -> celery.loaders.app.AppLoader
+    . scheduler -> django_celery_beat.schedulers.DatabaseScheduler
+
+    . logfile -> [stderr]@%WARNING
+    . maxinterval -> 5.00 seconds (5s)
+ 
+ -------------- celery@bnb2017 v4.0.2 (latentcall)
+---- **** ----- 
+--- * ***  * -- Linux-4.4.0-62-generic-x86_64-with-Ubuntu-16.04-xenial 2017-02-07 19:56:31
+-- * - **** --- 
+- ** ---------- [config]
+- ** ---------- .> app:         bnb2017:0x7f2a0565a9d0
+- ** ---------- .> transport:   amqp://guest:**@localhost:5672//
+- ** ---------- .> results:     disabled://
+- *** --- * --- .> concurrency: 2 (prefork)
+-- ******* ---- .> task events: OFF (enable -E to monitor tasks in this worker)
+--- ***** ----- 
+ -------------- [queues]
+                .> celery           exchange=celery(direct) key=celery
+                
+
+/home/venv/local/lib/python2.7/site-packages/celery/platforms.py:793: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the -u option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  uid=uid, euid=euid, gid=gid, egid=egid,
+[2017-02-07 20:20:56,780: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 2.00 seconds...
+
+[2017-02-07 20:20:58,790: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 4.00 seconds...
+
+[2017-02-07 20:21:02,808: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 6.00 seconds...
+
+[2017-02-07 20:21:08,822: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 8.00 seconds...
+
+[2017-02-07 20:21:16,845: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 10.00 seconds...
+
+[2017-02-07 20:21:26,865: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 12.00 seconds...
+
+[2017-02-07 20:21:38,886: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 14.00 seconds...
+
+[2017-02-07 20:21:52,910: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 16.00 seconds...
+
+[2017-02-07 20:22:08,935: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 18.00 seconds...
+
+[2017-02-07 14:53:23 +0000] [1924] [INFO] Starting gunicorn 19.6.0
+[2017-02-07 14:53:23 +0000] [1924] [INFO] Listening at: http://127.0.0.1:8000 (1924)
+[2017-02-07 14:53:23 +0000] [1924] [INFO] Using worker: sync
+[2017-02-07 14:53:23 +0000] [1929] [INFO] Booting worker with pid: 1929
+/home/venv/local/lib/python2.7/site-packages/celery/platforms.py:793: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the -u option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  uid=uid, euid=euid, gid=gid, egid=egid,
+[2017-02-07 20:30:00,032: ERROR/PoolWorker-1] Task stockmarket.tasks.publish_by_interval[8ec2abb7-0fae-476a-920b-a558ce1cd34b] raised unexpected: DoesNotExist('News matching query does not exist.',)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/app/trace.py", line 367, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/venv/local/lib/python2.7/site-packages/celery/app/trace.py", line 622, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/bnb/bnb2017/stockmarket/tasks.py", line 153, in publish_by_interval
+    to_publish_news = News.objects.filter(is_published=False).earliest('published_on')
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 547, in earliest
+    return self._earliest_or_latest(field_name=field_name, direction="")
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 544, in _earliest_or_latest
+    return obj.get()
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 385, in get
+    self.model._meta.object_name
+Exception: News matching query does not exist.
+celery beat v4.0.2 (latentcall) is starting.
+__    -    ... __   -        _
+LocalTime -> 2017-02-07 20:23:29
+Configuration ->
+    . broker -> amqp://guest:**@localhost:5672//
+    . loader -> celery.loaders.app.AppLoader
+    . scheduler -> django_celery_beat.schedulers.DatabaseScheduler
+
+    . logfile -> [stderr]@%WARNING
+    . maxinterval -> 5.00 seconds (5s)
+
+worker: Warm shutdown (MainProcess)
+ 
+ -------------- celery@bnb2017 v4.0.2 (latentcall)
+---- **** ----- 
+--- * ***  * -- Linux-4.4.0-62-generic-x86_64-with-Ubuntu-16.04-xenial 2017-02-07 20:23:34
+-- * - **** --- 
+- ** ---------- [config]
+- ** ---------- .> app:         bnb2017:0x7f10104bc9d0
+- ** ---------- .> transport:   amqp://guest:**@localhost:5672//
+- ** ---------- .> results:     disabled://
+- *** --- * --- .> concurrency: 2 (prefork)
+-- ******* ---- .> task events: OFF (enable -E to monitor tasks in this worker)
+--- ***** ----- 
+ -------------- [queues]
+                .> celery           exchange=celery(direct) key=celery
+                
+
+/home/venv/local/lib/python2.7/site-packages/celery/platforms.py:793: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the -u option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  uid=uid, euid=euid, gid=gid, egid=egid,
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-07 20:43:08.410691) while time zone support is active.
+  RuntimeWarning)
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-07 20:58:53.271103) while time zone support is active.
+  RuntimeWarning)
+[2017-02-07 21:00:00,024: ERROR/PoolWorker-2] Task stockmarket.tasks.publish_by_interval[b22dce0b-0d60-4596-8104-3028a0cfe52f] raised unexpected: DoesNotExist('News matching query does not exist.',)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/app/trace.py", line 367, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/venv/local/lib/python2.7/site-packages/celery/app/trace.py", line 622, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/bnb/bnb2017/stockmarket/tasks.py", line 153, in publish_by_interval
+    to_publish_news = News.objects.filter(is_published=False).earliest('published_on')
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 547, in earliest
+    return self._earliest_or_latest(field_name=field_name, direction="")
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 544, in _earliest_or_latest
+    return obj.get()
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 385, in get
+    self.model._meta.object_name
+Exception: News matching query does not exist.
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-07 21:26:13.868716) while time zone support is active.
+  RuntimeWarning)
+[2017-02-07 21:30:00,576: ERROR/PoolWorker-1] Task stockmarket.tasks.publish_by_interval[795b89f1-0aea-42c1-8781-d34427e9b04e] raised unexpected: DoesNotExist('News matching query does not exist.',)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/app/trace.py", line 367, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/venv/local/lib/python2.7/site-packages/celery/app/trace.py", line 622, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/bnb/bnb2017/stockmarket/tasks.py", line 153, in publish_by_interval
+    to_publish_news = News.objects.filter(is_published=False).earliest('published_on')
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 547, in earliest
+    return self._earliest_or_latest(field_name=field_name, direction="")
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 544, in _earliest_or_latest
+    return obj.get()
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 385, in get
+    self.model._meta.object_name
+Exception: News matching query does not exist.
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-07 21:58:39.046996) while time zone support is active.
+  RuntimeWarning)
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-07 21:58:45.115366) while time zone support is active.
+  RuntimeWarning)
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-07 21:58:47.158408) while time zone support is active.
+  RuntimeWarning)
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-07 21:58:48.620674) while time zone support is active.
+  RuntimeWarning)
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-07 21:58:50.030517) while time zone support is active.
+  RuntimeWarning)
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-07 21:58:51.593094) while time zone support is active.
+  RuntimeWarning)
+[2017-02-07 22:00:00,031: ERROR/PoolWorker-1] Task stockmarket.tasks.publish_by_interval[32697905-7fea-487e-b844-df351c20b5e0] raised unexpected: DoesNotExist('News matching query does not exist.',)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/app/trace.py", line 367, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/venv/local/lib/python2.7/site-packages/celery/app/trace.py", line 622, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/bnb/bnb2017/stockmarket/tasks.py", line 153, in publish_by_interval
+    to_publish_news = News.objects.filter(is_published=False).earliest('published_on')
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 547, in earliest
+    return self._earliest_or_latest(field_name=field_name, direction="")
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 544, in _earliest_or_latest
+    return obj.get()
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 385, in get
+    self.model._meta.object_name
+Exception: News matching query does not exist.
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-07 22:17:37.034908) while time zone support is active.
+  RuntimeWarning)
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-07 22:28:46.087614) while time zone support is active.
+  RuntimeWarning)
+[2017-02-07 22:30:00,038: ERROR/PoolWorker-1] Task stockmarket.tasks.publish_by_interval[026e841a-080e-4059-8790-f5ec4914614a] raised unexpected: DoesNotExist('News matching query does not exist.',)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/app/trace.py", line 367, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/venv/local/lib/python2.7/site-packages/celery/app/trace.py", line 622, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/bnb/bnb2017/stockmarket/tasks.py", line 153, in publish_by_interval
+    to_publish_news = News.objects.filter(is_published=False).earliest('published_on')
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 547, in earliest
+    return self._earliest_or_latest(field_name=field_name, direction="")
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 544, in _earliest_or_latest
+    return obj.get()
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 385, in get
+    self.model._meta.object_name
+Exception: News matching query does not exist.
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-07 22:36:10.932830) while time zone support is active.
+  RuntimeWarning)
+[2017-02-07 23:00:00,029: ERROR/PoolWorker-1] Task stockmarket.tasks.publish_by_interval[a079ccbf-825a-41b7-bd3e-6a554c248ed1] raised unexpected: DoesNotExist('News matching query does not exist.',)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/app/trace.py", line 367, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/venv/local/lib/python2.7/site-packages/celery/app/trace.py", line 622, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/bnb/bnb2017/stockmarket/tasks.py", line 153, in publish_by_interval
+    to_publish_news = News.objects.filter(is_published=False).earliest('published_on')
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 547, in earliest
+    return self._earliest_or_latest(field_name=field_name, direction="")
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 544, in _earliest_or_latest
+    return obj.get()
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 385, in get
+    self.model._meta.object_name
+Exception: News matching query does not exist.
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-07 23:02:34.493722) while time zone support is active.
+  RuntimeWarning)
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-07 23:05:39.288085) while time zone support is active.
+  RuntimeWarning)
+[2017-02-07 23:30:00,052: ERROR/PoolWorker-1] Task stockmarket.tasks.publish_by_interval[ed9d7148-4821-41eb-a3d8-05ba44749c5b] raised unexpected: DoesNotExist('News matching query does not exist.',)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/app/trace.py", line 367, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/venv/local/lib/python2.7/site-packages/celery/app/trace.py", line 622, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/bnb/bnb2017/stockmarket/tasks.py", line 153, in publish_by_interval
+    to_publish_news = News.objects.filter(is_published=False).earliest('published_on')
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 547, in earliest
+    return self._earliest_or_latest(field_name=field_name, direction="")
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 544, in _earliest_or_latest
+    return obj.get()
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 385, in get
+    self.model._meta.object_name
+Exception: News matching query does not exist.
+[2017-02-08 00:00:00,023: ERROR/PoolWorker-1] Task stockmarket.tasks.publish_by_interval[e958c280-edf6-4320-9c19-f15467507ff3] raised unexpected: DoesNotExist('News matching query does not exist.',)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/app/trace.py", line 367, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/venv/local/lib/python2.7/site-packages/celery/app/trace.py", line 622, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/bnb/bnb2017/stockmarket/tasks.py", line 153, in publish_by_interval
+    to_publish_news = News.objects.filter(is_published=False).earliest('published_on')
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 547, in earliest
+    return self._earliest_or_latest(field_name=field_name, direction="")
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 544, in _earliest_or_latest
+    return obj.get()
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 385, in get
+    self.model._meta.object_name
+Exception: News matching query does not exist.
+[2017-02-07 18:33:19 +0000] [1924] [INFO] Handling signal: hup
+[2017-02-07 18:33:19 +0000] [1924] [INFO] Hang up: Master
+
+Restarting celery worker (/home/venv/bin/celery --app=bnb2017.celery worker)
+
+worker: Warm shutdown (MainProcess)
+celery beat v4.0.2 (latentcall) is starting.
+__    -    ... __   -        _
+LocalTime -> 2017-02-07 20:36:46
+Configuration ->
+    . broker -> amqp://guest:**@localhost:5672//
+    . loader -> celery.loaders.app.AppLoader
+    . scheduler -> django_celery_beat.schedulers.DatabaseScheduler
+
+    . logfile -> [stderr]@%WARNING
+    . maxinterval -> 5.00 seconds (5s)
+[2017-02-07 18:33:20 +0000] [1924] [INFO] Handling signal: term
+[2017-02-07 18:33:20 +0000] [5528] [INFO] Booting worker with pid: 5528
+ 
+ -------------- celery@bnb2017 v4.0.2 (latentcall)
+---- **** ----- 
+--- * ***  * -- Linux-4.4.0-62-generic-x86_64-with-Ubuntu-16.04-xenial 2017-02-07 20:36:55
+-- * - **** --- 
+- ** ---------- [config]
+- ** ---------- .> app:         bnb2017:0x7f81810269d0
+- ** ---------- .> transport:   amqp://guest:**@localhost:5672//
+- ** ---------- .> results:     disabled://
+- *** --- * --- .> concurrency: 2 (prefork)
+-- ******* ---- .> task events: OFF (enable -E to monitor tasks in this worker)
+--- ***** ----- 
+ -------------- [queues]
+                .> celery           exchange=celery(direct) key=celery
+                
+
+/home/venv/local/lib/python2.7/site-packages/celery/platforms.py:793: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the -u option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  uid=uid, euid=euid, gid=gid, egid=egid,
+[2017-02-08 00:03:21,804: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 2.00 seconds...
+
+[2017-02-08 00:03:23,814: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 4.00 seconds...
+
+[2017-02-08 00:03:27,826: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 6.00 seconds...
+
+[2017-02-08 00:03:33,841: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 8.00 seconds...
+
+[2017-02-08 00:03:41,857: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 10.00 seconds...
+
+[2017-02-07 18:33:50 +0000] [1924] [INFO] Shutting down: Master
+[2017-02-08 00:03:51,876: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 12.00 seconds...
+
+[2017-02-08 00:04:03,897: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 14.00 seconds...
+
+[2017-02-08 00:04:17,920: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 16.00 seconds...
+
+[2017-02-08 00:04:33,944: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 18.00 seconds...
+
+[2017-02-08 13:00:55 +0000] [17776] [INFO] Starting gunicorn 19.6.0
+[2017-02-08 13:00:55 +0000] [17776] [INFO] Listening at: http://127.0.0.1:8000 (17776)
+[2017-02-08 13:00:55 +0000] [17776] [INFO] Using worker: sync
+[2017-02-08 13:00:55 +0000] [17781] [INFO] Booting worker with pid: 17781
+/home/venv/local/lib/python2.7/site-packages/celery/platforms.py:793: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the -u option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  uid=uid, euid=euid, gid=gid, egid=egid,
+
+Restarting celery worker (/home/venv/bin/celery --app=bnb2017.celery worker)
+[2017-02-08 13:15:03 +0000] [17776] [INFO] Handling signal: hup
+[2017-02-08 13:15:03 +0000] [17776] [INFO] Hang up: Master
+[2017-02-08 13:15:03 +0000] [18040] [INFO] Booting worker with pid: 18040
+ 
+ -------------- celery@bnb2017 v4.0.2 (latentcall)
+---- **** ----- 
+--- * ***  * -- Linux-4.4.0-62-generic-x86_64-with-Ubuntu-16.04-xenial 2017-02-08 18:31:24
+-- * - **** --- 
+- ** ---------- [config]
+- ** ---------- .> app:         bnb2017:0x7f0e7c7269d0
+- ** ---------- .> transport:   amqp://guest:**@localhost:5672//
+- ** ---------- .> results:     disabled://
+- *** --- * --- .> concurrency: 2 (prefork)
+-- ******* ---- .> task events: OFF (enable -E to monitor tasks in this worker)
+--- ***** ----- 
+ -------------- [queues]
+                .> celery           exchange=celery(direct) key=celery
+                
+
+/home/venv/local/lib/python2.7/site-packages/celery/platforms.py:793: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the -u option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  uid=uid, euid=euid, gid=gid, egid=egid,
+[2017-02-08 18:59:00,028: ERROR/PoolWorker-1] Task stockmarket.tasks.publish_by_interval[9084e404-982b-450f-8a11-987dfeaf0b29] raised unexpected: DoesNotExist('News matching query does not exist.',)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/app/trace.py", line 367, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/venv/local/lib/python2.7/site-packages/celery/app/trace.py", line 622, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/bnb/bnb2017/stockmarket/tasks.py", line 153, in publish_by_interval
+    to_publish_news = News.objects.filter(is_published=False).earliest('published_on')
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 547, in earliest
+    return self._earliest_or_latest(field_name=field_name, direction="")
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 544, in _earliest_or_latest
+    return obj.get()
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 385, in get
+    self.model._meta.object_name
+Exception: News matching query does not exist.
+[2017-02-08 19:00:00,746: ERROR/PoolWorker-2] Task stockmarket.tasks.publish_by_interval[2f4dc285-7ffa-42e2-9805-a3e5f4ce344b] raised unexpected: DoesNotExist('News matching query does not exist.',)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/app/trace.py", line 367, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/venv/local/lib/python2.7/site-packages/celery/app/trace.py", line 622, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/bnb/bnb2017/stockmarket/tasks.py", line 153, in publish_by_interval
+    to_publish_news = News.objects.filter(is_published=False).earliest('published_on')
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 547, in earliest
+    return self._earliest_or_latest(field_name=field_name, direction="")
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 544, in _earliest_or_latest
+    return obj.get()
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 385, in get
+    self.model._meta.object_name
+Exception: News matching query does not exist.
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-08 19:14:00.360142) while time zone support is active.
+  RuntimeWarning)
+[2017-02-08 19:30:00,027: ERROR/PoolWorker-1] Task stockmarket.tasks.publish_by_interval[5875e7d7-bb67-4dd9-8ab9-176dfb8d1e6f] raised unexpected: DoesNotExist('News matching query does not exist.',)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/app/trace.py", line 367, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/venv/local/lib/python2.7/site-packages/celery/app/trace.py", line 622, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/bnb/bnb2017/stockmarket/tasks.py", line 153, in publish_by_interval
+    to_publish_news = News.objects.filter(is_published=False).earliest('published_on')
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 547, in earliest
+    return self._earliest_or_latest(field_name=field_name, direction="")
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 544, in _earliest_or_latest
+    return obj.get()
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 385, in get
+    self.model._meta.object_name
+Exception: News matching query does not exist.
+[2017-02-08 20:00:00,829: ERROR/PoolWorker-1] Task stockmarket.tasks.publish_by_interval[65d30ba5-852a-46fc-b54b-04e256c3fb56] raised unexpected: DoesNotExist('News matching query does not exist.',)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/app/trace.py", line 367, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/venv/local/lib/python2.7/site-packages/celery/app/trace.py", line 622, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/bnb/bnb2017/stockmarket/tasks.py", line 153, in publish_by_interval
+    to_publish_news = News.objects.filter(is_published=False).earliest('published_on')
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 547, in earliest
+    return self._earliest_or_latest(field_name=field_name, direction="")
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 544, in _earliest_or_latest
+    return obj.get()
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 385, in get
+    self.model._meta.object_name
+Exception: News matching query does not exist.
+[2017-02-08 20:30:00,013: ERROR/PoolWorker-2] Task stockmarket.tasks.publish_by_interval[574b3e0a-7417-4498-96c7-bffcc2310754] raised unexpected: DoesNotExist('News matching query does not exist.',)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/app/trace.py", line 367, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/venv/local/lib/python2.7/site-packages/celery/app/trace.py", line 622, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/bnb/bnb2017/stockmarket/tasks.py", line 153, in publish_by_interval
+    to_publish_news = News.objects.filter(is_published=False).earliest('published_on')
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 547, in earliest
+    return self._earliest_or_latest(field_name=field_name, direction="")
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 544, in _earliest_or_latest
+    return obj.get()
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 385, in get
+    self.model._meta.object_name
+Exception: News matching query does not exist.
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-08 20:38:22.963100) while time zone support is active.
+  RuntimeWarning)
+[2017-02-08 21:00:00,432: ERROR/PoolWorker-1] Task stockmarket.tasks.publish_by_interval[5ec81f15-f0a2-459b-9286-a16b719de092] raised unexpected: DoesNotExist('News matching query does not exist.',)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/app/trace.py", line 367, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/venv/local/lib/python2.7/site-packages/celery/app/trace.py", line 622, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/bnb/bnb2017/stockmarket/tasks.py", line 153, in publish_by_interval
+    to_publish_news = News.objects.filter(is_published=False).earliest('published_on')
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 547, in earliest
+    return self._earliest_or_latest(field_name=field_name, direction="")
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 544, in _earliest_or_latest
+    return obj.get()
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 385, in get
+    self.model._meta.object_name
+Exception: News matching query does not exist.
+[2017-02-08 21:30:00,014: ERROR/PoolWorker-1] Task stockmarket.tasks.publish_by_interval[a2f02a7a-bbb9-482e-962f-e84dc4b6137d] raised unexpected: DoesNotExist('News matching query does not exist.',)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/app/trace.py", line 367, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/venv/local/lib/python2.7/site-packages/celery/app/trace.py", line 622, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/bnb/bnb2017/stockmarket/tasks.py", line 153, in publish_by_interval
+    to_publish_news = News.objects.filter(is_published=False).earliest('published_on')
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 547, in earliest
+    return self._earliest_or_latest(field_name=field_name, direction="")
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 544, in _earliest_or_latest
+    return obj.get()
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 385, in get
+    self.model._meta.object_name
+Exception: News matching query does not exist.
+[2017-02-08 22:00:00,018: ERROR/PoolWorker-1] Task stockmarket.tasks.publish_by_interval[cd3d326b-6208-4301-96c7-b2943a5e3ac3] raised unexpected: DoesNotExist('News matching query does not exist.',)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/app/trace.py", line 367, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/venv/local/lib/python2.7/site-packages/celery/app/trace.py", line 622, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/bnb/bnb2017/stockmarket/tasks.py", line 153, in publish_by_interval
+    to_publish_news = News.objects.filter(is_published=False).earliest('published_on')
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 547, in earliest
+    return self._earliest_or_latest(field_name=field_name, direction="")
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 544, in _earliest_or_latest
+    return obj.get()
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 385, in get
+    self.model._meta.object_name
+Exception: News matching query does not exist.
+[2017-02-08 22:30:00,027: ERROR/PoolWorker-1] Task stockmarket.tasks.publish_by_interval[58bbd228-e34d-4b25-96dd-fb05c870e50d] raised unexpected: DoesNotExist('News matching query does not exist.',)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/app/trace.py", line 367, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/venv/local/lib/python2.7/site-packages/celery/app/trace.py", line 622, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/bnb/bnb2017/stockmarket/tasks.py", line 153, in publish_by_interval
+    to_publish_news = News.objects.filter(is_published=False).earliest('published_on')
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 547, in earliest
+    return self._earliest_or_latest(field_name=field_name, direction="")
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 544, in _earliest_or_latest
+    return obj.get()
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 385, in get
+    self.model._meta.object_name
+Exception: News matching query does not exist.
+/home/venv/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1430: RuntimeWarning: DateTimeField Loan.repay_time received a naive datetime (2017-02-08 22:35:22.001135) while time zone support is active.
+  RuntimeWarning)
+[2017-02-08 23:00:00,020: ERROR/PoolWorker-1] Task stockmarket.tasks.publish_by_interval[141edc31-4219-4d15-ba82-bad973825522] raised unexpected: DoesNotExist('News matching query does not exist.',)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/app/trace.py", line 367, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/venv/local/lib/python2.7/site-packages/celery/app/trace.py", line 622, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/bnb/bnb2017/stockmarket/tasks.py", line 153, in publish_by_interval
+    to_publish_news = News.objects.filter(is_published=False).earliest('published_on')
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 547, in earliest
+    return self._earliest_or_latest(field_name=field_name, direction="")
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 544, in _earliest_or_latest
+    return obj.get()
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 385, in get
+    self.model._meta.object_name
+Exception: News matching query does not exist.
+[2017-02-08 23:30:00,021: ERROR/PoolWorker-1] Task stockmarket.tasks.publish_by_interval[a959c424-6b96-436c-afe8-83e8a78e2485] raised unexpected: DoesNotExist('News matching query does not exist.',)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/app/trace.py", line 367, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/venv/local/lib/python2.7/site-packages/celery/app/trace.py", line 622, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/bnb/bnb2017/stockmarket/tasks.py", line 153, in publish_by_interval
+    to_publish_news = News.objects.filter(is_published=False).earliest('published_on')
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 547, in earliest
+    return self._earliest_or_latest(field_name=field_name, direction="")
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 544, in _earliest_or_latest
+    return obj.get()
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 385, in get
+    self.model._meta.object_name
+Exception: News matching query does not exist.
+[2017-02-08 23:35:00,025: ERROR/MainProcess] Database error while sync: OperationalError('database is locked',)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/django_celery_beat/schedulers.py", line 238, in sync
+    self.schedule[name].save()
+  File "/home/venv/local/lib/python2.7/site-packages/django_celery_beat/schedulers.py", line 118, in save
+    obj.save()
+  File "/home/venv/local/lib/python2.7/site-packages/django_celery_beat/models.py", line 240, in save
+    super(PeriodicTask, self).save(*args, **kwargs)
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/base.py", line 796, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/base.py", line 824, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/base.py", line 889, in _save_table
+    forced_update)
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/base.py", line 939, in _do_update
+    return filtered._update(values) > 0
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 654, in _update
+    return query.get_compiler(self.db).execute_sql(CURSOR)
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 1148, in execute_sql
+    cursor = super(SQLUpdateCompiler, self).execute_sql(result_type)
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 835, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/backends/sqlite3/base.py", line 337, in execute
+    return Database.Cursor.execute(self, query, params)
+OperationalError: database is locked
+[2017-02-09 00:00:00,023: ERROR/PoolWorker-1] Task stockmarket.tasks.publish_by_interval[34fd02c7-5873-4711-8201-bd85c6ead609] raised unexpected: DoesNotExist('News matching query does not exist.',)
+Traceback (most recent call last):
+  File "/home/venv/local/lib/python2.7/site-packages/celery/app/trace.py", line 367, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/venv/local/lib/python2.7/site-packages/celery/app/trace.py", line 622, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/bnb/bnb2017/stockmarket/tasks.py", line 153, in publish_by_interval
+    to_publish_news = News.objects.filter(is_published=False).earliest('published_on')
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 547, in earliest
+    return self._earliest_or_latest(field_name=field_name, direction="")
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 544, in _earliest_or_latest
+    return obj.get()
+  File "/home/venv/local/lib/python2.7/site-packages/django/db/models/query.py", line 385, in get
+    self.model._meta.object_name
+Exception: News matching query does not exist.
+[2017-02-08 18:47:19 +0000] [17776] [INFO] Handling signal: term
+[2017-02-08 18:47:19 +0000] [17776] [INFO] Shutting down: Master
+
+Restarting celery worker (/home/venv/bin/celery --app=bnb2017.celery worker)
+
+worker: Warm shutdown (MainProcess)
+celery beat v4.0.2 (latentcall) is starting.
+__    -    ... __   -        _
+LocalTime -> 2017-02-08 18:31:04
+Configuration ->
+    . broker -> amqp://guest:**@localhost:5672//
+    . loader -> celery.loaders.app.AppLoader
+    . scheduler -> django_celery_beat.schedulers.DatabaseScheduler
+
+    . logfile -> [stderr]@%WARNING
+    . maxinterval -> 5.00 seconds (5s)
+ 
+ -------------- celery@bnb2017 v4.0.2 (latentcall)
+---- **** ----- 
+--- * ***  * -- Linux-4.4.0-62-generic-x86_64-with-Ubuntu-16.04-xenial 2017-02-08 18:45:04
+-- * - **** --- 
+- ** ---------- [config]
+- ** ---------- .> app:         bnb2017:0x7f39a485ea10
+- ** ---------- .> transport:   amqp://guest:**@localhost:5672//
+- ** ---------- .> results:     disabled://
+- *** --- * --- .> concurrency: 2 (prefork)
+-- ******* ---- .> task events: OFF (enable -E to monitor tasks in this worker)
+--- ***** ----- 
+ -------------- [queues]
+                .> celery           exchange=celery(direct) key=celery
+                
+
+/home/venv/local/lib/python2.7/site-packages/celery/platforms.py:793: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the -u option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  uid=uid, euid=euid, gid=gid, egid=egid,
+[2017-02-09 00:17:20,953: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 2.00 seconds...
+
+[2017-02-09 00:17:22,963: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 4.00 seconds...
+
+[2017-02-09 00:17:26,975: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 6.00 seconds...
+
+[2017-02-09 00:17:32,989: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 8.00 seconds...
+
+[2017-02-09 00:17:41,005: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 10.00 seconds...
+
+[2017-02-09 00:17:51,024: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 12.00 seconds...
+
+[2017-02-09 00:18:03,045: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 14.00 seconds...
+
+[2017-02-09 00:18:17,075: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 16.00 seconds...
+
+[2017-02-09 00:18:33,100: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 18.00 seconds...
+
