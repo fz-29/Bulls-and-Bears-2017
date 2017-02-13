@@ -11,17 +11,17 @@ Request on WhatsApp group for editing access
 
 ---
 ### Integrating Celary
-- [ ] Celary Integration
-- [ ] Adding All Tasks
-- [ ] Testing
+- [x] Celary Integration
+- [x] Adding All Tasks
+- [x] Testing
 
 ### StockMarket App
 - [x] Company Portfolio
-- [ ] Stock Update Algo - No APIs but automatic scheduled run (CRON job or something else)
+- [x] Stock Update Algo - No APIs but automatic scheduled run (CRON job or something else)
 - [x] Current Stocks
 
 ### Customer App
-- [ ] Customer Portal - APIs for Buy/Sell and User logs
+- [x] Customer Portal - APIs for Buy/Sell and User logs
 
 ---
 ### Leaderboards
@@ -42,10 +42,6 @@ Request on WhatsApp group for editing access
 	```
 
 for more checkout installation guide [Django-rest-auth: Social Install](https://django-rest-auth.readthedocs.io/en/latest/installation.html)
-
-4. Django Admin Credentials
-	- Username : admin
-	- Password : wmgStranger505++
 	
-5. Rulebook
+4. Rulebook
 https://drive.google.com/open?id=0B0d2sAXm8in1NVFWbkNGZzh3WHNWWVZRUXVXS1NlQ3VUUjQw
