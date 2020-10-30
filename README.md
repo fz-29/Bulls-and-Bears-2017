@@ -1,4 +1,22 @@
-# Bulls n Bears 2017 - Django Backend Tasklist
+### About
+
+Bulls and Bears is an online stock trading event hosted by IEEE DTU chapter during the annual technical fest of Delhi Technological University.
+
+Rulebook [PDF](https://drive.google.com/open?id=0B0d2sAXm8in1NVFWbkNGZzh3WHNWWVZRUXVXS1NlQ3VUUjQw)
+
+### Running the project
+1. Preferrably clone this project in a virual environment.
+2. Activate the virual environment.
+3. Install all required modules from requirements.txt
+	
+	```
+	cd bnb2017
+	pip install -r requirements.txt   
+	```
+
+for more checkout installation guide [Django-rest-auth: Social Install](https://django-rest-auth.readthedocs.io/en/latest/installation.html)
+
+### Bulls n Bears 2017 - Django Backend Tasklist
 
 Note 1 : Check [installation procedure](#running-the-project)
 
@@ -25,23 +43,4 @@ Request on WhatsApp group for editing access
 
 ---
 ### Leaderboards
-- [ ] Paginated Leaderboards
-
-
-##### and more will be added soon..
-
-
-### Running the project
-1. Preferrably clone this project in a virual environment.
-2. Activate the virual environment.
-3. Install all required modules from requirements.txt
-	
-	```
-	cd bnb2017
-	pip install -r requirements.txt   
-	```
-
-for more checkout installation guide [Django-rest-auth: Social Install](https://django-rest-auth.readthedocs.io/en/latest/installation.html)
-	
-4. Rulebook
-https://drive.google.com/open?id=0B0d2sAXm8in1NVFWbkNGZzh3WHNWWVZRUXVXS1NlQ3VUUjQw
+- [X] Paginated Leaderboards
